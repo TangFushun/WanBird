@@ -91,6 +91,7 @@ README.md              # 安装、运行、配置说明
 - 图鉴图片兜底：`<id>.jpg` → `<id>.png` → `<id>.svg`（剪影）→ `placeholder.svg`，见 `static/js/common.js` 的 `birdImg()`。
 - 栖息地地图：`birds.json` 每只鸟的 `map` 字段（`ranges` 范围多边形 + `sites` 关键地点，坐标为经纬度），由 `static/js/birdmap.js` 用 Leaflet 渲染，瓦片用高德 `webrd0*.is.autonavi.com`（本机实测可用；**OSM 瓦片在本网络被屏蔽，勿换**）。深色化通过只对瓦片做 CSS `filter: invert(...)` 实现，不动矢量图层。动态效果：点位呼吸脉冲光圈（`site-ring`）、范围轮廓虚线流动（`dashFlow`）+ 专属色光晕 + 加载渐入；`staging` 类停歇地渲染为发光流动折线；`prefers-reduced-motion: reduce` 时自动停用动画。
 - 真实观测点图层：`static/data/occur/<id>.json` 存每只鸟的 GBIF 真实坐标（[经, 纬] 数组，GBIF.org · CC BY 4.0，1980 年以来），页面开关控制显隐。用 `python download_gbif_occurrences.py` 可重新拉取刷新。地图默认是一幅完整世界地图（中心 0°经线、`minZoom=2` 整幅世界可见），`maxBounds` 钳制在世界边界——只能在一个单幅世界里平移，不能无限左右滑动进空白；「聚焦本种」按钮用 `setView(物种中心, 7)` 飞到分布中心（不用 fitBounds，因为在世界 maxBounds 下高缩放时中心锁消失）。
+- 自动配写真：`python download_bird_photos.py [鸟名]` 从 GBIF 检索 iNaturalist 开放数据授权照片，压存 `static/img/birds/<id>.jpg`（摄影师/许可写入 `CREDITS.json`）；已有用户照片（`<id>.png`）的鸟跳过不覆盖。
 - 环境无法访问 Wikimedia 等海外图源，故图鉴用本地图 + 剪影方案。
 
 ### 后端核心流程（真实模式，app.py:157-211）
@@ -109,7 +110,7 @@ README.md              # 安装、运行、配置说明
 - 响应恒为 HTTP 200，体是 `[code, payload]` 数组：
   - `[1000, "HH-B_..."]` = 任务已受理（字符串即 `resultid`）
   - `[1000, [[{box, list:[["置信度%","中文名|英文|学名","animalid","类别"]]}]]]` = 识别完成
-  - `[1001]` = 处理中（需轮询）；`[1010,"No animals"]` = 未识别到动物
+  - `[1001]` = 处理中（需轮询）；`[1010,"No animals"]` / `[1008,"No boxes"]` = 未识别到动物（两者都按无结果返回友好提示，`poll_result` 已处理）
 - 图片限制 ≤2MB；识别类别 `class=B`（鸟），懂鸟还支持兽 M/两栖 A/爬行 R/鱼类 F 及鸟鸣音频。
 
 ### 值得注意的实现点

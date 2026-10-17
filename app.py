@@ -106,7 +106,7 @@ def poll_result(resultid: str):
         if code == 1001:  # 处理中，稍后重试
             time.sleep(POLL_INTERVAL)
             continue
-        if code == 1010:  # 未识别到动物
+        if code in (1010, 1008):  # 未识别到动物 / 未检测到动物框：都按无结果处理，给友好提示
             return []
         if code == 1000 and isinstance(payload, list):
             # payload: [[{"box":[...], "list":[["置信度%","名|英文|学名","animalid","类别"], ...]}, ...]]

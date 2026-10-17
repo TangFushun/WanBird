@@ -113,6 +113,8 @@ static/img/birds/elliots-pheasant.jpg      # 白颈长尾雉
 
 > 环境无法访问 Wikimedia 等海外图源，因此采用本地图 + 剪影兜底方案。新增/修改鸟种直接编辑 `data/birds.json`。
 
+**自动配真实照片**：运行 `python download_bird_photos.py` 可为没有照片的鸟自动从 GBIF / iNaturalist 开放数据下载授权写真（压成 `static/img/birds/<id>.jpg`，摄影师与许可记录在 `static/img/birds/CREDITS.json`）。你已放了自己的照片（`<id>.png`）的鸟不会被覆盖。
+
 每种鸟在 `data/birds.json` 里还有一个 `map` 字段（栖息地分布地图）：`ranges` 为范围多边形（越冬/繁殖/留鸟等，示意级）、`sites` 为关键保护区/观测点坐标，详情页用 Leaflet + 高德瓦片渲染（瓦片已实测可用；勿改 OSM）。想调整范围或点位，改这个字段即可。
 
 详情页地图默认是一幅**完整世界地图**（中心 0°经线，整幅世界均可见），并叠加一层**真实观测记录**（青绿小点，可开关）：数据来自 GBIF 官网数据库（`static/data/occur/<id>.json`，CC BY 4.0，1980 年以来的真实坐标记录）。地图活动范围钳制在世界边界，只能在一个单幅世界里平移，不会无限左右滑动；「聚焦本种」按钮可飞速到该鸟的分布中心。想刷新/更新观测数据，联网运行 `python download_gbif_occurrences.py` 即可重新下载。
