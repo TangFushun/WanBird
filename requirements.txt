@@ -1,0 +1,5 @@
+flask>=3.0
+requests>=2.31
+python-dotenv>=1.0
+# 生产服务器：Render 等 Linux 部署用 gunicorn；本地 Windows 调试仍用 flask 自带开发服务器
+gunicorn>=21.2

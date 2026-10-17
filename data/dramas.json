@@ -1,0 +1,24 @@
+[
+  {
+    "id": "placeholder-1",
+    "title": "待配置片源：示例剧集 01",
+    "cover": "/static/img/placeholder.svg",
+    "age": "7-8",
+    "duration": "--:--",
+    "synopsis": "在 data/dramas.json 中为本条目填写片源后即可在这里播放。支持两种方式：本地 MP4（放入 static/media/，type 填 mp4）或 B 站视频（type 填 bilibili 并提供 bvid）。",
+    "type": "placeholder",
+    "src": null,
+    "bvid": null
+  },
+  {
+    "id": "placeholder-2",
+    "title": "待配置片源：示例剧集 02",
+    "cover": "/static/img/placeholder.svg",
+    "age": "5-6",
+    "duration": "--:--",
+    "synopsis": "另一条示例条目，演示适合低龄儿童的科普分级标签（0-4 / 5-6 / 7-8）。替换成真实剧集后删除本条目即可。",
+    "type": "placeholder",
+    "src": null,
+    "bvid": null
+  }
+]

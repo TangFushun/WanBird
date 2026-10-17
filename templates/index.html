@@ -1,0 +1,603 @@
+{% extends "base.html" %}
+{% block title %}识别 · 皖境飞鸟观测台{% endblock %}
+{% block head %}
+<style>
+  .wrap{max-width:780px;}
+
+  /* ---- 取景器 ---- */
+  .vfind{
+    position:relative;
+    aspect-ratio:16/10;
+    max-height:460px;
+    background:
+      radial-gradient(circle at 50% 50%, #0e2a2b 0%, #08191a 100%);
+    border:1px solid var(--line);
+    overflow:hidden;
+    cursor:pointer;
+    transition:border-color .2s;
+  }
+  .vfind.dragover{border-color:var(--accent2);box-shadow:inset 0 0 0 1px var(--accent), var(--glow);}
+  .vfind input{display:none;}
+
+  /* 取景框四角 */
+  .vfind .corner{position:absolute;width:34px;height:34px;z-index:5;opacity:.9;}
+  .vfind .corner.tl{top:12px;left:12px;border-top:2px solid var(--accent);border-left:2px solid var(--accent);}
+  .vfind .corner.tr{top:12px;right:12px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);}
+  .vfind .corner.bl{bottom:12px;left:12px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);}
+  .vfind .corner.br{bottom:12px;right:12px;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);}
+  /* 中点刻度 */
+  .vfind .tick{position:absolute;background:var(--accent);opacity:.5;z-index:5;}
+  .tick.h{left:50%;transform:translateX(-50%);width:10px;height:1px;}
+  .tick.v{top:50%;transform:translateY(-50%);width:1px;height:10px;}
+
+  /* 无图引导态 */
+  .vfind .guide{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;
+    color:var(--dim);text-align:center;padding:20px;z-index:2;
+  }
+  .vfind .guide .ic{
+    width:76px;height:76px;border-radius:50%;
+    border:2px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:34px;color:var(--accent);background:rgba(20,60,60,.4);
+    box-shadow:0 0 20px rgba(232,168,56,.2);
+  }
+  .vfind .guide b{color:var(--accent2);display:block;font-size:15px;letter-spacing:.1em;}
+  .vfind .guide span{font-size:12px;letter-spacing:.15em;}
+
+  /* 预览图 */
+  .vfind .shot{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;}
+  .vfind .shot img{max-width:96%;max-height:92%;object-fit:contain;border-radius:2px;box-shadow:0 0 24px rgba(0,0,0,.5);}
+  /* 未加载图片时不渲染 <img>（避免无 src 时出现破损占位图/“预览”字样） */
+  #preview:not([src]){display:none;}
+
+  /* 鸟体检测框 */
+  .hitbox{
+    position:absolute;display:none;pointer-events:none;
+    border:1px solid var(--accent);box-shadow:0 0 12px rgba(232,168,56,.55), inset 0 0 12px rgba(232,168,56,.25);
+    z-index:3;animation:hitglow 1.4s ease-in-out infinite;
+  }
+  @keyframes hitglow{0%,100%{box-shadow:0 0 8px rgba(232,168,56,.45), inset 0 0 8px rgba(232,168,56,.2);}50%{box-shadow:0 0 18px rgba(232,168,56,.8), inset 0 0 18px rgba(232,168,56,.4);}}
+  .hitbox i.h{position:absolute;width:12px;height:12px;border:2px solid var(--accent2);}
+  .hitbox .h1{top:-1px;left:-1px;border-right:0;border-bottom:0;}
+  .hitbox .h2{top:-1px;right:-1px;border-left:0;border-bottom:0;}
+  .hitbox .h3{bottom:-1px;left:-1px;border-right:0;border-top:0;}
+  .hitbox .h4{bottom:-1px;right:-1px;border-left:0;border-top:0;}
+  .hitbox .hlabel{
+    position:absolute;top:-18px;left:50%;transform:translateX(-50%);
+    font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--accent2);
+    text-shadow:var(--glow);white-space:nowrap;
+  }
+
+  /* 状态角标 */
+  .vfind .vtl{position:absolute;top:12px;left:52px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--accent);z-index:6;}
+  .vfind .vtr{position:absolute;top:12px;right:52px;font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--dim);z-index:6;}
+  .vfind .vbr{
+    position:absolute;bottom:12px;right:52px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim);z-index:6;
+  }
+  .vfind .vbr b{color:var(--accent2);}
+
+  /* 扫描线 + 效果层（默认隐藏，.scanning 时显示） */
+  .vfind .fx{position:absolute;inset:0;z-index:4;pointer-events:none;display:none;}
+  .vfind.scanning .fx{display:block;}
+
+  /* 扫描线：金色渐变动画整框扫描（.scanline 为光带，.scanhead 为光点短线） */
+  .fx .scanline{
+    position:absolute;left:0;right:0;height:80px;top:0;
+    background:linear-gradient(180deg, transparent 0%, rgba(232,168,56,.0) 15%, rgba(232,180,90,.40) 50%, rgba(232,168,56,0) 85%, transparent 100%);
+    animation:scan 1.5s linear infinite;
+  }
+  .fx .scanhead{
+    position:absolute;left:6%;right:6%;top:0;height:3px;background:var(--accent2);
+    box-shadow:0 0 14px var(--accent),0 0 34px var(--accent);
+    animation:scan 1.5s linear infinite;
+  }
+  @keyframes scan{
+    0%{transform:translateY(-120px);}
+    100%{transform:translateY(var(--scanEnd));}
+  }
+  /* 扫描时四角脉冲 */
+  .vfind.scanning .corner{animation:cornerPulse 1s ease-in-out infinite;}
+  .vfind.scanning .corner.tr{animation-delay:.15s;}
+  .vfind.scanning .corner.bl{animation-delay:.3s;}
+  .vfind.scanning .corner.br{animation-delay:.45s;}
+  @keyframes cornerPulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+
+  /* 扫描噪点/移线 */
+  .fx .noise{position:absolute;inset:0;opacity:.05;background:
+     repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px);
+     animation:noiseShift 3s steps(6) infinite;}
+  @keyframes noiseShift{0%{background-position-y:0;}100%{background-position-y:30px;}}
+  .fx .scanlabel{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    font-family:var(--mono);font-size:14px;letter-spacing:.35em;color:var(--accent2);
+    text-shadow:var(--glow);background:rgba(10,31,31,.55);padding:6px 18px;border:1px solid var(--line);
+  }
+
+  /* ---- 目标锁定特效 ---- */
+  .fx .target{position:absolute;inset:0;display:none;align-items:center;justify-content:center;}
+  .vfind.scanning .target{display:flex;animation:targetIn .1s steps(2);}
+  @keyframes targetIn{from{opacity:0;}to{opacity:1;}}
+
+  /* 锁定框：四角小方块，从外侧向中央收拢 */
+  .fx .tbox{
+    position:relative;width:46%;height:0;padding-bottom:46%;
+    border:1px solid rgba(232,168,56,.35);animation:lockpulse 1.1s ease-in-out infinite;
+  }
+  @keyframes lockpulse{0%,100%{opacity:.55;}50%{opacity:1;}}
+  .fx .tbox i.t{position:absolute;width:16px;height:16px;border:2px solid var(--accent);box-shadow:0 0 8px var(--accent);animation:tboxin .8s ease-out forwards;}
+  .fx .tbox .t1{top:-1px;left:-1px;border-right:0;border-bottom:0;}
+  .fx .tbox .t2{top:-1px;right:-1px;border-left:0;border-bottom:0;}
+  .fx .tbox .t3{bottom:-1px;left:-1px;border-right:0;border-top:0;}
+  .fx .tbox .t4{bottom:-1px;right:-1px;border-left:0;border-top:0;}
+  @keyframes tboxin{from{transform:translate(-8px,-8px);opacity:0;}to{transform:translate(0,0);opacity:1;}}
+  /* 坐标刻度 */
+  .fx .tbox .tx,.fx .tbox .ty{position:absolute;font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:.08em;text-shadow:var(--glow);}
+  .fx .tbox .tx{top:-16px;left:0;}
+  .fx .tbox .ty{top:50%;right:-52px;transform:translateY(-50%);writing-mode:vertical-rl;}
+
+  /* 底部锁定进度条 */
+  .fx .lockbar{position:absolute;left:50%;top:78%;transform:translateX(-50%);width:60%;height:2px;background:#1f3b39;overflow:hidden;}
+  .fx .lockbar span{display:block;height:100%;width:0;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:lockfill 1.4s ease-out forwards;}
+  @keyframes lockfill{0%{width:0;}100%{width:100%;}}
+
+  /* ---- 结果面板 ---- */
+  #result{display:none;margin-top:18px;border:1px solid var(--line);border-top:2px solid var(--accent);background:linear-gradient(180deg,var(--panel),var(--panel2));padding:18px;}
+  #result .rhdr{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed #2a4a46;padding-bottom:10px;margin-bottom:14px;}
+  #result .rhdr .ttl{font-family:var(--mono);font-size:11px;letter-spacing:.25em;color:var(--dim);}
+  /* SOURCE 状态灯 */
+  #sourceTag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.2em;padding:4px 12px;border:1px solid var(--line);
+    color:var(--accent);background:rgba(232,168,56,.08);
+  }
+  #sourceTag.real{color:#7fe0b0;border-color:rgba(127,224,176,.5);background:rgba(70,180,130,.12);}
+  #species{font-size:26px;color:var(--accent2);letter-spacing:.06em;margin-bottom:3px;}
+  #latin{color:var(--dim);font-style:italic;font-size:13px;margin-bottom:14px;}
+
+  .confrow{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .bar{flex:1;height:12px;background:#0a1c1c;border:1px solid #2a4a46;border-radius:2px;overflow:hidden;position:relative;}
+  #barFill{height:100%;width:0;background:linear-gradient(90deg,var(--teal2),var(--accent));box-shadow:0 0 10px rgba(232,168,56,.5);transition:width .6s ease;}
+  #confLbl{font-family:var(--mono);font-size:18px;color:var(--accent);min-width:64px;text-align:right;}
+
+  #desc{font-size:14px;line-height:1.8;color:var(--text);border-left:2px solid var(--accent);padding-left:14px;margin-top:6px;}
+
+  #profileEmpty{
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--dim);
+    border:1px dashed #2a4a46;padding:12px;text-align:center;margin-top:8px;
+  }
+
+  /* ---- Top-5 候选 ---- */
+  #candWrap{margin-top:12px;}
+  #cands{display:flex;flex-wrap:wrap;gap:8px;}
+  .cand{
+    display:flex;align-items:baseline;gap:7px;cursor:default;
+    border:1px solid #2a4a46;background:rgba(20,60,60,.3);
+    padding:6px 11px;border-radius:3px;transition:.15s;
+  }
+  .cand:hover{border-color:var(--accent);background:rgba(232,168,56,.08);}
+  .cand .nm{font-size:13px;color:var(--text);}
+  .cand .pc{font-family:var(--mono);font-size:11px;color:var(--accent);}
+  .cand.top{border-color:var(--accent);background:rgba(232,168,56,.1);}
+  .cand.top .nm{color:var(--accent2);font-weight:600;}
+</style>
+{% endblock %}
+
+{% block content %}
+  <!-- 取景器 -->
+  <div class="vfind" id="vfind">
+    <input type="file" id="file" accept="image/*">
+
+    <div class="corner tl"></div><div class="corner tr"></div>
+    <div class="corner bl"></div><div class="corner br"></div>
+    <div class="tick h"></div><div class="tick v"></div>
+
+    <div class="vtl" id="vtl">LENS·01</div>
+    <div class="vtr" id="vtr">AUTO·BIRD</div>
+    <div class="vbr" id="vbr">SIZE·<b id="sizeLbl">--</b></div>
+
+    <!-- 无图引导 -->
+    <div class="guide" id="guide">
+      <div class="ic">◎</div>
+      <div><b>点击选择图片</b></div>
+      <span>或将图片拖入取景框 · 支持 JPG/PNG · ≤2MB</span>
+    </div>
+
+    <!-- 预览 -->
+    <div class="shot" id="shot">
+      <img id="preview" alt="预览">
+      <!-- 鸟体检测框（识别出后再定位显示） -->
+      <div class="hitbox" id="hitbox">
+        <i class="h h1"></i><i class="h h2"></i><i class="h h3"></i><i class="h h4"></i>
+        <span class="hlabel" id="hlabel">TARGET</span>
+      </div>
+    </div>
+
+    <!-- 扫描效果层 -->
+    <div class="fx">
+      <div class="scanline"></div>
+      <div class="scanhead"></div>
+      <div class="noise"></div>
+      <div class="scanlabel">SCANNING…</div>
+
+      <!-- 目标锁定框 -->
+      <div class="target">
+        <div class="tbox">
+          <i class="t t1"></i><i class="t t2"></i><i class="t t3"></i><i class="t t4"></i>
+          <span class="tx"></span><span class="ty"></span>
+        </div>
+        <div class="lockbar"><span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 控制区 -->
+  <div class="controls">
+    <button class="btn ghost" id="btnClear">清空</button>
+    <button class="btn primary" id="btn" disabled>识 别</button>
+  </div>
+
+  <div id="status"></div>
+  <div id="error"></div>
+
+  <!-- 结果面板 -->
+  <div id="result">
+    <div class="rhdr">
+      <span class="ttl">IDENTIFICATION RESULT</span>
+      <span id="sourceTag">● MOCK</span>
+    </div>
+    <div id="species"></div>
+    <div id="latin"></div>
+
+    <!-- 分类阶元：纲→目→科→属 -->
+    <div id="taxoRow" class="taxoRow"></div>
+    <!-- 元信息徽章：IUCN 等级 / 英文名 / 俗名 -->
+    <div id="metaRow" class="metaRow"></div>
+
+    <div class="kplabel">CONFIDENCE</div>
+    <div class="confrow">
+      <div class="bar"><div id="barFill"></div></div>
+      <span id="confLbl">0%</span>
+    </div>
+
+    <!-- Top-5 候选鸟种 -->
+    <div id="candWrap" style="display:none;">
+      <div class="kplabel">TOP·5 CANDIDATES</div>
+      <div id="cands"></div>
+    </div>
+
+    <div class="kplabel">PROFILE · 物种档案</div>
+    <div id="desc"></div>
+    <div id="sections" class="secgrid"></div>
+    <div id="profileEmpty" style="display:none;">本物种暂无更多百科资料</div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const vfind = document.getElementById('vfind');
+  const fileInput = document.getElementById('file');
+  const shot = document.getElementById('shot');
+  const preview = document.getElementById('preview');
+  const guide = document.getElementById('guide');
+  const btn = document.getElementById('btn');
+  const btnClear = document.getElementById('btnClear');
+  const status = document.getElementById('status');
+  const errorBox = document.getElementById('error');
+  const result = document.getElementById('result');
+  const sourceTag = document.getElementById('sourceTag');
+  const speciesEl = document.getElementById('species');
+  const latinEl = document.getElementById('latin');
+  const barFill = document.getElementById('barFill');
+  const confLbl = document.getElementById('confLbl');
+  const descEl = document.getElementById('desc');
+  const taxoRow = document.getElementById('taxoRow');
+  const metaRow = document.getElementById('metaRow');
+  const sectionsEl = document.getElementById('sections');
+  const profileEmpty = document.getElementById('profileEmpty');
+  const candWrap = document.getElementById('candWrap');
+  const candsEl = document.getElementById('cands');
+  const sizeLbl = document.getElementById('sizeLbl');
+  const modeLbl = document.getElementById('modeLbl');
+  const hitbox = document.getElementById('hitbox');
+  const hlabel = document.getElementById('hlabel');
+
+  let currentFile = null;
+
+  // 根据懂鸟检测框 box:[x,y,w,h]（相对原图像素）或 0-1 相对值，在预览区定位显示检测框
+  function drawHitbox(box){
+    if (!Array.isArray(box) || !preview.complete || preview.naturalWidth === 0) { hitbox.style.display = 'none'; return; }
+    const [bx, by, bw, bh] = box;
+    if (bw <= 0 || bh <= 0) { hitbox.style.display = 'none'; return; }
+
+    const vw = shot.clientWidth, vh = shot.clientHeight;   // 取景器视图区
+    let left, top, width, height;
+
+    // 全为 0~1 之间即视为相对值（mock 用），否则为原图像素（真实用）
+    const isRelative = [bx, by, bw, bh].every(v => v >= 0 && v <= 1);
+    if (isRelative) {
+      // mock：0-1 相对显示区
+      left = bx * vw; top = by * vh; width = bw * vw; height = bh * vh;
+    } else {
+      // 真实：相对原图像素，映射到 contain 缩放后的显示区域
+      const iw = preview.naturalWidth, ih = preview.naturalHeight;
+      const scale = Math.min(vw / iw, vh / ih);
+      const dw = iw * scale, dh = ih * scale;
+      const offX = (vw - dw) / 2, offY = (vh - dh) / 2;
+      left = offX + bx * scale; top = offY + by * scale;
+      width = bw * scale; height = bh * scale;
+    }
+
+    hitbox.style.left = left + 'px';
+    hitbox.style.top = top + 'px';
+    hitbox.style.width = width + 'px';
+    hitbox.style.height = height + 'px';
+    hitbox.style.display = 'block';
+  }
+
+  function clearHitbox(){
+    hitbox.style.display = 'none';
+  }
+
+  // ---- 物种档案渲染 ----
+  // 全部用 textContent 赋值：百科文本来自外部 API，不能拼进 innerHTML。
+  const el = (tag, cls, text) => {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  };
+
+  function renderProfile(profile, description){
+    const p = profile || {};
+    taxoRow.replaceChildren();
+    metaRow.replaceChildren();
+    sectionsEl.replaceChildren();
+    candWrap.style.display = 'none';
+    candsEl.replaceChildren();
+
+    // 综述：优先 profile.summary，退回 description
+    const summary = (p.summary || description || '').trim();
+    descEl.textContent = summary;
+    descEl.style.display = summary ? 'block' : 'none';
+
+    // 分类阶元 纲→目→科→属
+    const taxo = Array.isArray(p.taxonomy) ? p.taxonomy : [];
+    taxo.forEach(t => {
+      const box = el('div', 'taxo');
+      box.appendChild(el('span', 'rk', t.rank || '—'));
+      box.appendChild(el('span', 'cn', t.cn || '—'));
+      if (t.latin) box.appendChild(el('span', 'lt', t.latin));
+      taxoRow.appendChild(box);
+    });
+
+    // IUCN 保护等级
+    const iucn = (p.iucn || '').trim();
+    if (iucn) {
+      const code = iucn.toUpperCase().match(/\b(EX|EW|CR|EN|VU|NT|LC|DD|NE)\b/);
+      const badge = el('span', 'chip iucn' + (code ? ' ' + code[1] : ''));
+      badge.textContent = 'IUCN · ' + iucn;
+      metaRow.appendChild(badge);
+    }
+    // 英文名
+    if (p.english) {
+      const c = el('span', 'chip');
+      c.appendChild(el('b', null, 'EN '));
+      c.appendChild(document.createTextNode(p.english));
+      metaRow.appendChild(c);
+    }
+    // 俗名 / 别名
+    const aliases = Array.isArray(p.aliases) ? p.aliases : [];
+    if (aliases.length) {
+      const c = el('span', 'chip');
+      c.appendChild(el('b', null, '俗名 '));
+      c.appendChild(document.createTextNode(aliases.join('、')));
+      metaRow.appendChild(c);
+    }
+
+    // 分节：栖息环境 / 地理分布 / 生活习性 / 外形特征 …
+    const sections = Array.isArray(p.sections) ? p.sections : [];
+    let shown = 0;
+    sections.forEach(s => {
+      // 综述已展示的内容不再重复
+      if (!s || !s.text || s.text === summary || s.key === 'summary') return;
+      const card = el('div', 'sec');
+      card.appendChild(el('h4', null, s.label || ''));
+      card.appendChild(el('p', null, s.text));
+      sectionsEl.appendChild(card);
+      shown++;
+    });
+
+    // 没有任何分节时给出提示
+    profileEmpty.style.display = (shown === 0 && !taxo.length && !iucn) ? 'block' : 'none';
+  }
+
+  function renderCandidates(list){
+    const arr = Array.isArray(list) ? list : [];
+    candsEl.replaceChildren();
+    if (arr.length < 2) { candWrap.style.display = 'none'; return; }
+    arr.forEach((c, i) => {
+      const box = el('div', 'cand' + (i === 0 ? ' top' : ''));
+      box.appendChild(el('span', 'nm', c.name || '?'));
+      box.appendChild(el('span', 'pc', Math.round((c.confidence || 0) * 100) + '%'));
+      candsEl.appendChild(box);
+    });
+    candWrap.style.display = 'block';
+  }
+
+  // 让扫描线动画扫过取景器的实际高度
+  function syncVH(){
+    vfind.style.setProperty('--scanEnd', (vfind.clientHeight + 120) + 'px');
+  }
+  window.addEventListener('resize', syncVH);
+
+  // 查询当前模式（mock/real），利于状态灯
+  fetch('/mode').then(r => r.json()).then(d => {
+    if (d && d.real) modeLbl.textContent = 'MODE·REAL';
+  }).catch(() => {});
+
+  const scanLabel = document.querySelector('.fx .scanlabel');
+  const tbox = document.querySelector('.fx .tbox');
+  const txEl = document.querySelector('.fx .tbox .tx');
+  const tyEl = document.querySelector('.fx .tbox .ty');
+  let phaseTimer = null;
+
+  // 识别阶段的动效：扫描 → 锁定目标 → 匹配
+  const PHASES = [
+    { ms: 0,   label: 'SCANNING…' },
+    { ms: 1000,label: 'LOCKING TARGET' },
+    { ms: 1900,label: 'MATCH · CONFIRM' }
+  ];
+  function startPhaseFx(){
+    stopPhaseFx();
+    scanLabel.textContent = PHASES[0].label;
+    // 目标框坐标与位置轻微漂移，模拟锁定过程
+    let t = 0;
+    phaseTimer = setInterval(() => {
+      t++;
+      txEl.textContent = 'X:' + String((t * 137) % 960).padStart(3, '0');
+      tyEl.textContent = 'Y:' + String((t * 89) % 640).padStart(3, '0');
+    }, 90);
+    // 分阶段切换标签
+    PHASES.slice(1).forEach(p => setTimeout(() => {
+      if (vfind.classList.contains('scanning')) scanLabel.textContent = p.label;
+    }, p.ms));
+  }
+  function stopPhaseFx(){
+    clearInterval(phaseTimer);
+    phaseTimer = null;
+  }
+
+  function setScanning(on){
+    vfind.classList.toggle('scanning', on);
+    status.textContent = on ? '· ANALYZING TARGET ·' : '';
+    if (on){
+      syncVH();
+      startPhaseFx();
+    } else {
+      stopPhaseFx();
+    }
+  }
+
+  function selectFile(file){
+    if (!file) return;
+    if (!file.type.startsWith('image/')) { showError('请选择图片文件'); return; }
+    clearTimeout(scanTimer);
+    currentFile = file;
+    preview.src = URL.createObjectURL(file);
+    guide.style.display = 'none';
+    clearHitbox();
+    sizeLbl.textContent = (file.size/1024).toFixed(0) + 'KB';
+    btn.disabled = false;
+    errorBox.style.display = 'none';
+    result.style.display = 'none';
+    setScanning(false);
+  }
+
+  fileInput.addEventListener('change', e => selectFile(e.target.files[0]));
+  vfind.addEventListener('click', e => { if (e.target === vfind || e.target.closest('.guide')) fileInput.click(); });
+  vfind.addEventListener('dragover', e => { e.preventDefault(); vfind.classList.add('dragover'); });
+  vfind.addEventListener('dragleave', () => vfind.classList.remove('dragover'));
+  vfind.addEventListener('drop', e => {
+    e.preventDefault(); vfind.classList.remove('dragover');
+    selectFile(e.dataTransfer.files[0]);
+  });
+
+  btnClear.addEventListener('click', () => {
+    clearTimeout(scanTimer);
+    currentFile = null;
+    fileInput.value = '';
+    preview.removeAttribute('src');
+    clearHitbox();
+    shot.style.display = 'flex';
+    guide.style.display = 'flex';
+    sizeLbl.textContent = '--';
+    btn.disabled = true;
+    result.style.display = 'none';
+    descEl.textContent = '';
+    taxoRow.replaceChildren();
+    metaRow.replaceChildren();
+    sectionsEl.replaceChildren();
+    candsEl.replaceChildren();
+    candWrap.style.display = 'none';
+    errorBox.style.display = 'none';
+    setScanning(false);
+  });
+
+  function showError(msg){
+    errorBox.textContent = '⚠ ' + msg;
+    errorBox.style.display = 'block';
+  }
+
+  // 即便 mock 秒回，也保证扫描动画至少展示这么久（毫秒），否则效果一闪而过看不到
+  const MIN_SCAN_MS = 2600;
+
+  let scanStart = 0;
+  let scanTimer = null;
+
+  // 结束扫描阶段：补足最短扫描时长后停止动画，再执行 onDone 回调
+  function endScan(onDone){
+    const elapsed = Date.now() - scanStart;
+    const wait = Math.max(0, MIN_SCAN_MS - elapsed) + 120;
+    clearTimeout(scanTimer);
+    scanTimer = setTimeout(() => {
+      setScanning(false);
+      if (onDone) onDone();
+    }, wait);
+  }
+
+  btn.addEventListener('click', async () => {
+    if (!currentFile) return;
+    btn.disabled = true;
+    errorBox.style.display = 'none';
+    result.style.display = 'none';
+    setScanning(true);
+    scanStart = Date.now();
+
+    const fd = new FormData();
+    fd.append('image', currentFile);
+    let data, error;
+    try {
+      const resp = await fetch('/classify', { method: 'POST', body: fd });
+      data = await resp.json();
+      if (!resp.ok || data.error) throw new Error(data.error || '识别失败');
+    } catch (err) {
+      error = err.message || '网络错误，请稍后重试';
+    }
+
+    if (error) {
+      // 出错：补足最短扫描时长后停止动画并提示
+      endScan(() => {
+        showError(error);
+        btn.disabled = false;
+      });
+      return;
+    }
+
+    // 成功：填充结果内容，等待扫描结束后再亮出（扫描 → 锁定 → 出结果）
+    speciesEl.textContent = data.species || '未知';
+    latinEl.textContent = data.latin || '';
+    const conf = Math.round((data.confidence || 0) * 100);
+    confLbl.textContent = conf + '%';
+    renderProfile(data.profile, data.description);
+    renderCandidates(data.candidates);
+    sourceTag.classList.remove('real');
+    if (data.source === 'mock') {
+      sourceTag.textContent = '● MOCK';
+    } else {
+      sourceTag.classList.add('real');
+      sourceTag.textContent = '● REAL';
+    }
+    endScan(() => {
+      // 框住鸟体（检测框），并给框加物种名标签
+      hlabel.textContent = (data.species || 'TARGET').slice(0, 8) + ' ' + conf + '%';
+      drawHitbox(data.box);
+      barFill.style.width = '0%';
+      requestAnimationFrame(() => { barFill.style.width = conf + '%'; });
+      result.style.display = 'block';
+      btn.disabled = false;
+    });
+  });
+</script>
+{% endblock %}

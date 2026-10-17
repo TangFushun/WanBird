@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}皖境飞鸟观测台 · WANBIRD OBSERVATORY{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+{% block head %}{% endblock %}
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 顶部状态条：品牌 + 站点导航 + 系统状态 -->
+  <header class="statusbar">
+    <span class="brand">◆ WANBIRD OBSERVATORY</span>
+    <nav class="sitenav" aria-label="站点导航">
+      <a href="{{ url_for('index') }}" class="{{ 'active' if active == 'index' else '' }}">识别</a>
+      <a href="{{ url_for('guide') }}" class="{{ 'active' if active == 'guide' else '' }}">鸟类图鉴</a>
+      <a href="{{ url_for('drama') }}" class="{{ 'active' if active == 'drama' else '' }}">鸟类短剧</a>
+    </nav>
+    <div class="meta">
+      <span class="rec"><i></i>SYSTEM·ONLINE</span>
+      <span id="modeLbl">MODE·DEMO</span>
+    </div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <p class="foot">POWERED BY <b>懂鸟·ABOUTBIRDS API</b> · 皖境飞鸟观测台 WANBIRD OBSERVATORY</p>
+</div>
+{% block scripts %}{% endblock %}
+</body>
+</html>

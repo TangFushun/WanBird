@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block title %}鸟类图鉴 · 皖境飞鸟观测台{% endblock %}
+{% block head %}
+<style>
+  /* ---- 图鉴页 ---- */
+  .guide-head{margin:4px 0 14px;}
+  .guide-head h2{font-size:22px;color:var(--accent2);letter-spacing:.08em;}
+  .guide-head p{font-size:13px;color:var(--dim);margin-top:4px;letter-spacing:.04em;}
+
+  /* 搜索 + 筛选 */
+  .toolbar{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+    border:1px solid var(--line);background:linear-gradient(90deg,var(--panel),var(--panel2));
+    padding:10px 12px;margin-bottom:16px;
+  }
+  .toolbar input[type=search]{
+    flex:1 1 200px;background:#0a1c1c;border:1px solid #2a4a46;color:var(--text);
+    font-family:var(--mono);font-size:13px;letter-spacing:.08em;padding:9px 12px;border-radius:3px;
+    outline:none;
+  }
+  .toolbar input[type=search]:focus{border-color:var(--accent);box-shadow:var(--glow);}
+  .toolbar select{
+    background:#0a1c1c;border:1px solid #2a4a46;color:var(--accent2);
+    font-family:var(--mono);font-size:12px;padding:9px 10px;border-radius:3px;outline:none;cursor:pointer;
+  }
+  .toolbar select:focus{border-color:var(--accent);}
+  .toolbar .cnt{font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:var(--dim);}
+  .toolbar .cnt b{color:var(--accent2);}
+
+  /* 卡片网格 */
+  .birdgrid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px;
+  }
+  .birdcard{
+    display:flex;flex-direction:column;border:1px solid #22403d;border-top:2px solid var(--teal2);
+    background:linear-gradient(180deg,rgba(18,48,48,.6),rgba(13,38,38,.5));
+    text-decoration:none;color:var(--text);overflow:hidden;
+    transition:border-color .18s, box-shadow .18s, transform .18s;
+  }
+  .birdcard:hover{border-color:var(--accent);box-shadow:var(--glow);transform:translateY(-2px);}
+  .birdcard .thumb{
+    position:relative;aspect-ratio:16/10;background:#0a1c1c;overflow:hidden;
+    border-bottom:1px solid #22403d;
+  }
+  .birdcard .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .birdcard .iucn{
+    position:absolute;top:8px;right:8px;font-family:var(--mono);font-size:10px;font-weight:700;
+    letter-spacing:.1em;padding:3px 8px;border:1px solid rgba(127,224,176,.5);
+    color:#7fe0b0;background:rgba(10,31,31,.82);
+  }
+  .birdcard .iucn.sp{color:var(--text);}
+  .birdcard .cardbody{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1;}
+  .birdcard h3{font-size:16px;color:var(--accent2);letter-spacing:.06em;}
+  .birdcard .lat{font-family:var(--mono);font-size:10px;font-style:italic;color:#6d8f89;}
+  .birdcard .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px;}
+  .birdcard .tags .chip{font-size:9px;padding:3px 7px;}
+  .empty{grid-column:1/-1;text-align:center;padding:34px 10px;font-family:var(--mono);
+         font-size:12px;letter-spacing:.15em;color:var(--dim);border:1px dashed #2a4a46;}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="guide-head">
+  <div class="kplabel" style="margin-top:0;">BIRD GUIDE · 鸟类图鉴</div>
+  <h2>安徽珍稀鸟类档案</h2>
+  <p>六种国家一级保护动物：点开卡片查看分类、习性与皖境踪迹。</p>
+</div>
+
+<div class="toolbar">
+  <input type="search" id="q" placeholder="搜索鸟名 / 学名 / 别名…" aria-label="搜索鸟类">
+  <select id="fOrder" aria-label="按目筛选">
+    <option value="">全部目</option>
+  </select>
+  <select id="fIucn" aria-label="按保护等级筛选">
+    <option value="">全部等级</option>
+  </select>
+  <span class="cnt">共 <b id="cnt">0</b> 种</span>
+</div>
+
+<div class="birdgrid" id="grid"></div>
+<div class="empty" id="empty" style="display:none;">未找到匹配的鸟类</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script>
+  var BIRDS = {{ birds_json|safe }};
+
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('empty');
+  var cntEl = document.getElementById('cnt');
+  var qEl = document.getElementById('q');
+  var fOrder = document.getElementById('fOrder');
+  var fIucn = document.getElementById('fIucn');
+
+  // 生成筛选下拉选项
+  (function(){
+    var orders = {}, iucns = {};
+    BIRDS.forEach(function(b){
+      if (b.order) orders[b.order] = 1;
+      if (b.iucn) iucns[b.iucn] = 1;
+    });
+    Object.keys(orders).sort().forEach(function(o){
+      var op = document.createElement('option');
+      op.value = o; op.textContent = o; fOrder.appendChild(op);
+    });
+    Object.keys(iucns).sort().forEach(function(c){
+      var op = document.createElement('option');
+      op.value = c; op.textContent = c + ' · ' + (IUCN_CN[c] || ''); fIucn.appendChild(op);
+    });
+  })();
+
+  function esc(s){ return String(s == null ? '' : s); }
+
+  function makeCard(b){
+    var a = document.createElement('a');
+    a.className = 'birdcard';
+    a.href = '/guide/' + encodeURIComponent(b.id);
+    a.setAttribute('aria-label', b.name + ' 详情');
+
+    var thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    var img = birdImg(b, '');
+    img.decoding = 'async';
+    thumb.appendChild(img);
+
+    var badge = document.createElement('span');
+    badge.className = 'iucn';
+    badge.textContent = b.iucn;
+    thumb.appendChild(badge);
+
+    var body = document.createElement('div');
+    body.className = 'cardbody';
+    var h = document.createElement('h3'); h.textContent = b.name;
+    var lat = document.createElement('div'); lat.className = 'lat'; lat.textContent = b.latin || '';
+    var tags = document.createElement('div'); tags.className = 'tags';
+    [b.order, (b.protection || '').replace('国家', '国家')].forEach(function(t){
+      if (!t) return;
+      var c = document.createElement('span');
+      c.className = 'chip';
+      c.textContent = t;
+      tags.appendChild(c);
+    });
+    body.appendChild(h); body.appendChild(lat); body.appendChild(tags);
+
+    a.appendChild(thumb); a.appendChild(body);
+    return a;
+  }
+
+  function render(){
+    var kw = qEl.value.trim().toLowerCase();
+    var ord = fOrder.value, iu = fIucn.value;
+    var list = BIRDS.filter(function(b){
+      if (ord && b.order !== ord) return false;
+      if (iu && b.iucn !== iu) return false;
+      if (!kw) return true;
+      var hay = [b.name, b.latin, b.english, b.order, b.iucn]
+        .concat(b.aliases || []).join(' ').toLowerCase();
+      return hay.indexOf(kw) !== -1;
+    });
+    grid.replaceChildren();
+    list.forEach(function(b){ grid.appendChild(makeCard(b)); });
+    cntEl.textContent = list.length;
+    empty.style.display = list.length ? 'none' : 'block';
+  }
+
+  qEl.addEventListener('input', render);
+  fOrder.addEventListener('change', render);
+  fIucn.addEventListener('change', render);
+  render();
+</script>
+{% endblock %}

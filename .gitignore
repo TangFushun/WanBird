@@ -1,0 +1,28 @@
+# ---- 密钥与环境：绝不入库 ----
+.env
+*.env.local
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ---- 临时/探针文件 ----
+_tmp_*
+.tmp_*
+__tmp_*
+
+# ---- 本地生成物 / 根目录大文件 ----
+_ppt_pages/
+/*.pdf
+
+# ---- 编辑器/系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ---- 工具端内部目录（不进公开仓库）----
+.zcode/
+.claude/

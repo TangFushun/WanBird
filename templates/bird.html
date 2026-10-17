@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% block title %}{{ bird.name }} · 鸟类图鉴 · 皖境飞鸟观测台{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet/leaflet.css') }}">
+<style>
+  .btnrow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+  .btnrow .side{display:flex;gap:8px;}
+
+  /* 头部：图 + 简介 */
+  .hero{
+    display:grid;grid-template-columns:1fr;gap:16px;
+    border:1px solid var(--line);border-top:2px solid var(--accent);
+    background:linear-gradient(180deg,var(--panel),var(--panel2));
+    padding:14px;margin-bottom:8px;
+  }
+  @media(min-width:640px){ .hero{grid-template-columns:340px 1fr;} }
+  .heroimg{position:relative;aspect-ratio:16/10;background:#0a1c1c;border:1px solid #22403d;overflow:hidden;}
+  .heroimg img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero h1{font-size:30px;color:var(--accent2);letter-spacing:.08em;margin:2px 0 2px;}
+  .hero .lat{font-family:var(--mono);font-style:italic;color:#6d8f89;font-size:13px;margin-bottom:10px;}
+  .hero .summary{font-size:14px;line-height:1.85;color:var(--text);border-left:2px solid var(--accent);padding-left:13px;}
+
+  /* 皖境踪迹强调块 */
+  .anhui{
+    border-left:3px solid var(--accent2);
+    background:linear-gradient(180deg,rgba(232,168,56,.12),rgba(18,48,48,.6));
+  }
+  .anhui h4::before{content:"◎";color:var(--accent2);}
+
+  /* ---- 栖息地地图 ---- */
+  .birdmap{
+    position:relative;height:400px;margin-top:8px;
+    border:1px solid var(--line);border-radius:3px;background:#e8e6e3;
+  }
+  /* 瓦片反色成暗色地图（只作用瓦片，不影响矢量范围/点位/控件） */
+  .birdmap .leaflet-tile{
+    filter:invert(1) hue-rotate(180deg) brightness(.92) contrast(.9) saturate(.35);
+  }
+  .birdmap .leaflet-bar a{background:#102b2b;color:var(--accent);border-color:#2a4a46;}
+  .birdmap .leaflet-bar a:hover{background:#143c3c;}
+  .birdmap .leaflet-bar a.leaflet-disabled{color:#4e6b65;}
+  .birdmap .leaflet-control-attribution{background:rgba(10,31,31,.8);color:var(--dim);font-size:9px;}
+  .birdmap .leaflet-control-attribution a{color:var(--accent);}
+  .birdmap .leaflet-tooltip{background:#0d2626;color:var(--text);border:1px solid var(--line);box-shadow:var(--glow);}
+  .birdmap .leaflet-tooltip-top:before{border-top-color:#0d2626;}
+  .birdmap .leaflet-popup-content-wrapper,.birdmap .leaflet-popup-tip{background:#0d2626;color:var(--text);}
+  .birdmap .leaflet-popup-content-wrapper{border:1px solid var(--line);}
+  .birdmap .leaflet-popup-content b{color:var(--accent2);}
+  .birdmap .leaflet-popup-close-button{color:var(--dim)!important;}
+  .mlegend{
+    position:absolute;right:10px;top:10px;z-index:500;background:rgba(10,31,31,.88);
+    border:1px solid var(--line);padding:8px 11px;border-radius:3px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--text);
+    display:flex;flex-direction:column;gap:5px;box-shadow:var(--glow);
+  }
+  .mlegend-row{display:flex;align-items:center;gap:7px;white-space:nowrap;}
+  .mlegend-row i{width:11px;height:11px;border-radius:2px;display:inline-block;flex:none;}
+  .mempty{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    text-align:center;color:var(--dim);font-family:var(--mono);font-size:12px;
+    letter-spacing:.15em;padding:16px;background:rgba(10,31,31,.55);z-index:600;
+  }
+  .mnote{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--dim);margin-top:6px;}
+  .mnote em{color:var(--accent2);font-style:normal;}
+
+  /* 地图栏：真实观测点开关 */
+  .mapbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:10px;}
+  .occswitch{display:inline-flex;align-items:center;gap:9px;cursor:pointer;user-select:none;
+             font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--accent2);}
+  .occswitch input{position:absolute;opacity:0;pointer-events:none;}
+  .occswitch .track{
+    position:relative;width:40px;height:20px;border:1px solid #2a4a46;border-radius:20px;
+    background:#0a1c1c;transition:.18s;
+  }
+  .occswitch .track i{
+    position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:#4e6b65;transition:.18s;
+  }
+  .occswitch input:checked + .track{border-color:var(--accent);box-shadow:var(--glow);background:rgba(232,168,56,.12);}
+  .occswitch input:checked + .track i{left:22px;background:var(--accent);box-shadow:var(--glow);}
+  .occswitch input:focus-visible + .track{outline:2px solid var(--accent);outline-offset:2px;}
+
+  /* ---- 动态效果：关键地点脉冲光圈 ---- */
+  .birdmap .leaflet-div-icon{background:transparent;border:none;}
+  .site-pin-wrap{position:relative;width:26px;height:26px;background:transparent;border:none;}
+  .site-pin{
+    position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;
+    border-radius:50%;background:#e8a838;
+    box-shadow:0 0 9px rgba(232,168,56,.95);
+  }
+  .site-ring{
+    position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;
+    border:2px solid #e8a838;border-radius:50%;opacity:.9;
+    animation:siteRing 2.3s ease-out infinite;
+  }
+  @keyframes siteRing{
+    0%{transform:scale(.35);opacity:.95;}
+    70%{transform:scale(2.5);opacity:0;}
+    100%{transform:scale(2.5);opacity:0;}
+  }
+
+  /* ---- 动态效果：范围流动虚线 + 光晕 + 渐入 ---- */
+  .birdmap .bird-range{
+    stroke-dasharray:12 9;
+    animation:rangeIn .9s ease-out both, dashFlow 2.8s linear infinite;
+    filter:drop-shadow(0 0 5px currentColor);
+  }
+  .birdmap .bird-range.solid{
+    stroke-dasharray:none;
+    animation:rangeIn .9s ease-out both;
+  }
+  /* 迁徙停歇地发光折线 */
+  .birdmap .staging-line{
+    stroke-dasharray:10 8;
+    animation:rangeIn .9s ease-out both, dashFlow 1.8s linear infinite;
+    filter:drop-shadow(0 0 6px currentColor);
+  }
+  @keyframes dashFlow{to{stroke-dashoffset:-21;}}
+  @keyframes rangeIn{from{opacity:0;}to{opacity:1;}}
+
+  /* 尊重系统「减弱动态效果」偏好 */
+  @media (prefers-reduced-motion: reduce){
+    .birdmap .site-ring,.birdmap .bird-range,.birdmap .staging-line{animation:none!important;}
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="btnrow">
+  <a class="btn ghost slim" href="{{ url_for('guide') }}">← 返回图鉴</a>
+  <div class="side">
+    {% if prev %}<a class="btn ghost slim" href="{{ url_for('bird', bird_id=prev.id) }}">← {{ prev.name }}</a>{% endif %}
+    {% if next %}<a class="btn ghost slim" href="{{ url_for('bird', bird_id=next.id) }}">{{ next.name }} →</a>{% endif %}
+  </div>
+</div>
+
+<div class="hero">
+  <div class="heroimg"></div>
+  <div>
+    <div class="kplabel" style="margin-top:0;">SPECIES · 物种档案</div>
+    <h1>{{ bird.name }}</h1>
+    <div class="lat">{{ bird.latin }}</div>
+    <div class="metaRow">
+      <span class="chip iucn {{ bird.iucn }}">IUCN · {{ bird.iucn }} {{ IUCN_CN.get(bird.iucn, '') }}</span>
+      <span class="chip"><b>保护 </b>{{ bird.protection }}</span>
+      <span class="chip">{{ bird.order }}</span>
+      {% if bird.english %}<span class="chip"><b>EN </b>{{ bird.english }}</span>{% endif %}
+      {% if bird.aliases %}<span class="chip"><b>俗名 </b>{{ bird.aliases | join('、') }}</span>{% endif %}
+    </div>
+    <p class="summary">{{ bird.summary }}</p>
+  </div>
+</div>
+
+<div class="kplabel">TAXONOMY · 分类阶元</div>
+<div class="taxoRow">
+  {% for t in bird.taxonomy %}
+  <div class="taxo">
+    <span class="rk">{{ t.rank }}</span>
+    <span class="cn">{{ t.cn }}</span>
+    {% if t.latin %}<span class="lt">{{ t.latin }}</span>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% if bird.anhui %}
+<div class="kplabel" style="margin-top:16px;">ANHUI TRACE · 皖境踪迹</div>
+<div class="secgrid">
+  <div class="sec anhui"><h4>皖境踪迹</h4><p>{{ bird.anhui }}</p></div>
+</div>
+{% endif %}
+
+<div class="kplabel" style="margin-top:16px;">HABITAT MAP · 栖息地分布</div>
+<div class="birdmap" id="birdmap"></div>
+<div class="mapbar">
+  <label class="occswitch" for="occToggle">
+    <input type="checkbox" id="occToggle" checked>
+    <span class="track"><i></i></span>
+    <span class="lbl">真实观测记录 · GBIF</span>
+  </label>
+  <button type="button" class="btn ghost slim" id="focusBird">聚焦本种</button>
+</div>
+<p class="mnote">默认是一幅<em>完整世界地图</em>（活动范围钳制在世界边界，不会左右滑出空白），可自由放大缩小；青绿小点为<em>真实观测记录</em>（数据 GBIF.org · CC BY 4.0，1980 年以来），金点为重点保护区与观测地，示意色块为繁殖/越冬/留鸟范围（见地图内图例）。点「聚焦本种」可缩放到该鸟的分布区域。</p>
+
+<div class="kplabel" style="margin-top:16px;">PROFILE · 百科档案</div>
+<div class="secgrid">
+  {% for s in bird.sections %}
+  <div class="sec{% if s.key in ('distribution','conservation') %} wide{% endif %}">
+    <h4>{{ s.label }}</h4>
+    <p>{{ s.text }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="btnrow" style="margin-top:18px;">
+  <a class="btn ghost slim" href="{{ url_for('guide') }}">← 返回图鉴</a>
+  <div class="side">
+    {% if prev %}<a class="btn ghost slim" href="{{ url_for('bird', bird_id=prev.id) }}">← {{ prev.name }}</a>{% endif %}
+    {% if next %}<a class="btn ghost slim" href="{{ url_for('bird', bird_id=next.id) }}">{{ next.name }} →</a>{% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='lib/leaflet/leaflet.js') }}"></script>
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/birdmap.js') }}"></script>
+<script>
+  // 大图：jpg → png → svg → placeholder 兜底
+  var holder = document.querySelector('.heroimg');
+  var bird = {{ bird_json|safe }};
+  holder.appendChild(birdImg(bird));
+
+  // 栖息地分布地图（示意范围 + GBIF 真实观测点图层，地图范围钳制在东亚相关区域）
+  initBirdMap('birdmap', {{ (bird.map or {}) | tojson }}, {
+    occurUrl: '/static/data/occur/' + bird.id + '.json'
+  });
+
+  // 真实观测点开关
+  var occToggle = document.getElementById('occToggle');
+  occToggle.addEventListener('change', function () {
+    var ctrl = window.__birdMaps && window.__birdMaps['birdmap'];
+    if (ctrl) ctrl.setOccurVisible(occToggle.checked);
+  });
+
+  // 聚焦本种：一键缩小到该物种范围 + 关键点
+  var focusBtn = document.getElementById('focusBird');
+  focusBtn.addEventListener('click', function () {
+    var ctrl = window.__birdMaps && window.__birdMaps['birdmap'];
+    if (ctrl && ctrl.fitToSpecies) ctrl.fitToSpecies();
+  });
+</script>
+{% endblock %}

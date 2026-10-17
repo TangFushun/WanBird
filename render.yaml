@@ -1,0 +1,13 @@
+# Render Blueprint —— 一键部署「皖境飞鸟观测台」
+# 在 Render 创建新 Blueprint 并连接本仓库后即可自动识别本文件部署。
+# 部署后在 Render 面板的 Environment 里填写 DONGNIAO_API_KEY（只管服务端，不进代码仓库）。
+services:
+  - type: web
+    name: wanbird-observatory
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:${PORT:-10000}"
+    envVars:
+      - key: DONGNIAO_API_KEY
+        sync: false
