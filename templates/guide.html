@@ -124,10 +124,12 @@
     img.decoding = 'async';
     thumb.appendChild(img);
 
-    var badge = document.createElement('span');
-    badge.className = 'iucn';
-    badge.textContent = b.iucn;
-    thumb.appendChild(badge);
+    if (b.iucn) {
+      var badge = document.createElement('span');
+      badge.className = 'iucn';
+      badge.textContent = b.iucn;
+      thumb.appendChild(badge);
+    }
 
     var body = document.createElement('div');
     body.className = 'cardbody';

@@ -141,9 +141,9 @@
     <h1>{{ bird.name }}</h1>
     <div class="lat">{{ bird.latin }}</div>
     <div class="metaRow">
-      <span class="chip iucn {{ bird.iucn }}">IUCN · {{ bird.iucn }} {{ IUCN_CN.get(bird.iucn, '') }}</span>
-      <span class="chip"><b>保护 </b>{{ bird.protection }}</span>
-      <span class="chip">{{ bird.order }}</span>
+      {% if bird.iucn %}<span class="chip iucn {{ bird.iucn }}">IUCN · {{ bird.iucn }} {{ IUCN_CN.get(bird.iucn, '') }}</span>{% endif %}
+      {% if bird.protection %}<span class="chip"><b>保护 </b>{{ bird.protection }}</span>{% endif %}
+      {% if bird.order %}<span class="chip">{{ bird.order }}</span>{% endif %}
       {% if bird.english %}<span class="chip"><b>EN </b>{{ bird.english }}</span>{% endif %}
       {% if bird.aliases %}<span class="chip"><b>俗名 </b>{{ bird.aliases | join('、') }}</span>{% endif %}
     </div>
@@ -161,6 +161,7 @@
   </div>
   {% endfor %}
 </div>
+{% if not bird.taxonomy %}<p class="mnote">（分类信息整理中）</p>{% endif %}
 
 {% if bird.anhui %}
 <div class="kplabel" style="margin-top:16px;">ANHUI TRACE · 皖境踪迹</div>
@@ -190,6 +191,7 @@
   </div>
   {% endfor %}
 </div>
+{% if not bird.sections %}<p class="mnote" style="margin-top:8px;">本物种的图文档案整理中，敬请期待。</p>{% endif %}
 
 <div class="btnrow" style="margin-top:18px;">
   <a class="btn ghost slim" href="{{ url_for('guide') }}">← 返回图鉴</a>

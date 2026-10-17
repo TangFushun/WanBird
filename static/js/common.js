@@ -1,17 +1,25 @@
 /* 皖境飞鸟观测台 —— 公共前端工具 */
 
 // 鸟类图片兜底链：用户照片(jpg/png) → 内置剪影 svg → 占位图
+// 文件名优先取 bird.image 里指定的（支持按学名命名，如 "Ciconia boyciana.jpg"），
+// 否则回落到 bird.id 的命名。
 function birdImg(bird, cls){
   var img = document.createElement('img');
   if (cls) img.className = cls;
   img.loading = 'lazy';
   img.alt = bird && bird.name ? bird.name : '';
-  var base = '/static/img/birds/' + (bird ? bird.id : '');
-  // 优先用户放的照片（jpg 或 png），失败再回落剪影/占位
+  var id = bird ? bird.id : '';
+  var name = id;
+  if (bird && bird.image) {
+    var fn = String(bird.image).split('/').pop().replace(/\.(jpe?g|png)$/i, '');
+    if (fn) name = fn;
+  }
+  var enc = encodeURIComponent(name);
+  // 优先放的照片（jpg 或 png），失败再回落剪影/占位
   img.dataset.steps = JSON.stringify([
-    base + '.jpg',
-    base + '.png',
-    base + '.svg',
+    '/static/img/birds/' + enc + '.jpg',
+    '/static/img/birds/' + enc + '.png',
+    '/static/img/birds/' + encodeURIComponent(id) + '.svg',
     '/static/img/placeholder.svg'
   ]);
   var tries = 0;
@@ -22,7 +30,7 @@ function birdImg(bird, cls){
       img.src = steps[tries];
     }
   });
-  img.src = base + '.jpg';
+  img.src = '/static/img/birds/' + enc + '.jpg';
   return img;
 }
 

@@ -1,0 +1,200 @@
+{
+ "total_rows": 394,
+ "imported": 388,
+ "existing_kept": 6,
+ "skipped_duplicates": 6,
+ "photo_status": {
+  "ok": 388,
+  "fail": 0
+ },
+ "match_attention": [
+  {
+   "row": 13,
+   "cn": "待核验",
+   "latin": "Falcipenmis falcipennis",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "中文名待核验"
+  },
+  {
+   "row": 90,
+   "cn": "霍氏蛙口夜鹰",
+   "latin": "Batrachostomus hodgsomi",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": ""
+  },
+  {
+   "row": 103,
+   "cn": "斑胁田鸡",
+   "latin": "Zapornia paykulii",
+   "matchType": "FUZZY",
+   "status": "SYNONYM",
+   "note": ""
+  },
+  {
+   "row": 120,
+   "cn": "待核验",
+   "latin": "Limnodromus semipalnatus",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "中文名待核验"
+  },
+  {
+   "row": 130,
+   "cn": "黑嘴鸥",
+   "latin": "Saundersilarzus saundersi",
+   "matchType": "FUZZY",
+   "status": "SYNONYM",
+   "note": ""
+  },
+  {
+   "row": 189,
+   "cn": "黑鹰",
+   "latin": "Ictinaetus malaiensis",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": ""
+  },
+  {
+   "row": 215,
+   "cn": "待核验",
+   "latin": "Iethyophaga humilis",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "中文名待核验"
+  },
+  {
+   "row": 289,
+   "cn": "待核验",
+   "latin": "Falco vespertimus",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "中文名待核验"
+  },
+  {
+   "row": 313,
+   "cn": "栗腹八色鸫",
+   "latin": "Pitta molucensis",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": ""
+  },
+  {
+   "row": 334,
+   "cn": "待核验",
+   "latin": "Cholornis paradoxus",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "原始拼写疑似错误，建议核对为：Cholornis paradoxus；请结合采用的分类学版本复核；中文名待核验"
+  },
+  {
+   "row": 347,
+   "cn": "栗背短脚鹛",
+   "latin": "Garrulax owstoni",
+   "matchType": "HIGHERRANK",
+   "status": "ACCEPTED",
+   "note": ""
+  },
+  {
+   "row": 348,
+   "cn": "待核验",
+   "latin": "Garrulax taewamus",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "中文名待核验"
+  },
+  {
+   "row": 351,
+   "cn": "灰头噪鹛",
+   "latin": "Garrulax lumulatus",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": ""
+  },
+  {
+   "row": 361,
+   "cn": "待核验",
+   "latin": "Liocichla bugumorum",
+   "matchType": "FUZZY",
+   "status": "ACCEPTED",
+   "note": "中文名待核验"
+  },
+  {
+   "row": 382,
+   "cn": "待核验",
+   "latin": "Cyoris brunneatus",
+   "matchType": "FUZZY",
+   "status": "SYNONYM",
+   "note": "中文名待核验"
+  }
+ ],
+ "cn_uncertain": [
+  {
+   "row": 13,
+   "cn": "待核验",
+   "latin": "Falcipenmis falcipennis"
+  },
+  {
+   "row": 120,
+   "cn": "待核验",
+   "latin": "Limnodromus semipalnatus"
+  },
+  {
+   "row": 215,
+   "cn": "待核验",
+   "latin": "Iethyophaga humilis"
+  },
+  {
+   "row": 266,
+   "cn": "待核验",
+   "latin": "Nyctyornis athertoni"
+  },
+  {
+   "row": 265,
+   "cn": "待核验",
+   "latin": "Nyctyornis amictus"
+  },
+  {
+   "row": 289,
+   "cn": "待核验",
+   "latin": "Falco vespertimus"
+  },
+  {
+   "row": 300,
+   "cn": "待核验",
+   "latin": "Psittacula krameri"
+  },
+  {
+   "row": 334,
+   "cn": "待核验",
+   "latin": "Cholornis paradoxus"
+  },
+  {
+   "row": 348,
+   "cn": "待核验",
+   "latin": "Garrulax taewamus"
+  },
+  {
+   "row": 361,
+   "cn": "待核验",
+   "latin": "Liocichla bugumorum"
+  },
+  {
+   "row": 382,
+   "cn": "待核验",
+   "latin": "Cyoris brunneatus"
+  }
+ ],
+ "note": "图片列是 Google 搜索页而非图片文件，且 Google 被本网络屏蔽；已改用 GBIF/iNaturalist 开放数据授权写真（按学名命名）。",
+ "name_fixes": {
+  "Falcipenmis falcipennis": "镰翅鸡 / Falcipennis falcipennis",
+  "Limnodromus semipalnatus": "半蹼鹬 / Limnodromus semipalmatus",
+  "Iethyophaga humilis": "渔雕 / Icthyophaga humilis",
+  "Falco vespertimus": "西红脚隼 / Falco vespertinus",
+  "Garrulax taewamus": "台湾噪鹛 / Garrulax taewanus",
+  "Liocichla bugumorum": "布氏丛鹛 / Liocichla bugunorum",
+  "Cyoris brunneatus": "棕腹林鹟(建议复核) / Cyornis brunneatus"
+ },
+ "final_note": "已修正 7 处拼写学名并同步中文名/图片命名；全部 388 种媒体照片已就位。"
+}
