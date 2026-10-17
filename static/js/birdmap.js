@@ -13,7 +13,8 @@
     winter:   { label: '越冬地',   color: '#4fc3f7' },
     resident: { label: '留鸟区',   color: '#7fe0b0' },
     staging:  { label: '迁徙停歇地', color: '#4dd0e1' },
-    historic: { label: '历史分布区', color: '#9aa7a6' }
+    historic: { label: '历史分布区', color: '#9aa7a6' },
+    observed: { label: '观测分布区', color: '#b5a4ff' }
   };
   var DEFAULT_COLOR = '#e8a838';
   var OCC_COLOR = '#7fd0bd';   // 真实观测点颜色（青绿，区别于金色关键点）
@@ -36,7 +37,8 @@
       return s && Array.isArray(s.coord);
     });
 
-    if (!ranges.length && !sites.length) {
+    var hasOccUrl = !!(opts && opts.occurUrl);
+    if (!ranges.length && !sites.length && !hasOccUrl) {
       el.innerHTML = '<div class="mempty">该物种暂无栖息地地图数据</div>';
       return;
     }
@@ -141,6 +143,12 @@
           }));
         });
         if (occLayer.getLayers().length) occLayer.addTo(map);
+        if (!ranges.length && !sites.length) {
+          var note = document.createElement('div');
+          note.className = 'mmark';
+          note.textContent = '仅真实观测点 · 暂无范围示意';
+          el.appendChild(note);
+        }
       }).catch(function () { /* 观测点不可用则忽略 */ });
     }
 
