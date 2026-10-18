@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 1. **识别（首页）**：上传鸟类图片，识别鸟种、置信度并返回中文简介 + 完整物种档案。后端调用「懂鸟动物识别 API」（HHOLOVE AI 开放平台），Flask 作代理隐藏 API key。
 
-2. **鸟类图鉴**：安徽及全国重点保护鸟类的百科目录，当前 **394 种**（东方白鹳、朱鹮、勺嘴鹬、中华秋沙鸭、白头鹤、白颈长尾雉等），支持搜索、按目筛选，点开进详情页。数据在 `data/birds.json`；批量导入工具 `import_birds_from_xlsx.py`（读《国家重点保护动物名录-鸟纲-图片链接.xlsx》：GBIF 核验学名 → 自动配 CC 授权写真按学名命名 → 合并入库）。
+2. **鸟类图鉴**：安徽及全国重点保护鸟类的百科目录，当前 **394 种**全部具备**自动生成版六节档案 + 栖息地数据**（`enrich_birds_from_gbif.py`：GBIF 英文名 + 观测点下载到 `static/data/occur/<id>.json` + 目级科学模板正文 + 观测点凸包生成「观测分布区」范围；广布/跨洲种因跨度过大只显示观测点，地图角标"仅真实观测点"）。IUCN 等级与一级/二级保护级别、精写正文仍未填（自动生成版为模板通性描述，正文已标注自动生成）。
 
 3. **鸟类短剧**：科普短剧播放频道，片源配置在 `data/dramas.json`（本地 MP4 / B 站 bvid）。
 
