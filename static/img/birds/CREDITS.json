@@ -1,0 +1,3536 @@
+{
+ "_note": "图片来源回填（best-effort）：按当前 GBIF 检索首选记录记录摄影师/许可/页面；个别与最初下载文件如有偏差请以 page 原页为准。",
+ "_sources": "photos: iNaturalist 开放数据（经 GBIF API 检索，CC 授权）",
+ "arborophila-ardens": {
+  "name": "海南山鹧鸪",
+  "latin": "Arborophila ardens",
+  "photographer": "abcdefgewing",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/612984179",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/612984179/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-torqueola": {
+  "name": "环颈山鹧鸪",
+  "latin": "Arborophila torqueola",
+  "photographer": "Attila Steiner",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/635291325",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/635291325/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-crudigularis": {
+  "name": "台湾山鹧鸪",
+  "latin": "Arborophila crudigularis",
+  "photographer": "Dario Taraborelli",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/665524175",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/665524175/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-rufipectus": {
+  "name": "四川山鹧鸪",
+  "latin": "Arborophila rufipectus",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/511368850",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/511368850/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-gingica": {
+  "name": "白眉山鹧鸪",
+  "latin": "Arborophila gingica",
+  "photographer": "卢江离",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/610366910",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610366910/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-mandellii": {
+  "name": "红胸山鹧鸪",
+  "latin": "Arborophila mandellii",
+  "photographer": "Benoît Segerer",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/664556638",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/664556638/large.jpg",
+  "status": "ok"
+ },
+ "tropicoperdix-chloropus": {
+  "name": "绿脚树鹧鸪",
+  "latin": "Tropicoperdix chloropus",
+  "photographer": "russnamitz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/614221022",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/614221022/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-atrogularis": {
+  "name": "白颊山鹧鸪",
+  "latin": "Arborophila atrogularis",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/358956184",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/358956184/original.jpeg",
+  "status": "ok"
+ },
+ "tetrastes-bonasia": {
+  "name": "花尾榛鸡",
+  "latin": "Tetrastes bonasia",
+  "photographer": "Iana Davydova",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605346015",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605346015/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-brunneopectus": {
+  "name": "褐胸山鹧鸪",
+  "latin": "Arborophila brunneopectus",
+  "photographer": "Michael Ferguson",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/616756540",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/616756540/large.jpg",
+  "status": "ok"
+ },
+ "arborophila-rufogularis": {
+  "name": "红喉山鹧鸪",
+  "latin": "Arborophila rufogularis",
+  "photographer": "Andrea Goddard",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/611834148",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/611834148/large.jpg",
+  "status": "ok"
+ },
+ "tetrastes-sewerzowi": {
+  "name": "斑尾榛鸡",
+  "latin": "Tetrastes sewerzowi",
+  "photographer": "zhangmw",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/659024825",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/659024825/large.jpg",
+  "status": "ok"
+ },
+ "falcipennis-falcipennis": {
+  "name": "镰翅鸡",
+  "latin": "Falcipennis falcipennis",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/677220179",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/677220179/large.jpg",
+  "status": "ok"
+ },
+ "tetrao-urogalloides": {
+  "name": "黑嘴松鸡",
+  "latin": "Tetrao urogalloides",
+  "photographer": "prodewald",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/402806378",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/402806378/large.jpg",
+  "status": "ok"
+ },
+ "tetrao-urogallus": {
+  "name": "西方松鸡",
+  "latin": "Tetrao urogallus",
+  "photographer": "Sven Ängermark",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605156752",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605156752/large.jpg",
+  "status": "ok"
+ },
+ "lagopus-lagopus": {
+  "name": "柳雷鸟",
+  "latin": "Lagopus lagopus",
+  "photographer": "Allison McCabe",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/612546297",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/612546297/large.jpg",
+  "status": "ok"
+ },
+ "lagopus-muta": {
+  "name": "岩雷鸟",
+  "latin": "Lagopus muta",
+  "photographer": "franzi :p",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/686039222",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/686039222/large.jpg",
+  "status": "ok"
+ },
+ "lyrurus-tetrix": {
+  "name": "黑琴鸡",
+  "latin": "Lyrurus tetrix",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605056263",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605056263/large.jpg",
+  "status": "ok"
+ },
+ "tetraophasis-szechenyii": {
+  "name": "黄喉雉鹑",
+  "latin": "Tetraophasis szechenyii",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800471",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800471/large.jpg",
+  "status": "ok"
+ },
+ "tetraophasis-obscurus": {
+  "name": "红喉雉鹑",
+  "latin": "Tetraophasis obscurus",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/620619815",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/620619815/large.jpg",
+  "status": "ok"
+ },
+ "tetraogallus-altaicus": {
+  "name": "阿尔泰雪鸡",
+  "latin": "Tetraogallus altaicus",
+  "photographer": "Владимир Панкратов",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/658442405",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/658442405/large.jpg",
+  "status": "ok"
+ },
+ "tetraogallus-himalayensis": {
+  "name": "暗腹雪鸡",
+  "latin": "Tetraogallus himalayensis",
+  "photographer": "noyablokov",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606149962",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606149962/large.jpg",
+  "status": "ok"
+ },
+ "ithaginis-cruentus": {
+  "name": "血雉",
+  "latin": "Ithaginis cruentus",
+  "photographer": "ZHONG",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/617707950",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/617707950/large.jpg",
+  "status": "ok"
+ },
+ "alectoris-magna": {
+  "name": "大石鸡",
+  "latin": "Alectoris magna",
+  "photographer": "Amaël Borzée",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/634723362",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/634723362/large.jpg",
+  "status": "ok"
+ },
+ "tragopan-blythii": {
+  "name": "灰腹角雉",
+  "latin": "Tragopan blythii",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/395651388",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/395651388/large.jpg",
+  "status": "ok"
+ },
+ "tragopan-satyra": {
+  "name": "红胸角雉",
+  "latin": "Tragopan satyra",
+  "photographer": "Omkar S Damle",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609892159",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609892159/large.jpg",
+  "status": "ok"
+ },
+ "tragopan-caboti": {
+  "name": "黄腹角雉",
+  "latin": "Tragopan caboti",
+  "photographer": "narido",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/630979374",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/630979374/large.jpg",
+  "status": "ok"
+ },
+ "lophophorus-impejanus": {
+  "name": "棕尾虹雉",
+  "latin": "Lophophorus impejanus",
+  "photographer": "peterjoneswitton",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/617751137",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/617751137/large.jpg",
+  "status": "ok"
+ },
+ "tragopan-temminckii": {
+  "name": "红腹角雉",
+  "latin": "Tragopan temminckii",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/519130592",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/519130592/large.jpg",
+  "status": "ok"
+ },
+ "pucrasia-macrolopha": {
+  "name": "勺鸡",
+  "latin": "Pucrasia macrolopha",
+  "photographer": "Nicolás Tamargo",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/442286151",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/442286151/large.jpg",
+  "status": "ok"
+ },
+ "lophophorus-sclateri": {
+  "name": "白尾梢虹雉",
+  "latin": "Lophophorus sclateri",
+  "photographer": "p_concolor",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/616326040",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/616326040/large.jpg",
+  "status": "ok"
+ },
+ "gallus-gallus": {
+  "name": "红原鸡",
+  "latin": "Gallus gallus",
+  "photographer": "Eugene Eric Kim",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605561632",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605561632/large.jpg",
+  "status": "ok"
+ },
+ "tragopan-melanocephalus": {
+  "name": "黑头角雉",
+  "latin": "Tragopan melanocephalus",
+  "photographer": "mohebullah2002",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/524499254",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/524499254/large.jpg",
+  "status": "ok"
+ },
+ "lophura-leucomelanos": {
+  "name": "黑鹇",
+  "latin": "Lophura leucomelanos",
+  "photographer": "Tate Putman",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605007809",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605007809/large.jpg",
+  "status": "ok"
+ },
+ "lophura-nycthemera": {
+  "name": "白鹇",
+  "latin": "Lophura nycthemera",
+  "photographer": "Hugo Sun",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605025881",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605025881/large.jpg",
+  "status": "ok"
+ },
+ "lophophorus-lhuysii": {
+  "name": "绿尾虹雉",
+  "latin": "Lophophorus lhuysii",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/521762120",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/521762120/large.jpg",
+  "status": "ok"
+ },
+ "crossoptilon-harmani": {
+  "name": "藏马鸡",
+  "latin": "Crossoptilon harmani",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800521",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800521/large.jpg",
+  "status": "ok"
+ },
+ "lophura-swinhoii": {
+  "name": "蓝腹鹇",
+  "latin": "Lophura swinhoii",
+  "photographer": "Yiching Lin",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605523360",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605523360/large.jpg",
+  "status": "ok"
+ },
+ "crossoptilon-crossoptilon": {
+  "name": "白马鸡",
+  "latin": "Crossoptilon crossoptilon",
+  "photographer": "Felix Puff",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/662422347",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/662422347/large.jpg",
+  "status": "ok"
+ },
+ "crossoptilon-auritum": {
+  "name": "蓝马鸡",
+  "latin": "Crossoptilon auritum",
+  "photographer": "tianyang",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606658959",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606658959/large.jpg",
+  "status": "ok"
+ },
+ "crossoptilon-mantchuricum": {
+  "name": "褐马鸡",
+  "latin": "Crossoptilon mantchuricum",
+  "photographer": "Yishen Xiao",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607400230",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607400230/large.jpg",
+  "status": "ok"
+ },
+ "polyplectron-bicalcaratum": {
+  "name": "灰孔雀雉",
+  "latin": "Polyplectron bicalcaratum",
+  "photographer": "osmanthia",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609453268",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609453268/large.jpg",
+  "status": "ok"
+ },
+ "syrmaticus-humiae": {
+  "name": "黑颈长尾雉",
+  "latin": "Syrmaticus humiae",
+  "photographer": "Ben Costamagna",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/609861322",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609861322/large.jpg",
+  "status": "ok"
+ },
+ "polyplectron-katsumatae": {
+  "name": "海南孔雀雉",
+  "latin": "Polyplectron katsumatae",
+  "photographer": "abcdefgewing",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/612661061",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/612661061/large.jpg",
+  "status": "ok"
+ },
+ "tetraogallus-tibetanus": {
+  "name": "藏雪鸡",
+  "latin": "Tetraogallus tibetanus",
+  "photographer": "mnt99york",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/489235250",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/489235250/large.jpg",
+  "status": "ok"
+ },
+ "pavo-muticus": {
+  "name": "绿孔雀",
+  "latin": "Pavo muticus",
+  "photographer": "mad_max01",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604795664",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604795664/large.jpg",
+  "status": "ok"
+ },
+ "dendrocygna-javanica": {
+  "name": "栗树鸭",
+  "latin": "Dendrocygna javanica",
+  "photographer": "columnbidet",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605006557",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605006557/large.jpg",
+  "status": "ok"
+ },
+ "anser-cygnoides": {
+  "name": "鸿雁",
+  "latin": "Anser cygnoides",
+  "photographer": "Sam Hain",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605422304",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605422304/large.jpg",
+  "status": "ok"
+ },
+ "chrysolophus-pictus": {
+  "name": "红腹锦鸡",
+  "latin": "Chrysolophus pictus",
+  "photographer": "管牧山",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607648784",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607648784/large.jpg",
+  "status": "ok"
+ },
+ "chrysolophus-amherstiae": {
+  "name": "白腹锦鸡",
+  "latin": "Chrysolophus amherstiae",
+  "photographer": "白腰雪雀",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609957722",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609957722/large.jpg",
+  "status": "ok"
+ },
+ "anser-albifrons": {
+  "name": "白额雁",
+  "latin": "Anser albifrons",
+  "photographer": "Pilcrow",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604621354",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604621354/large.jpg",
+  "status": "ok"
+ },
+ "anser-erythropus": {
+  "name": "小白额雁",
+  "latin": "Anser erythropus",
+  "photographer": "thegreatdodo",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604785165",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604785165/large.jpg",
+  "status": "ok"
+ },
+ "branta-ruficollis": {
+  "name": "红胸黑雁",
+  "latin": "Branta ruficollis",
+  "photographer": "Fabian Karner",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605133364",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605133364/large.jpg",
+  "status": "ok"
+ },
+ "cygnus-cygnus": {
+  "name": "大天鹅",
+  "latin": "Cygnus cygnus",
+  "photographer": "Jason Thompson",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604470285",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604470285/large.jpg",
+  "status": "ok"
+ },
+ "aix-galericulata": {
+  "name": "鸳鸯",
+  "latin": "Aix galericulata",
+  "photographer": "Jason Thompson",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605362825",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605362825/large.jpg",
+  "status": "ok"
+ },
+ "cygnus-columbianus": {
+  "name": "小天鹅",
+  "latin": "Cygnus columbianus",
+  "photographer": "inbetweenbays",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/605203937",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605203937/large.jpg",
+  "status": "ok"
+ },
+ "nettapus-coromandelianus": {
+  "name": "棉凫",
+  "latin": "Nettapus coromandelianus",
+  "photographer": "ou.wildlife",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605237801",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605237801/large.jpg",
+  "status": "ok"
+ },
+ "sibirionetta-formosa": {
+  "name": "花脸鸭",
+  "latin": "Sibirionetta formosa",
+  "photographer": "bko",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/645888884",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/645888884/large.jpg",
+  "status": "ok"
+ },
+ "aythya-baeri": {
+  "name": "青头潜鸭",
+  "latin": "Aythya baeri",
+  "photographer": "Aiken Lau",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/606775162",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606775162/large.jpg",
+  "status": "ok"
+ },
+ "mergellus-albellus": {
+  "name": "斑头秋沙鸭",
+  "latin": "Mergellus albellus",
+  "photographer": "Oleg",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605083687",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605083687/large.jpg",
+  "status": "ok"
+ },
+ "marmaronetta-angustirostris": {
+  "name": "云石斑鸭",
+  "latin": "Marmaronetta angustirostris",
+  "photographer": "Antón David Pérez Rodríguez",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/613262540",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/613262540/large.jpg",
+  "status": "ok"
+ },
+ "asarcornis-scutulata": {
+  "name": "白翅栖鸭",
+  "latin": "Asarcornis scutulata",
+  "photographer": "Bruce Taylor",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/635167798",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/635167798/large.jpg",
+  "status": "ok"
+ },
+ "syrmaticus-mikado": {
+  "name": "黑长尾雉",
+  "latin": "Syrmaticus mikado",
+  "photographer": "Dario Taraborelli",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/665388238",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/665388238/large.jpg",
+  "status": "ok"
+ },
+ "oxyura-leucocephala": {
+  "name": "白头硬尾鸭",
+  "latin": "Oxyura leucocephala",
+  "photographer": "Gleb Berloff",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605078688",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605078688/large.jpg",
+  "status": "ok"
+ },
+ "podiceps-nigricollis": {
+  "name": "黑颈䴙䴘",
+  "latin": "Podiceps nigricollis",
+  "photographer": "Francesco Cecere",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604553033",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604553033/large.jpg",
+  "status": "ok"
+ },
+ "columba-palumbus": {
+  "name": "欧鸽",
+  "latin": "Columba palumbus",
+  "photographer": "Andrew Cunnington",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604477630",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604477630/large.jpg",
+  "status": "ok"
+ },
+ "podiceps-auritus": {
+  "name": "角䴙䴘",
+  "latin": "Podiceps auritus",
+  "photographer": "hmcook",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604899279",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604899279/large.jpg",
+  "status": "ok"
+ },
+ "columba-eversmanni": {
+  "name": "欧斑鸠",
+  "latin": "Columba eversmanni",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/509274092",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/509274092/large.jpg",
+  "status": "ok"
+ },
+ "podiceps-grisegena": {
+  "name": "赤颈䴙䴘",
+  "latin": "Podiceps grisegena",
+  "photographer": "Елена Шубенкина",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605331318",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605331318/large.jpg",
+  "status": "ok"
+ },
+ "cygnus-olor": {
+  "name": "疣鼻天鹅",
+  "latin": "Cygnus olor",
+  "photographer": "Andrew Cunnington",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604479781",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604479781/large.jpg",
+  "status": "ok"
+ },
+ "syrmaticus-reevesii": {
+  "name": "白冠长尾雉",
+  "latin": "Syrmaticus reevesii",
+  "photographer": "beccibadger",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609265426",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609265426/large.jpg",
+  "status": "ok"
+ },
+ "macropygia-tenuirostris": {
+  "name": "细嘴鹃鸠",
+  "latin": "Macropygia tenuirostris",
+  "photographer": "naturedom12",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/673785804",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/673785804/large.jpg",
+  "status": "ok"
+ },
+ "macropygia-unchall": {
+  "name": "斑尾鹃鸠",
+  "latin": "Macropygia unchall",
+  "photographer": "Светлана Царахова",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/626746677",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/626746677/large.jpg",
+  "status": "ok"
+ },
+ "columba-punicea": {
+  "name": "紫林鸽",
+  "latin": "Columba punicea",
+  "photographer": "allanmichaud",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610365451",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610365451/large.jpg",
+  "status": "ok"
+ },
+ "treron-phoenicopterus": {
+  "name": "橙胸绿鸠",
+  "latin": "Treron phoenicopterus",
+  "photographer": "aie_ling",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604822144",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604822144/large.jpg",
+  "status": "ok"
+ },
+ "treron-pompadora": {
+  "name": "棕头绿鸠",
+  "latin": "Treron pompadora",
+  "photographer": "Sri Srikumar",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/689654802",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/689654802/large.jpg",
+  "status": "ok"
+ },
+ "treron-curvirostra": {
+  "name": "厚嘴绿鸠",
+  "latin": "Treron curvirostra",
+  "photographer": "Axl P.",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604411340",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604411340/large.jpg",
+  "status": "ok"
+ },
+ "macropygia-ruficeps": {
+  "name": "红头鹃鸠",
+  "latin": "Macropygia ruficeps",
+  "photographer": "Pandu Ilmi Prastyanto",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605589866",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605589866/large.jpg",
+  "status": "ok"
+ },
+ "treron-bicinctus": {
+  "name": "双环绿鸠",
+  "latin": "Treron bicinctus",
+  "photographer": "CabbageHinjabi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605429998",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605429998/large.jpg",
+  "status": "ok"
+ },
+ "treron-apicauda": {
+  "name": "针尾绿鸠",
+  "latin": "Treron apicauda",
+  "photographer": "kiulas",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610141762",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610141762/large.jpg",
+  "status": "ok"
+ },
+ "ducula-aenea": {
+  "name": "绿皇鸠",
+  "latin": "Ducula aenea",
+  "photographer": "Deepa Mohan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605042086",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605042086/large.jpg",
+  "status": "ok"
+ },
+ "treron-sieboldii": {
+  "name": "日本绿鸠",
+  "latin": "Treron sieboldii",
+  "photographer": "Dario Taraborelli",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/633621593",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/633621593/large.jpg",
+  "status": "ok"
+ },
+ "treron-sphenurus": {
+  "name": "楔尾绿鸠",
+  "latin": "Treron sphenurus",
+  "photographer": "Andrew Pierce",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605594630",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605594630/large.jpg",
+  "status": "ok"
+ },
+ "ptilinopus-leclancheri": {
+  "name": "吕宋果鸠",
+  "latin": "Ptilinopus leclancheri",
+  "photographer": "kenny_well",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/611675574",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/611675574/large.jpg",
+  "status": "ok"
+ },
+ "ducula-badia": {
+  "name": "山皇鸠",
+  "latin": "Ducula badia",
+  "photographer": "Tero Linjama",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/629579807",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/629579807/large.jpg",
+  "status": "ok"
+ },
+ "otis-tarda": {
+  "name": "大鸨",
+  "latin": "Otis tarda",
+  "photographer": "Attila Steiner",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605465017",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605465017/large.jpg",
+  "status": "ok"
+ },
+ "centropus-sinensis": {
+  "name": "褐翅鸦鹃",
+  "latin": "Centropus sinensis",
+  "photographer": "羅益旻",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605262804",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605262804/large.jpg",
+  "status": "ok"
+ },
+ "tetrax-tetrax": {
+  "name": "小鸨",
+  "latin": "Tetrax tetrax",
+  "photographer": "dimitriskokkinidis",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609994077",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609994077/large.jpg",
+  "status": "ok"
+ },
+ "chlamydotis-macqueenii": {
+  "name": "波斑鸨",
+  "latin": "Chlamydotis macqueenii",
+  "photographer": "משה נאמן",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/611209896",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/611209896/large.jpg",
+  "status": "ok"
+ },
+ "centropus-bengalensis": {
+  "name": "小鸦鹃",
+  "latin": "Centropus bengalensis",
+  "photographer": "Frederick Cheong",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606142813",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606142813/large.jpg",
+  "status": "ok"
+ },
+ "coturnicops-exquisitus": {
+  "name": "花田鸡",
+  "latin": "Coturnicops exquisitus",
+  "photographer": "餘余🐰",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/601169915",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/601169915/large.jpg",
+  "status": "ok"
+ },
+ "zapornia-bicolor": {
+  "name": "棕背田鸡",
+  "latin": "Zapornia bicolor",
+  "photographer": "Stefan C",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/603809859",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/603809859/large.jpg",
+  "status": "ok"
+ },
+ "zapornia-parva": {
+  "name": "姬田鸡",
+  "latin": "Zapornia parva",
+  "photographer": "crlssi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/621116751",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/621116751/large.jpg",
+  "status": "ok"
+ },
+ "aerodramus-fuciphagus": {
+  "name": "爪哇金丝燕",
+  "latin": "Aerodramus fuciphagus",
+  "photographer": "russnamitz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/613860466",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/613860466/large.jpg",
+  "status": "refetched:17KB",
+  "refetched_size": 9265
+ },
+ "treron-formosae": {
+  "name": "台湾绿鸠",
+  "latin": "Treron formosae",
+  "photographer": "Ellyne Geurts",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/665874802",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/665874802/large.jpg",
+  "status": "refetched:199KB",
+  "refetched_size": 16053
+ },
+ "porphyrio-porphyrio": {
+  "name": "紫水鸡",
+  "latin": "Porphyrio porphyrio",
+  "photographer": "David Garza",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/604895401",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604895401/large.jpg",
+  "status": "ok"
+ },
+ "hemiprocne-coronata": {
+  "name": "冠雨燕",
+  "latin": "Hemiprocne coronata",
+  "photographer": "Omkar S Damle",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608347319",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608347319/large.jpg",
+  "status": "refetched:365KB",
+  "refetched_size": 15908
+ },
+ "grus-leucogeranus": {
+  "name": "白鹤",
+  "latin": "Grus leucogeranus",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/687786646",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/687786646/large.jpg",
+  "status": "ok"
+ },
+ "pterocles-orientalis": {
+  "name": "黑腹沙鸡",
+  "latin": "Pterocles orientalis",
+  "photographer": "Wolfgang Bittermann",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609292893",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609292893/large.jpg",
+  "status": "refetched:330KB",
+  "refetched_size": 116963
+ },
+ "grus-virgo": {
+  "name": "蓑羽鹤",
+  "latin": "Grus virgo",
+  "photographer": "Dhruva Punde",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605415918",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605415918/large.jpg",
+  "status": "ok"
+ },
+ "batrachostomus-hodgsomi": {
+  "name": "霍氏蛙口夜鹰",
+  "latin": "Batrachostomus hodgsomi",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/529728233",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/529728233/large.jpg",
+  "status": "refetched:672KB",
+  "refetched_size": 84337
+ },
+ "grus-vipio": {
+  "name": "白枕鹤",
+  "latin": "Grus vipio",
+  "photographer": "Leslie Hurteau",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605025997",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605025997/large.jpg",
+  "status": "ok"
+ },
+ "grus-japonensis": {
+  "name": "丹顶鹤",
+  "latin": "Grus japonensis",
+  "photographer": "きのこマッシュルーム",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604436820",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604436820/large.jpg",
+  "status": "ok"
+ },
+ "grus-antigone": {
+  "name": "赤颈鹤",
+  "latin": "Grus antigone",
+  "photographer": "Yogesh Punde",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604449380",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604449380/large.jpg",
+  "status": "ok"
+ },
+ "grus-grus": {
+  "name": "灰鹤",
+  "latin": "Grus grus",
+  "photographer": "fkfhof",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605121058",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605121058/large.jpg",
+  "status": "ok"
+ },
+ "ibidorhyncha-struthersii": {
+  "name": "鹮嘴鹬",
+  "latin": "Ibidorhyncha struthersii",
+  "photographer": "Irina Kalashnikova",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605253512",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605253512/large.jpg",
+  "status": "ok"
+ },
+ "grus-canadensis": {
+  "name": "沙丘鹤",
+  "latin": "Grus canadensis",
+  "photographer": "Karen Burns Ball",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605254100",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605254100/large.jpg",
+  "status": "ok"
+ },
+ "hydrophasianus-chirurgus": {
+  "name": "水雉",
+  "latin": "Hydrophasianus chirurgus",
+  "photographer": "Jolen Cheng",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604389364",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604389364/large.jpg",
+  "status": "ok"
+ },
+ "esacus-recurvirostris": {
+  "name": "大石鸻",
+  "latin": "Esacus recurvirostris",
+  "photographer": "Sri Srikumar",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/676936388",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/676936388/large.jpg",
+  "status": "ok"
+ },
+ "metopidius-indicus": {
+  "name": "铜翅水雉",
+  "latin": "Metopidius indicus",
+  "photographer": "Sayondeep Choudhury",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604730925",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604730925/large.jpg",
+  "status": "ok"
+ },
+ "gallinago-nemoricola": {
+  "name": "林鹬",
+  "latin": "Gallinago nemoricola",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/395651338",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/395651338/original.jpeg",
+  "status": "ok"
+ },
+ "limnodromus-semipalmatus": {
+  "name": "半蹼鹬",
+  "latin": "Limnodromus semipalmatus",
+  "photographer": "Arne Holgersson",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/616427262",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/616427262/large.jpg",
+  "status": "ok"
+ },
+ "grus-nigricollis": {
+  "name": "黑颈鹤",
+  "latin": "Grus nigricollis",
+  "photographer": "ernest-hy",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/615434055",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/615434055/large.jpg",
+  "status": "ok"
+ },
+ "hirundapus-cochinchinensis": {
+  "name": "白喉针尾雨燕",
+  "latin": "Hirundapus cochinchinensis",
+  "photographer": "Dan Vickers",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/629606288",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/629606288/large.jpg",
+  "status": "refetched:340KB",
+  "refetched_size": 18371
+ },
+ "zapornia-paykulii": {
+  "name": "斑胁田鸡",
+  "latin": "Zapornia paykulii",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/351047106",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/351047106/large.jpg",
+  "status": "refetched:702KB",
+  "refetched_size": 91382
+ },
+ "numenius-arquata": {
+  "name": "白腰杓鹬",
+  "latin": "Numenius arquata",
+  "photographer": "Gregory Wheeler",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605478644",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605478644/large.jpg",
+  "status": "ok"
+ },
+ "tringa-guttifer": {
+  "name": "小青脚鹬",
+  "latin": "Tringa guttifer",
+  "photographer": "Aiken Lau",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/634673548",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/634673548/large.jpg",
+  "status": "ok"
+ },
+ "numenius-madagascariensis": {
+  "name": "大杓鹬",
+  "latin": "Numenius madagascariensis",
+  "photographer": "Chelsea Fairley",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605610508",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605610508/large.jpg",
+  "status": "ok"
+ },
+ "arenaria-interpres": {
+  "name": "翻石鹬",
+  "latin": "Arenaria interpres",
+  "photographer": "Dan Horowitz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605743313",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605743313/large.jpg",
+  "status": "ok"
+ },
+ "calidris-tenuirostris": {
+  "name": "大滨鹬",
+  "latin": "Calidris tenuirostris",
+  "photographer": "cassiewilliams_",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605007782",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605007782/large.jpg",
+  "status": "ok"
+ },
+ "calidris-falcinellus": {
+  "name": "阔嘴鹬",
+  "latin": "Calidris falcinellus",
+  "photographer": "Sittichai Nanthanasit",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608095001",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608095001/large.jpg",
+  "status": "ok"
+ },
+ "vanellus-gregarius": {
+  "name": "黄颊麦鸡",
+  "latin": "Vanellus gregarius",
+  "photographer": "Wa'el Almatni",
+  "license": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "page": "https://www.inaturalist.org/photos/605654619",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605654619/large.jpg",
+  "status": "ok"
+ },
+ "ichthyaetus-relictus": {
+  "name": "遗鸥",
+  "latin": "Ichthyaetus relictus",
+  "photographer": "zhangmw",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610338662",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610338662/large.jpg",
+  "status": "ok"
+ },
+ "glareola-lactea": {
+  "name": "小燕鸻",
+  "latin": "Glareola lactea",
+  "photographer": "parthabanik",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605085250",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605085250/large.jpg",
+  "status": "ok"
+ },
+ "thalasseus-bergii": {
+  "name": "大凤头燕鸥",
+  "latin": "Thalasseus bergii",
+  "photographer": "AllyP",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/609901790",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609901790/large.jpg",
+  "status": "ok"
+ },
+ "hydrocoloeus-minutus": {
+  "name": "小鸥",
+  "latin": "Hydrocoloeus minutus",
+  "photographer": "Karen-Alexandra Panzani",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605285936",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605285936/large.jpg",
+  "status": "ok"
+ },
+ "thalasseus-bernsteini": {
+  "name": "中华凤头燕鸥",
+  "latin": "Thalasseus bernsteini",
+  "photographer": "Kuan-Chieh (Chuck) Hung",
+  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "https://www.inaturalist.org/photos/609440508",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609440508/large.jpg",
+  "status": "ok"
+ },
+ "sterna-acuticauda": {
+  "name": "黑腹燕鸥",
+  "latin": "Sterna acuticauda",
+  "photographer": "samarnature",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608897721",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608897721/large.jpg",
+  "status": "ok"
+ },
+ "numenius-minutus": {
+  "name": "小杓鹬",
+  "latin": "Numenius minutus",
+  "photographer": "Stephen Matthews",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/501720361",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/501720361/original.jpeg",
+  "status": "refetched:846KB",
+  "refetched_size": 97619
+ },
+ "crex-crex": {
+  "name": "长脚秧鸡",
+  "latin": "Crex crex",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/660844105",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/660844105/large.jpg",
+  "status": "ok"
+ },
+ "sterna-aurantia": {
+  "name": "黄嘴河燕鸥",
+  "latin": "Sterna aurantia",
+  "photographer": "Vivek Patel",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605641635",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605641635/large.jpg",
+  "status": "ok"
+ },
+ "phoebastria-nigripes": {
+  "name": "黑脚信天翁",
+  "latin": "Phoebastria nigripes",
+  "photographer": "Damien Wallace",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608839109",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608839109/large.jpg",
+  "status": "ok"
+ },
+ "chlidonias-niger": {
+  "name": "黑浮鸥",
+  "latin": "Chlidonias niger",
+  "photographer": "ericplage",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605702464",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605702464/large.jpg",
+  "status": "ok"
+ },
+ "synthliboramphus-wumizusume": {
+  "name": "冠海雀",
+  "latin": "Synthliboramphus wumizusume",
+  "photographer": "Charley Hesse",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/616898939",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/616898939/large.jpg",
+  "status": "ok"
+ },
+ "phoebastria-albatrus": {
+  "name": "短尾信天翁",
+  "latin": "Phoebastria albatrus",
+  "photographer": "DiGua Su",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/614477935",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/614477935/large.jpg",
+  "status": "ok"
+ },
+ "ciconia-nigra": {
+  "name": "黑鹳",
+  "latin": "Ciconia nigra",
+  "photographer": "洪廷維",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605335855",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605335855/large.jpg",
+  "status": "ok"
+ },
+ "ciconia-ciconia": {
+  "name": "白鹳",
+  "latin": "Ciconia ciconia",
+  "photographer": "Irene",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604967310",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604967310/large.jpg",
+  "status": "ok"
+ },
+ "mycteria-leucocephala": {
+  "name": "彩鹳",
+  "latin": "Mycteria leucocephala",
+  "photographer": "Vidhya Swaminathan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605019692",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605019692/large.jpg",
+  "status": "ok"
+ },
+ "sula-dactylatra": {
+  "name": "蓝脸鲣鸟",
+  "latin": "Sula dactylatra",
+  "photographer": "Damien Wallace",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608840653",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608840653/large.jpg",
+  "status": "ok"
+ },
+ "saundersilarzus-saundersi": {
+  "name": "黑嘴鸥",
+  "latin": "Saundersilarzus saundersi",
+  "photographer": "Aiken Lau",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/606355455",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606355455/large.jpg",
+  "status": "refetched:403KB",
+  "refetched_size": 68172
+ },
+ "leptoptilos-javanicus": {
+  "name": "秃鹳",
+  "latin": "Leptoptilos javanicus",
+  "photographer": "kynaturalistfeller",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610380045",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610380045/large.jpg",
+  "status": "ok"
+ },
+ "platalea-leucorodia": {
+  "name": "白琵鹭",
+  "latin": "Platalea leucorodia",
+  "photographer": "NICO",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605706750",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605706750/large.jpg",
+  "status": "ok"
+ },
+ "pseudibis-davisoni": {
+  "name": "白肩黑鹮",
+  "latin": "Pseudibis davisoni",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/338161563",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/338161563/large.jpg",
+  "status": "ok"
+ },
+ "phalacrocorax-pelagicus": {
+  "name": "海鸬鹚",
+  "latin": "Phalacrocorax pelagicus",
+  "photographer": "Evelyn Lazzaretti 🏳️‍⚧️",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608203496",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608203496/large.jpg",
+  "status": "ok"
+ },
+ "microcarbo-niger": {
+  "name": "黑鸬鹚",
+  "latin": "Microcarbo niger",
+  "photographer": "Scott Edmunds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/607109879",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607109879/large.jpg",
+  "status": "ok"
+ },
+ "sula-sula": {
+  "name": "红脚鲣鸟",
+  "latin": "Sula sula",
+  "photographer": "Damien Wallace",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/610103487",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610103487/large.jpg",
+  "status": "ok"
+ },
+ "platalea-minor": {
+  "name": "黑脸琵鹭",
+  "latin": "Platalea minor",
+  "photographer": "kwokwokwo",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605018640",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605018640/large.jpg",
+  "status": "ok"
+ },
+ "plegadis-falcinellus": {
+  "name": "彩鹮",
+  "latin": "Plegadis falcinellus",
+  "photographer": "marylusk",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605156807",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605156807/large.jpg",
+  "status": "ok"
+ },
+ "gorsachius-magnificus": {
+  "name": "海南虎斑鳽",
+  "latin": "Gorsachius magnificus",
+  "photographer": "餘余🐰",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/613990557",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/613990557/large.jpg",
+  "status": "ok"
+ },
+ "fregata-ariel": {
+  "name": "白斑军舰鸟",
+  "latin": "Fregata ariel",
+  "photographer": "Светлана Царахова",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/616458920",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/616458920/large.jpg",
+  "status": "refetched:29KB",
+  "refetched_size": 7400
+ },
+ "ardea-insignis": {
+  "name": "白腹鹭",
+  "latin": "Ardea insignis",
+  "photographer": "Stefan C",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/603795991",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/603795991/large.jpg",
+  "status": "ok"
+ },
+ "pelecanus-philippensis": {
+  "name": "斑嘴鹈鹕",
+  "latin": "Pelecanus philippensis",
+  "photographer": "Vidhya Swaminathan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605062960",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605062960/large.jpg",
+  "status": "ok"
+ },
+ "pelecanus-onocrotalus": {
+  "name": "白鹈鹕",
+  "latin": "Pelecanus onocrotalus",
+  "photographer": "Warren Lewis",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605352131",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605352131/large.jpg",
+  "status": "ok"
+ },
+ "egretta-eulophotes": {
+  "name": "黄嘴白鹭",
+  "latin": "Egretta eulophotes",
+  "photographer": "Aiken Lau",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/637593083",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/637593083/large.jpg",
+  "status": "ok"
+ },
+ "fregata-andrewsi": {
+  "name": "白腹军舰鸟",
+  "latin": "Fregata andrewsi",
+  "photographer": "Fajar Alfitrian",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/352339919",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/352339919/original.jpeg",
+  "status": "refetched:816KB",
+  "refetched_size": 17139
+ },
+ "gorsachius-goisagi": {
+  "name": "日本虎斑鳽",
+  "latin": "Gorsachius goisagi",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/726216947",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/726216947/large.jpg",
+  "status": "ok"
+ },
+ "pandion-haliaetus": {
+  "name": "鹗",
+  "latin": "Pandion haliaetus",
+  "photographer": "Juan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605190659",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605190659/large.jpg",
+  "status": "ok"
+ },
+ "pernis-apivorus": {
+  "name": "蜂鹰",
+  "latin": "Pernis apivorus",
+  "photographer": "Bart Wursten",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605625695",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605625695/large.jpg",
+  "status": "ok"
+ },
+ "pelecanus-crispus": {
+  "name": "卷羽鹈鹕",
+  "latin": "Pelecanus crispus",
+  "photographer": "dimitris kaliakoudas",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605619586",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605619586/large.jpg",
+  "status": "ok"
+ },
+ "egretta-sacra": {
+  "name": "岩鹭",
+  "latin": "Egretta sacra",
+  "photographer": "Stephen Matthews",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605007969",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605007969/large.jpg",
+  "status": "ok"
+ },
+ "pernis-ptilorhynchus": {
+  "name": "凤头蜂鹰",
+  "latin": "Pernis ptilorhynchus",
+  "photographer": "Dominic Best",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608322308",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608322308/large.jpg",
+  "status": "ok"
+ },
+ "aviceda-jerdoni": {
+  "name": "褐冠鹃隼",
+  "latin": "Aviceda jerdoni",
+  "photographer": "Dixon Lau",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609020300",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609020300/large.jpg",
+  "status": "ok"
+ },
+ "gorsachius-melanolophus": {
+  "name": "黑冠麻鹭",
+  "latin": "Gorsachius melanolophus",
+  "photographer": "fettegams",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604434002",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604434002/large.jpg",
+  "status": "ok"
+ },
+ "fregata-minor": {
+  "name": "军舰鸟",
+  "latin": "Fregata minor",
+  "photographer": "Damien Wallace",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608580901",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608580901/large.jpg",
+  "status": "refetched:259KB",
+  "refetched_size": 13644
+ },
+ "ixobrychus-minutus": {
+  "name": "小苇鳽",
+  "latin": "Ixobrychus minutus",
+  "photographer": "Stichting Xeno-canto voor Natuurgeluiden",
+  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "",
+  "direct": "https://xeno-canto.org/sounds/spectrograms/VWWRQKFKMD/1101998/colour.png",
+  "status": "refetched:905KB",
+  "refetched_size": 4727
+ },
+ "elanus-caeruleus": {
+  "name": "黑翅鸢",
+  "latin": "Elanus caeruleus",
+  "photographer": "Yi-fan翊凡",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605049319",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605049319/large.jpg",
+  "status": "refetched:172KB",
+  "refetched_size": 14969
+ },
+ "gyps-fulvus": {
+  "name": "兀鹫",
+  "latin": "Gyps fulvus",
+  "photographer": "henrychinasky",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605587654",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605587654/large.jpg",
+  "status": "ok"
+ },
+ "threskiornis-melanocephalus": {
+  "name": "黑头白鹮",
+  "latin": "Threskiornis melanocephalus",
+  "photographer": "Vivek Patel",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605641715",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605641715/large.jpg",
+  "status": "refetched:379KB",
+  "refetched_size": 63959
+ },
+ "gyps-bengalensis": {
+  "name": "白背兀鹫",
+  "latin": "Gyps bengalensis",
+  "photographer": "Samarth Jain",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609522650",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609522650/large.jpg",
+  "status": "ok"
+ },
+ "gyps-indicus": {
+  "name": "印度兀鹫",
+  "latin": "Gyps indicus",
+  "photographer": "Noopur🍀",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610353237",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610353237/large.jpg",
+  "status": "ok"
+ },
+ "sarcogyps-calvus": {
+  "name": "秃鹫",
+  "latin": "Sarcogyps calvus",
+  "photographer": "Eswaran K",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607607949",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607607949/large.jpg",
+  "status": "ok"
+ },
+ "nisaetus-cirrhatus": {
+  "name": "白腹鹰雕",
+  "latin": "Nisaetus cirrhatus",
+  "photographer": "leewm66",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604468181",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604468181/large.jpg",
+  "status": "ok"
+ },
+ "aviceda-leuphotes": {
+  "name": "黑冠鹃隼",
+  "latin": "Aviceda leuphotes",
+  "photographer": "Ольга",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609693510",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609693510/large.jpg",
+  "status": "refetched:841KB",
+  "refetched_size": 32256
+ },
+ "neophron-percnopterus": {
+  "name": "白兀鹫",
+  "latin": "Neophron percnopterus",
+  "photographer": "Elaine Tan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605680698",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605680698/large.jpg",
+  "status": "refetched:268KB",
+  "refetched_size": 15190
+ },
+ "gypaetus-barbatus": {
+  "name": "胡兀鹫",
+  "latin": "Gypaetus barbatus",
+  "photographer": "Vladislav Mochalov",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605338232",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605338232/large.jpg",
+  "status": "refetched:392KB",
+  "refetched_size": 36660
+ },
+ "spilornis-cheela": {
+  "name": "蛇雕",
+  "latin": "Spilornis cheela",
+  "photographer": "Yi-fan翊凡",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604989074",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604989074/large.jpg",
+  "status": "ok"
+ },
+ "clanga-clanga": {
+  "name": "乌雕",
+  "latin": "Clanga clanga",
+  "photographer": "Gleb Berloff",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605078139",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605078139/large.jpg",
+  "status": "ok"
+ },
+ "aegypius-monachus": {
+  "name": "秃鹫",
+  "latin": "Aegypius monachus",
+  "photographer": "Cristina Villaverde",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/605698033",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605698033/large.jpg",
+  "status": "ok"
+ },
+ "nisaetus-nipalensis": {
+  "name": "鹰雕",
+  "latin": "Nisaetus nipalensis",
+  "photographer": "GreeneChen",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605587583",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605587583/large.jpg",
+  "status": "ok"
+ },
+ "circaetus-gallicus": {
+  "name": "短趾雕",
+  "latin": "Circaetus gallicus",
+  "photographer": "omii19",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605661799",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605661799/large.jpg",
+  "status": "refetched:313KB",
+  "refetched_size": 21615
+ },
+ "aquila-heliaca": {
+  "name": "白肩雕",
+  "latin": "Aquila heliaca",
+  "photographer": "Aiken Lau",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/606340355",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606340355/large.jpg",
+  "status": "ok"
+ },
+ "aquila-chrysaetos": {
+  "name": "金雕",
+  "latin": "Aquila chrysaetos",
+  "photographer": "Edwin Wilke",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605210637",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605210637/large.jpg",
+  "status": "ok"
+ },
+ "gyps-himalayensis": {
+  "name": "高山兀鹫",
+  "latin": "Gyps himalayensis",
+  "photographer": "Axl P.",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605590354",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605590354/large.jpg",
+  "status": "refetched:470KB",
+  "refetched_size": 109663
+ },
+ "accipiter-trivirgatus": {
+  "name": "凤头鹰",
+  "latin": "Accipiter trivirgatus",
+  "photographer": "Stichting Xeno-canto voor Natuurgeluiden",
+  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "",
+  "direct": "https://xeno-canto.org/sounds/spectrograms/FROVFAFTMA/1082164/colour.png",
+  "status": "ok"
+ },
+ "accipiter-badius": {
+  "name": "棕尾鵟鹰",
+  "latin": "Accipiter badius",
+  "photographer": "Stichting Xeno-canto voor Natuurgeluiden",
+  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "",
+  "direct": "https://xeno-canto.org/sounds/spectrograms/UXLMRFIWLM/1076938/colour.png",
+  "status": "ok"
+ },
+ "ictinaetus-malaiensis": {
+  "name": "黑鹰",
+  "latin": "Ictinaetus malaiensis",
+  "photographer": "李博恒",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605069082",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605069082/large.jpg",
+  "status": "refetched:234KB",
+  "refetched_size": 6475
+ },
+ "aquila-fasciata": {
+  "name": "Bonelli雕",
+  "latin": "Aquila fasciata",
+  "photographer": "BEKKOUCHE Abdelkader",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605609658",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605609658/large.jpg",
+  "status": "ok"
+ },
+ "lophotriorchis-kienerii": {
+  "name": "凤头鹰雕",
+  "latin": "Lophotriorchis kienerii",
+  "photographer": "Andreas Manz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/668597302",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/668597302/large.jpg",
+  "status": "refetched:966KB",
+  "refetched_size": 134974
+ },
+ "accipiter-soloensis": {
+  "name": "赤腹鹰",
+  "latin": "Accipiter soloensis",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15807305&h=2000",
+  "status": "ok"
+ },
+ "accipiter-nisus": {
+  "name": "雀鹰",
+  "latin": "Accipiter nisus",
+  "photographer": "Dominic Best",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605167482",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605167482/large.jpg",
+  "status": "ok"
+ },
+ "accipiter-gularis": {
+  "name": "日本松雀鹰",
+  "latin": "Accipiter gularis",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15813887&h=2000",
+  "status": "ok"
+ },
+ "accipiter-virgatus": {
+  "name": "松雀鹰",
+  "latin": "Accipiter virgatus",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15806802&h=2000",
+  "status": "ok"
+ },
+ "accipiter-gentilis": {
+  "name": "苍鹰",
+  "latin": "Accipiter gentilis",
+  "photographer": "Ingrid Rand",
+  "license": "http://creativecommons.org/licenses/by-sa/4.0/",
+  "page": "https://app.plutof.ut.ee/filerepository/view/8125287",
+  "direct": "https://s3.hpc.ut.ee/plutof-public/large/939b96a5-15e1-40cd-85fb-35681bf97e85.jpg",
+  "status": "ok"
+ },
+ "circus-pygargus": {
+  "name": "乌灰鹞",
+  "latin": "Circus pygargus",
+  "photographer": "Sri Srikumar",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/684096214",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/684096214/large.jpg",
+  "status": "ok"
+ },
+ "circus-aeruginosus": {
+  "name": "白头鹞",
+  "latin": "Circus aeruginosus",
+  "photographer": "cwriggy",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605051576",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605051576/large.jpg",
+  "status": "ok"
+ },
+ "aquila-nipalensis": {
+  "name": "草原雕",
+  "latin": "Aquila nipalensis",
+  "photographer": "Mohd Syafiq Sivakumaran Bin Abdullah",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608505356",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608505356/large.jpg",
+  "status": "refetched:1527KB",
+  "refetched_size": 160442
+ },
+ "hieraaetus-pennatus": {
+  "name": "靴隼雕",
+  "latin": "Hieraaetus pennatus",
+  "photographer": "Raúl Rodríguez",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/610253112",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610253112/large.jpg",
+  "status": "refetched:191KB",
+  "refetched_size": 5225
+ },
+ "circus-cyaneus": {
+  "name": "白尾鹞",
+  "latin": "Circus cyaneus",
+  "photographer": "Steph Brulot-Sawchyn",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604662513",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604662513/large.jpg",
+  "status": "ok"
+ },
+ "haliaeetus-leucogaster": {
+  "name": "白腹海雕",
+  "latin": "Haliaeetus leucogaster",
+  "photographer": "Sofia Zvolanek",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/605422323",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605422323/large.jpg",
+  "status": "ok"
+ },
+ "haliaeetus-pelagicus": {
+  "name": "虎头海雕",
+  "latin": "Haliaeetus pelagicus",
+  "photographer": "Hyunsoo Song",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608101881",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608101881/large.jpg",
+  "status": "ok"
+ },
+ "haliaeetus-leucoryphus": {
+  "name": "玉带海雕",
+  "latin": "Haliaeetus leucoryphus",
+  "photographer": "Donna Pomeroy",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/615716667",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/615716667/large.jpg",
+  "status": "ok"
+ },
+ "haliastur-indus": {
+  "name": "栗鸢",
+  "latin": "Haliastur indus",
+  "photographer": "Vinay Herle G",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605097555",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605097555/large.jpg",
+  "status": "ok"
+ },
+ "haliaeetus-albicilla": {
+  "name": "白尾海雕",
+  "latin": "Haliaeetus albicilla",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605054558",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605054558/large.jpg",
+  "status": "ok"
+ },
+ "circus-spilonotus": {
+  "name": "白腹鹞",
+  "latin": "Circus spilonotus",
+  "photographer": "Mickey Wu",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/605062351",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605062351/large.jpg",
+  "status": "refetched:116KB",
+  "refetched_size": 9488
+ },
+ "icthyophaga-humilis": {
+  "name": "渔雕",
+  "latin": "Icthyophaga humilis",
+  "photographer": "drtimk",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/620446633",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/620446633/large.jpg",
+  "status": "ok"
+ },
+ "sula-leucogaster": {
+  "name": "褐鲣鸟",
+  "latin": "Sula leucogaster",
+  "photographer": "Damien Wallace",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/610103171",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610103171/large.jpg",
+  "status": "ok"
+ },
+ "circus-macrourus": {
+  "name": "草原鹞",
+  "latin": "Circus macrourus",
+  "photographer": "bitsandbugs",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/611416323",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/611416323/large.jpg",
+  "status": "refetched:104KB",
+  "refetched_size": 4683
+ },
+ "circus-melanoleucos": {
+  "name": "鹊鹞",
+  "latin": "Circus melanoleucos",
+  "photographer": "Arne Holgersson",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/635907741",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/635907741/large.jpg",
+  "status": "refetched:154KB",
+  "refetched_size": 52934
+ },
+ "milvus-migrans": {
+  "name": "黑鸢",
+  "latin": "Milvus migrans",
+  "photographer": "Tim White",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604420257",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604420257/large.jpg",
+  "status": "refetched:461KB",
+  "refetched_size": 31287
+ },
+ "buteo-lagopus": {
+  "name": "毛脚鵟",
+  "latin": "Buteo lagopus",
+  "photographer": "Alexey Yakovlev",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605445505",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605445505/large.jpg",
+  "status": "ok"
+ },
+ "buteo-japonicus": {
+  "name": "日本鵟",
+  "latin": "Buteo japonicus",
+  "photographer": "taek-guen-im",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604920926",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604920926/large.jpg",
+  "status": "ok"
+ },
+ "buteo-refectus": {
+  "name": "喜马拉雅鵟",
+  "latin": "Buteo refectus",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/521252020",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/521252020/large.jpg",
+  "status": "ok"
+ },
+ "buteo-rufinus": {
+  "name": "棕尾鵟",
+  "latin": "Buteo rufinus",
+  "photographer": "Jean-Léonard Stör",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605171248",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605171248/large.jpg",
+  "status": "ok"
+ },
+ "buteo-buteo": {
+  "name": "普通鵟",
+  "latin": "Buteo buteo",
+  "photographer": "Nick Blewden",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605062434",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605062434/large.jpg",
+  "status": "ok"
+ },
+ "otus-spilocephalus": {
+  "name": "斑头鸺鹠",
+  "latin": "Otus spilocephalus",
+  "photographer": "ZhenningLiu",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610409835",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610409835/large.jpg",
+  "status": "ok"
+ },
+ "buteo-hemilasius": {
+  "name": "大鵟",
+  "latin": "Buteo hemilasius",
+  "photographer": "taek-guen-im",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604660752",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604660752/large.jpg",
+  "status": "ok"
+ },
+ "otus-lettia": {
+  "name": "领角鸮",
+  "latin": "Otus lettia",
+  "photographer": "Yi-fan翊凡",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604989017",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604989017/large.jpg",
+  "status": "ok"
+ },
+ "otus-semitorques": {
+  "name": "领角鸮",
+  "latin": "Otus semitorques",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/725741635",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/725741635/large.jpg",
+  "status": "ok"
+ },
+ "otus-brucei": {
+  "name": "白脸角鸮",
+  "latin": "Otus brucei",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/509277453",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/509277453/large.jpg",
+  "status": "ok"
+ },
+ "otus-scops": {
+  "name": "角鸮",
+  "latin": "Otus scops",
+  "photographer": "timothylloyd",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606826908",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606826908/large.jpg",
+  "status": "ok"
+ },
+ "otus-sunia": {
+  "name": "东方角鸮",
+  "latin": "Otus sunia",
+  "photographer": "Jiunn Hau Chong",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606866813",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606866813/large.jpg",
+  "status": "ok"
+ },
+ "otus-elegans": {
+  "name": "琉球角鸮",
+  "latin": "Otus elegans",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/726168974",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/726168974/large.jpg",
+  "status": "ok"
+ },
+ "bubo-scandiacus": {
+  "name": "雪鸮",
+  "latin": "Bubo scandiacus",
+  "photographer": "Kevin Achtmeyer",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605404446",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605404446/large.jpg",
+  "status": "ok"
+ },
+ "butastur-teesa": {
+  "name": "白眼鵟鹰",
+  "latin": "Butastur teesa",
+  "photographer": "wayfaring_of_the_mind",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608834033",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608834033/large.jpg",
+  "status": "refetched:1226KB",
+  "refetched_size": 214116
+ },
+ "bubo-bubo": {
+  "name": "雕鸮",
+  "latin": "Bubo bubo",
+  "photographer": "Manuel Torvisco Najarro",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605314429",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605314429/large.jpg",
+  "status": "ok"
+ },
+ "butastur-indicus": {
+  "name": "灰脸鵟鹰",
+  "latin": "Butastur indicus",
+  "photographer": "Ольга",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609694407",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609694407/large.jpg",
+  "status": "refetched:568KB",
+  "refetched_size": 47130
+ },
+ "ketupa-zeylonensis": {
+  "name": "黄脚渔鸮",
+  "latin": "Ketupa zeylonensis",
+  "photographer": "Ritu",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610535615",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610535615/large.jpg",
+  "status": "ok"
+ },
+ "bubo-blakistoni": {
+  "name": "毛腿渔鸮",
+  "latin": "Bubo blakistoni",
+  "photographer": "Charley Hesse",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/616892909",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/616892909/large.jpg",
+  "status": "ok"
+ },
+ "strix-davidi": {
+  "name": "四川林鸮",
+  "latin": "Strix davidi",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/620206395",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/620206395/large.jpg",
+  "status": "ok"
+ },
+ "bubo-nipalensis": {
+  "name": "褐渔鸮",
+  "latin": "Bubo nipalensis",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15819131&h=2000",
+  "status": "ok"
+ },
+ "ketupa-flavipes": {
+  "name": "黄脚渔鸮",
+  "latin": "Ketupa flavipes",
+  "photographer": "syy55016",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/725670401",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/725670401/large.jpg",
+  "status": "ok"
+ },
+ "strix-nebulosa": {
+  "name": "乌林鸮",
+  "latin": "Strix nebulosa",
+  "photographer": "Александр Кочетков",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605352982",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605352982/large.jpg",
+  "status": "ok"
+ },
+ "butastur-liventer": {
+  "name": "灰脸鵟鹰",
+  "latin": "Butastur liventer",
+  "photographer": "Ben Costamagna",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/609188224",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609188224/large.jpg",
+  "status": "refetched:249KB",
+  "refetched_size": 83313
+ },
+ "strix-leptogrammica": {
+  "name": "褐林鸮",
+  "latin": "Strix leptogrammica",
+  "photographer": "CabbageHinjabi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605021660",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605021660/large.jpg",
+  "status": "ok"
+ },
+ "surnia-ulula": {
+  "name": "鬼鸮",
+  "latin": "Surnia ulula",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605054878",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605054878/large.jpg",
+  "status": "ok"
+ },
+ "strix-uralensis": {
+  "name": "乌林鸮",
+  "latin": "Strix uralensis",
+  "photographer": "Сергей Неклюдов",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/604748322",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604748322/large.jpg",
+  "status": "ok"
+ },
+ "strix-aluco": {
+  "name": "灰林鸮",
+  "latin": "Strix aluco",
+  "photographer": "Victor Beccari",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605055267",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605055267/large.jpg",
+  "status": "ok"
+ },
+ "glaucidium-cuculoides": {
+  "name": "斑头鸺鹠",
+  "latin": "Glaucidium cuculoides",
+  "photographer": "邱谷歌",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605351863",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605351863/large.jpg",
+  "status": "ok"
+ },
+ "athene-noctua": {
+  "name": "纵纹腹小鸮",
+  "latin": "Athene noctua",
+  "photographer": "Istvan Sipos",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608944641",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608944641/large.jpg",
+  "status": "ok"
+ },
+ "athene-brama": {
+  "name": "斑点鸺鹠",
+  "latin": "Athene brama",
+  "photographer": "Dominic Best",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/609146661",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609146661/large.jpg",
+  "status": "ok"
+ },
+ "glaucidium-passerinum": {
+  "name": "花头鸺鹠",
+  "latin": "Glaucidium passerinum",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/606368605",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606368605/large.jpg",
+  "status": "ok"
+ },
+ "aegolius-funereus": {
+  "name": "北方鸺鹠",
+  "latin": "Aegolius funereus",
+  "photographer": "Reuven Martin",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/647117771",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/647117771/large.jpg",
+  "status": "ok"
+ },
+ "ninox-scutulata": {
+  "name": "褐鹰鸮",
+  "latin": "Ninox scutulata",
+  "photographer": "CabbageHinjabi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605599468",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605599468/large.jpg",
+  "status": "ok"
+ },
+ "asio-otus": {
+  "name": "长耳鸮",
+  "latin": "Asio otus",
+  "photographer": "Юлия Швецова",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605673391",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605673391/large.jpg",
+  "status": "ok"
+ },
+ "glaucidium-brodiei": {
+  "name": "纵纹腹小鸮",
+  "latin": "Glaucidium brodiei",
+  "photographer": "肯德基先生",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608647922",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608647922/large.jpg",
+  "status": "ok"
+ },
+ "tyto-alba": {
+  "name": "仓鸮",
+  "latin": "Tyto alba",
+  "photographer": "Dominic Best",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605168960",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605168960/large.jpg",
+  "status": "ok"
+ },
+ "tyto-longimembris": {
+  "name": "草鸮",
+  "latin": "Tyto longimembris",
+  "photographer": "Kuan-Chieh (Chuck) Hung",
+  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "page": "https://www.inaturalist.org/photos/610155107",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610155107/large.jpg",
+  "status": "ok"
+ },
+ "ninox-japonica": {
+  "name": "日本鹰鸮",
+  "latin": "Ninox japonica",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/726867490",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/726867490/large.jpg",
+  "status": "ok"
+ },
+ "harpactes-oreskios": {
+  "name": "橙胸咬鹃",
+  "latin": "Harpactes oreskios",
+  "photographer": "lallen",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/683454741",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/683454741/large.jpg",
+  "status": "ok"
+ },
+ "harpactes-wardi": {
+  "name": "黄腹咬鹃",
+  "latin": "Harpactes wardi",
+  "photographer": "Linda",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/636117583",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/636117583/large.jpg",
+  "status": "ok"
+ },
+ "harpactes-erythrocephalus": {
+  "name": "红头咬鹃",
+  "latin": "Harpactes erythrocephalus",
+  "photographer": "russnamitz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/614358091",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/614358091/large.jpg",
+  "status": "ok"
+ },
+ "buceros-bicornis": {
+  "name": "双角犀鸟",
+  "latin": "Buceros bicornis",
+  "photographer": "CabbageHinjabi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605586110",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605586110/large.jpg",
+  "status": "ok"
+ },
+ "anorrhinus-austeni": {
+  "name": "棕颈犀鸟",
+  "latin": "Anorrhinus austeni",
+  "photographer": "Next Continent: Wildlife, Photography and Natural History Tours",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609319778",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609319778/large.jpg",
+  "status": "ok"
+ },
+ "anthracoceros-albirostris": {
+  "name": "白喉犀鸟",
+  "latin": "Anthracoceros albirostris",
+  "photographer": "oilezzsk",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605308046",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605308046/large.jpg",
+  "status": "ok"
+ },
+ "rhyticeros-undulatus": {
+  "name": "花冠皱盔犀鸟",
+  "latin": "Rhyticeros undulatus",
+  "photographer": "damiangan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605308466",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605308466/large.jpg",
+  "status": "ok"
+ },
+ "aceros-nipalensis": {
+  "name": "棕颈犀鸟",
+  "latin": "Aceros nipalensis",
+  "photographer": "brandt2154",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/732348834",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/732348834/large.jpg",
+  "status": "ok"
+ },
+ "merops-orientalis": {
+  "name": "绿蜂虎",
+  "latin": "Merops orientalis",
+  "photographer": "S.MORE",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608189792",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608189792/large.jpg",
+  "status": "ok"
+ },
+ "merops-persicus": {
+  "name": "蓝颊蜂虎",
+  "latin": "Merops persicus",
+  "photographer": "altagray",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610452921",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610452921/large.jpg",
+  "status": "ok"
+ },
+ "merops-philippinus": {
+  "name": "蓝尾蜂虎",
+  "latin": "Merops philippinus",
+  "photographer": "Rebecca Chan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605267628",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605267628/large.jpg",
+  "status": "ok"
+ },
+ "phodilus-badius": {
+  "name": "东方草鸮",
+  "latin": "Phodilus badius",
+  "photographer": "abcdefgewing",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/613551355",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/613551355/large.jpg",
+  "status": "ok"
+ },
+ "merops-ornatus": {
+  "name": "彩虹蜂虎",
+  "latin": "Merops ornatus",
+  "photographer": "Stuart",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604417216",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604417216/large.jpg",
+  "status": "ok"
+ },
+ "alcedo-meninting": {
+  "name": "蓝耳翠鸟",
+  "latin": "Alcedo meninting",
+  "photographer": "eman0000n",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607826183",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607826183/large.jpg",
+  "status": "ok"
+ },
+ "merops-leschenaulti": {
+  "name": "栗喉蜂虎",
+  "latin": "Merops leschenaulti",
+  "photographer": "Deepa Mohan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605042209",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605042209/large.jpg",
+  "status": "ok"
+ },
+ "alcedo-hercules": {
+  "name": "鹳嘴翠鸟",
+  "latin": "Alcedo hercules",
+  "photographer": "Uday Agashe",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/615183534",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/615183534/large.jpg",
+  "status": "ok"
+ },
+ "halcyon-smyrnensis": {
+  "name": "白胸翡翠",
+  "latin": "Halcyon smyrnensis",
+  "photographer": "virginiacspencer",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604966460",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604966460/large.jpg",
+  "status": "ok"
+ },
+ "pelargopsis-capensis": {
+  "name": "鹳嘴翡翠",
+  "latin": "Pelargopsis capensis",
+  "photographer": "yzh0924",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604664130",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604664130/large.jpg",
+  "status": "ok"
+ },
+ "nyctyornis-athertoni": {
+  "name": "蓝须夜蜂虎",
+  "latin": "Nyctyornis athertoni",
+  "photographer": "Omkar S Damle",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605040890",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605040890/large.jpg",
+  "status": "ok"
+ },
+ "nyctyornis-amictus": {
+  "name": "红须夜蜂虎",
+  "latin": "Nyctyornis amictus",
+  "photographer": "Kevin Chen",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605584880",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605584880/large.jpg",
+  "status": "ok"
+ },
+ "asio-flammeus": {
+  "name": "短耳鸮",
+  "latin": "Asio flammeus",
+  "photographer": "sarinole",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604688287",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604688287/large.jpg",
+  "status": "refetched:158KB",
+  "refetched_size": 16491
+ },
+ "picoides-tridactylus": {
+  "name": "三趾啄木鸟",
+  "latin": "Picoides tridactylus",
+  "photographer": "Лариса Артемьева",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/610403936",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610403936/large.jpg",
+  "status": "ok"
+ },
+ "dryocopus-javensis": {
+  "name": "白腹黑啄木鸟",
+  "latin": "Dryocopus javensis",
+  "photographer": "Dixon Lau",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610361650",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610361650/large.jpg",
+  "status": "ok"
+ },
+ "dendrocopos-leucopterus": {
+  "name": "白翅啄木鸟",
+  "latin": "Dendrocopos leucopterus",
+  "photographer": "Olga Sivokon",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605638805",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605638805/large.jpg",
+  "status": "ok"
+ },
+ "picus-chlorolophus": {
+  "name": "黄冠绿啄木鸟",
+  "latin": "Picus chlorolophus",
+  "photographer": "pyrococcus_furiosus",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609126345",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609126345/large.jpg",
+  "status": "ok"
+ },
+ "picus-rabieri": {
+  "name": "黑头绿啄木鸟",
+  "latin": "Picus rabieri",
+  "photographer": "Christoph Moning",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/105891223",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/105891223/original.jpeg",
+  "status": "ok"
+ },
+ "mulleripicus-pulverulentus": {
+  "name": "大灰啄木鸟",
+  "latin": "Mulleripicus pulverulentus",
+  "photographer": "John Howes",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604637589",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604637589/large.jpg",
+  "status": "ok"
+ },
+ "chrysophlegma-flavinucha": {
+  "name": "黄冠啄木鸟",
+  "latin": "Chrysophlegma flavinucha",
+  "photographer": "Tero Linjama",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/629579794",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/629579794/large.jpg",
+  "status": "ok"
+ },
+ "microhierax-melanoleucos": {
+  "name": "白腿小隼",
+  "latin": "Microhierax melanoleucos",
+  "photographer": "abcdefgewing",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/615087158",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/615087158/large.jpg",
+  "status": "ok"
+ },
+ "dryocopus-martius": {
+  "name": "黑啄木鸟",
+  "latin": "Dryocopus martius",
+  "photographer": "Рустам Сафаргалиев",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604756034",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604756034/large.jpg",
+  "status": "ok"
+ },
+ "microhierax-caerulescens": {
+  "name": "白腿小隼",
+  "latin": "Microhierax caerulescens",
+  "photographer": "pyrococcus_furiosus",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609432098",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609432098/large.jpg",
+  "status": "ok"
+ },
+ "falco-naumanni": {
+  "name": "红隼",
+  "latin": "Falco naumanni",
+  "photographer": "Andrew Deacon",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/618920246",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/618920246/large.jpg",
+  "status": "ok"
+ },
+ "falco-tinnunculus": {
+  "name": "红隼",
+  "latin": "Falco tinnunculus",
+  "photographer": "oilezzsk",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605308099",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605308099/large.jpg",
+  "status": "ok"
+ },
+ "falco-vespertinus": {
+  "name": "西红脚隼",
+  "latin": "Falco vespertinus",
+  "photographer": "wihan_nel",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/611459835",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/611459835/large.jpg",
+  "status": "ok"
+ },
+ "falco-subbuteo": {
+  "name": "燕隼",
+  "latin": "Falco subbuteo",
+  "photographer": "Dhruva Punde",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608848348",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608848348/large.jpg",
+  "status": "ok"
+ },
+ "falco-columbarius": {
+  "name": "灰背隼",
+  "latin": "Falco columbarius",
+  "photographer": "Kat B",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/605531702",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605531702/large.jpg",
+  "status": "ok"
+ },
+ "falco-rusticolus": {
+  "name": "矛隼",
+  "latin": "Falco rusticolus",
+  "photographer": "Charlie Thomas",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/712781971",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/712781971/large.jpg",
+  "status": "ok"
+ },
+ "falco-cherrug": {
+  "name": "猎隼",
+  "latin": "Falco cherrug",
+  "photographer": "Irina Krug",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605648090",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605648090/large.jpg",
+  "status": "ok"
+ },
+ "merops-viridis": {
+  "name": "蓝喉蜂虎",
+  "latin": "Merops viridis",
+  "photographer": "aislastringer",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605279384",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605279384/large.jpg",
+  "status": "refetched:458KB",
+  "refetched_size": 89289
+ },
+ "loriculus-vernalis": {
+  "name": "春绿鹦鹉",
+  "latin": "Loriculus vernalis",
+  "photographer": "lallen",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/670395165",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/670395165/large.jpg",
+  "status": "ok"
+ },
+ "psittacula-krameri": {
+  "name": "红领绿鹦鹉",
+  "latin": "Psittacula krameri",
+  "photographer": "Pedro",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605601324",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605601324/large.jpg",
+  "status": "ok"
+ },
+ "psittacula-eupatria": {
+  "name": "亚历山大鹦鹉",
+  "latin": "Psittacula eupatria",
+  "photographer": "Dominic Best",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/607679425",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607679425/large.jpg",
+  "status": "ok"
+ },
+ "psittacula-himalayana": {
+  "name": "灰头鹦鹉",
+  "latin": "Psittacula himalayana",
+  "photographer": "Elaine Tan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605358302",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605358302/large.jpg",
+  "status": "ok"
+ },
+ "psittacula-finschii": {
+  "name": "芬氏鹦鹉",
+  "latin": "Psittacula finschii",
+  "photographer": "Khant Ye Yint ( Lord Khanevyr ov Mandralyx)",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604784950",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604784950/large.jpg",
+  "status": "ok"
+ },
+ "falco-peregrinus": {
+  "name": "游隼",
+  "latin": "Falco peregrinus",
+  "photographer": "Yi-fan翊凡",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/604988966",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604988966/large.jpg",
+  "status": "ok"
+ },
+ "psittacula-roseata": {
+  "name": "红胸鹦鹉",
+  "latin": "Psittacula roseata",
+  "photographer": "arlehk",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610745821",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610745821/large.jpg",
+  "status": "ok"
+ },
+ "pitta-phayrei": {
+  "name": "蓝斑八色鸫",
+  "latin": "Pitta phayrei",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15812372&h=2000",
+  "status": "ok"
+ },
+ "psittacula-alexandri": {
+  "name": "绯胸鹦鹉",
+  "latin": "Psittacula alexandri",
+  "photographer": "minnx",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604441862",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604441862/large.jpg",
+  "status": "ok"
+ },
+ "pitta-nipalensis": {
+  "name": "蓝八色鸫",
+  "latin": "Pitta nipalensis",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/358956143",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/358956143/original.jpeg",
+  "status": "ok"
+ },
+ "pitta-sordida": {
+  "name": "绿胸八色鸫",
+  "latin": "Pitta sordida",
+  "photographer": "Chuck Wilson",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/626294418",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/626294418/large.jpg",
+  "status": "ok"
+ },
+ "pitta-oatesi": {
+  "name": "栗头八色鸫",
+  "latin": "Pitta oatesi",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/358956142",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/358956142/original.jpeg",
+  "status": "ok"
+ },
+ "psittacula-derbiana": {
+  "name": "大紫胸鹦鹉",
+  "latin": "Psittacula derbiana",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/529161903",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/529161903/large.jpg",
+  "status": "ok"
+ },
+ "pitta-cyanea": {
+  "name": "蓝八色鸫",
+  "latin": "Pitta cyanea",
+  "photographer": "Penhtah Mahakayi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607634156",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607634156/large.jpg",
+  "status": "ok"
+ },
+ "falco-severus": {
+  "name": "猛隼",
+  "latin": "Falco severus",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/710794519",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/710794519/large.jpg",
+  "status": "refetched:202KB",
+  "refetched_size": 4293
+ },
+ "pitta-soror": {
+  "name": "蓝背八色鸫",
+  "latin": "Pitta soror",
+  "photographer": "PampaSorro",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/608900421",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608900421/large.jpg",
+  "status": "ok"
+ },
+ "pitta-nympha": {
+  "name": "仙八色鸫",
+  "latin": "Pitta nympha",
+  "photographer": "irfansofyan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607382264",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607382264/large.jpg",
+  "status": "ok"
+ },
+ "falco-amurensis": {
+  "name": "阿穆尔隼",
+  "latin": "Falco amurensis",
+  "photographer": "Vaughan Jessnitz",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609884795",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609884795/large.jpg",
+  "status": "refetched:496KB",
+  "refetched_size": 14973
+ },
+ "oriolus-mellianus": {
+  "name": "海南黄鹂",
+  "latin": "Oriolus mellianus",
+  "photographer": "benjamynweil",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/464705805",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/464705805/original.jpeg",
+  "status": "ok"
+ },
+ "psarisomus-dalhousiae": {
+  "name": "长尾阔嘴鸟",
+  "latin": "Psarisomus dalhousiae",
+  "photographer": "lallen",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/670391560",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/670391560/large.jpg",
+  "status": "ok"
+ },
+ "serilophus-lunatus": {
+  "name": "银胸阔嘴鸟",
+  "latin": "Serilophus lunatus",
+  "photographer": "Yinglun Li",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606118185",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606118185/large.jpg",
+  "status": "ok"
+ },
+ "dicrurus-remifer": {
+  "name": "发冠卷尾",
+  "latin": "Dicrurus remifer",
+  "photographer": "Tero Linjama",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/628077098",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/628077098/large.jpg",
+  "status": "ok"
+ },
+ "dicrurus-paradiseus": {
+  "name": "大盘尾",
+  "latin": "Dicrurus paradiseus",
+  "photographer": "CabbageHinjabi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604797457",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604797457/large.jpg",
+  "status": "ok"
+ },
+ "podoces-hendersoni": {
+  "name": "沙百灵",
+  "latin": "Podoces hendersoni",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/695661785",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/695661785/large.jpg",
+  "status": "ok"
+ },
+ "psittinus-cyanurus": {
+  "name": "蓝尾鹦鹉",
+  "latin": "Psittinus cyanurus",
+  "photographer": "Minder Singh",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/627544891",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/627544891/large.jpg",
+  "status": "refetched:477KB",
+  "refetched_size": 65888
+ },
+ "cissa-hypoleuca": {
+  "name": "短尾绿鹊",
+  "latin": "Cissa hypoleuca",
+  "photographer": "zhaoyang Tang",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607948234",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607948234/large.jpg",
+  "status": "ok"
+ },
+ "cissa-chinensis": {
+  "name": "蓝绿鹊",
+  "latin": "Cissa chinensis",
+  "photographer": "kiulas",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609211160",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609211160/large.jpg",
+  "status": "ok"
+ },
+ "podoces-biddulphi": {
+  "name": "白尾地鸦",
+  "latin": "Podoces biddulphi",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/395649640",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/395649640/large.jpg",
+  "status": "ok"
+ },
+ "poecile-davidi": {
+  "name": "红腹山雀",
+  "latin": "Poecile davidi",
+  "photographer": "大鹅Goose",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/608622480",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608622480/large.jpg",
+  "status": "ok"
+ },
+ "mirafra-javanica": {
+  "name": "歌百灵",
+  "latin": "Mirafra javanica",
+  "photographer": "Tony Eales",
+  "license": "http://creativecommons.org/licenses/by-sa/4.0/",
+  "page": "https://www.inaturalist.org/photos/605529053",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605529053/large.jpg",
+  "status": "ok"
+ },
+ "melanocorypha-mongolica": {
+  "name": "蒙古百灵",
+  "latin": "Melanocorypha mongolica",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/686430649",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/686430649/large.jpg",
+  "status": "ok"
+ },
+ "acrocephalus-sorghophilus": {
+  "name": "细纹苇莺",
+  "latin": "Acrocephalus sorghophilus",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15812380&h=2000",
+  "status": "ok"
+ },
+ "perisoreus-internigrans": {
+  "name": "黑头噪鸦",
+  "latin": "Perisoreus internigrans",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/521251981",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/521251981/large.jpg",
+  "status": "ok"
+ },
+ "alauda-arvensis": {
+  "name": "云雀",
+  "latin": "Alauda arvensis",
+  "photographer": "Damien Wallace",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/605282157",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605282157/large.jpg",
+  "status": "ok"
+ },
+ "poecile-superciliosus": {
+  "name": "白眉山雀",
+  "latin": "Poecile superciliosus",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800877",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800877/original.jpeg",
+  "status": "ok"
+ },
+ "fulvetta-striaticollis": {
+  "name": "条纹雀鹛",
+  "latin": "Fulvetta striaticollis",
+  "photographer": "zztty",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607385706",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607385706/large.jpg",
+  "status": "ok"
+ },
+ "moupinia-poecilotis": {
+  "name": "灰头雀鹛",
+  "latin": "Moupinia poecilotis",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609960089",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609960089/large.jpg",
+  "status": "ok"
+ },
+ "cholornis-paradoxus": {
+  "name": "三趾鸦雀",
+  "latin": "Cholornis paradoxus",
+  "photographer": "leekelai",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610109161",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610109161/large.jpg",
+  "status": "ok"
+ },
+ "sinosuthora-zappeyi": {
+  "name": "灰冠鹦雀",
+  "latin": "Sinosuthora zappeyi",
+  "photographer": "Zihao",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/653297553",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/653297553/large.jpg",
+  "status": "ok"
+ },
+ "sinosuthora-conspicillata": {
+  "name": "银脸鹦雀",
+  "latin": "Sinosuthora conspicillata",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/621189512",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/621189512/large.jpg",
+  "status": "ok"
+ },
+ "neosuthora-davidiana": {
+  "name": "棕头鹦雀",
+  "latin": "Neosuthora davidiana",
+  "photographer": "Fei-zheng Wu @ 吴飞征",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/649238980",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/649238980/large.jpg",
+  "status": "ok"
+ },
+ "pycnonotus-taivanus": {
+  "name": "台湾鹎",
+  "latin": "Pycnonotus taivanus",
+  "photographer": "Yi-fan翊凡",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/652824502",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/652824502/large.jpg",
+  "status": "ok"
+ },
+ "pitta-molucensis": {
+  "name": "栗腹八色鸫",
+  "latin": "Pitta molucensis",
+  "photographer": "joshuaelau",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/607453650",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607453650/large.jpg",
+  "status": "refetched:808KB",
+  "refetched_size": 123484
+ },
+ "spelaeornis-kinneari": {
+  "name": "金胸鹛",
+  "latin": "Spelaeornis kinneari",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/350298561",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/350298561/original.jpeg",
+  "status": "ok"
+ },
+ "zosterops-erythropleurus": {
+  "name": "红胁绣眼鸟",
+  "latin": "Zosterops erythropleurus",
+  "photographer": "Yvonne van Spronsen",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605562313",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605562313/large.jpg",
+  "status": "ok"
+ },
+ "paradoxornis-heudei": {
+  "name": "震旦鸦雀",
+  "latin": "Paradoxornis heudei",
+  "photographer": "红梅",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604437083",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604437083/large.jpg",
+  "status": "ok"
+ },
+ "lioparus-chrysotis": {
+  "name": "金胸雀鹛",
+  "latin": "Lioparus chrysotis",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609960102",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609960102/large.jpg",
+  "status": "ok"
+ },
+ "babax-koslowi": {
+  "name": "棕噪鹛",
+  "latin": "Babax koslowi",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800186",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800186/large.jpg",
+  "status": "ok"
+ },
+ "stachyris-nonggangensis": {
+  "name": "弄岗穗鹛",
+  "latin": "Stachyris nonggangensis",
+  "photographer": "白腰雪雀",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609952763",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609952763/large.jpg",
+  "status": "ok"
+ },
+ "schoeniparus-variegaticeps": {
+  "name": "杂色穗鹛",
+  "latin": "Schoeniparus variegaticeps",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/337839262",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/337839262/original.jpeg",
+  "status": "ok"
+ },
+ "sinosuthora-przewalskii": {
+  "name": "灰头鹦雀",
+  "latin": "Sinosuthora przewalskii",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/358967145",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/358967145/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-canorus": {
+  "name": "画眉",
+  "latin": "Garrulax canorus",
+  "photographer": "renshuchu",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/607101966",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/607101966/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-taewanus": {
+  "name": "台湾噪鹛",
+  "latin": "Garrulax taewanus",
+  "photographer": "Dario Taraborelli",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/633895600",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/633895600/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-maesi": {
+  "name": "灰胸噪鹛",
+  "latin": "Garrulax maesi",
+  "photographer": "beilan",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/723065708",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/723065708/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-sukatschewi": {
+  "name": "棕噪鹛",
+  "latin": "Garrulax sukatschewi",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/520230199",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/520230199/large.jpg",
+  "status": "ok"
+ },
+ "babax-waddelli": {
+  "name": "西藏噪鹛",
+  "latin": "Babax waddelli",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/730273086",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/730273086/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-bieti": {
+  "name": "白颈噪鹛",
+  "latin": "Garrulax bieti",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609960127",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609960127/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-courtoisi": {
+  "name": "蓝冠噪鹛",
+  "latin": "Garrulax courtoisi",
+  "photographer": "犭蝽蝽",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/644917042",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/644917042/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-chinensis": {
+  "name": "黑领噪鹛",
+  "latin": "Garrulax chinensis",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/612650120",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/612650120/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-berthemyi": {
+  "name": "棕胸噪鹛",
+  "latin": "Garrulax berthemyi",
+  "photographer": "solanine",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610922127",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610922127/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-maximus": {
+  "name": "大噪鹛",
+  "latin": "Garrulax maximus",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/520229893",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/520229893/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-ocellatus": {
+  "name": "斑背噪鹛",
+  "latin": "Garrulax ocellatus",
+  "photographer": "Omar Haroon",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/512687961",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/512687961/large.jpg",
+  "status": "ok"
+ },
+ "trochalopteron-milnei": {
+  "name": "红翅噪鹛",
+  "latin": "Trochalopteron milnei",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/358956145",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/358956145/original.jpeg",
+  "status": "ok"
+ },
+ "trochalopteron-elliotii": {
+  "name": "红嘴相思鸟",
+  "latin": "Trochalopteron elliotii",
+  "photographer": "celestwsx",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/623878559",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/623878559/large.jpg",
+  "status": "ok"
+ },
+ "trochalopteron-formosum": {
+  "name": "丽色噪鹛",
+  "latin": "Trochalopteron formosum",
+  "photographer": "Gideon Lam",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/640105234",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/640105234/large.jpg",
+  "status": "ok"
+ },
+ "liocichla-omeiensis": {
+  "name": "峨眉丽色鹛",
+  "latin": "Liocichla omeiensis",
+  "photographer": "leekelai",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610109025",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610109025/large.jpg",
+  "status": "ok"
+ },
+ "liocichla-bugunorum": {
+  "name": "布氏丛鹛",
+  "latin": "Liocichla bugunorum",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/395650979",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/395650979/large.jpg",
+  "status": "ok"
+ },
+ "leiothrix-lutea": {
+  "name": "红嘴相思鸟",
+  "latin": "Leiothrix lutea",
+  "photographer": "mhiromi",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606607646",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606607646/large.jpg",
+  "status": "ok"
+ },
+ "sitta-yunnanensis": {
+  "name": "云南䴓",
+  "latin": "Sitta yunnanensis",
+  "photographer": "云鸮",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/609960115",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/609960115/large.jpg",
+  "status": "ok"
+ },
+ "sitta-magna": {
+  "name": "巨䴓",
+  "latin": "Sitta magna",
+  "photographer": "johnlerond",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/606599332",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/606599332/large.jpg",
+  "status": "ok"
+ },
+ "sitta-formosa": {
+  "name": "绣腹䴓",
+  "latin": "Sitta formosa",
+  "photographer": "p_concolor",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/617244172",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/617244172/large.jpg",
+  "status": "ok"
+ },
+ "gracula-religiosa": {
+  "name": "八哥",
+  "latin": "Gracula religiosa",
+  "photographer": "Eng Kai Yeo",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605266596",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605266596/large.jpg",
+  "status": "ok"
+ },
+ "cochoa-purpurea": {
+  "name": "紫宽嘴鸫",
+  "latin": "Cochoa purpurea",
+  "photographer": "Sourav Halder",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/730147849",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/730147849/large.jpg",
+  "status": "ok"
+ },
+ "cochoa-viridis": {
+  "name": "绿宽嘴鸫",
+  "latin": "Cochoa viridis",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/395651050",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/395651050/large.jpg",
+  "status": "ok"
+ },
+ "certhia-tianquanensis": {
+  "name": "四川旋木雀",
+  "latin": "Certhia tianquanensis",
+  "photographer": "zztty",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/611109866",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/611109866/large.jpg",
+  "status": "ok"
+ },
+ "larvivora-ruficeps": {
+  "name": "红顶歌鸲",
+  "latin": "Larvivora ruficeps",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/337837599",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/337837599/original.jpeg",
+  "status": "ok"
+ },
+ "turdus-feae": {
+  "name": "费氏鸫",
+  "latin": "Turdus feae",
+  "photographer": "Ben Costamagna",
+  "license": "http://creativecommons.org/licenses/by/4.0/",
+  "page": "https://www.inaturalist.org/photos/610129399",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610129399/large.jpg",
+  "status": "ok"
+ },
+ "calliope-obscura": {
+  "name": "黑胸歌鸲",
+  "latin": "Calliope obscura",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/421833116",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/421833116/original.jpeg",
+  "status": "ok"
+ },
+ "leiothrix-argentauris": {
+  "name": "银耳相思鸟",
+  "latin": "Leiothrix argentauris",
+  "photographer": "Tero Linjama",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/629579845",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/629579845/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-owstoni": {
+  "name": "栗背短脚鹛",
+  "latin": "Garrulax owstoni",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608550972",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608550972/large.jpg",
+  "status": "refetched:840KB",
+  "refetched_size": 121496
+ },
+ "tarsiger-hyperythrus": {
+  "name": "橙胸姬鹟",
+  "latin": "Tarsiger hyperythrus",
+  "photographer": "p_concolor",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/617386671",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/617386671/large.jpg",
+  "status": "ok"
+ },
+ "luscinia-svecica": {
+  "name": "蓝喉歌鸲",
+  "latin": "Luscinia svecica",
+  "photographer": "Robert Moorhead",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608572252",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608572252/large.jpg",
+  "status": "ok"
+ },
+ "garrulax-lumulatus": {
+  "name": "灰头噪鹛",
+  "latin": "Garrulax lumulatus",
+  "photographer": "Division of Birds",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "",
+  "direct": "https://collections.nmnh.si.edu/media/?i=15822847&h=2000",
+  "status": "refetched:458KB",
+  "refetched_size": 92110
+ },
+ "calliope-pectardens": {
+  "name": "黑喉歌鸲",
+  "latin": "Calliope pectardens",
+  "photographer": "rodersmit",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/660072552",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/660072552/large.jpg",
+  "status": "ok"
+ },
+ "luscinia-megarhynchos": {
+  "name": "夜莺",
+  "latin": "Luscinia megarhynchos",
+  "photographer": "Wilco Vertegaal",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/630037105",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/630037105/large.jpg",
+  "status": "ok"
+ },
+ "cyornis-brunneatus": {
+  "name": "棕腹林鹟",
+  "latin": "Cyornis brunneatus",
+  "photographer": "zhangmw",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/661877811",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/661877811/large.jpg",
+  "status": "ok"
+ },
+ "phoenicurus-alaschanicus": {
+  "name": "贺兰山红尾鸲",
+  "latin": "Phoenicurus alaschanicus",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800556",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800556/large.jpg",
+  "status": "ok"
+ },
+ "calliope-calliope": {
+  "name": "红喉歌鸲",
+  "latin": "Calliope calliope",
+  "photographer": "alderchang",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605482656",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605482656/large.jpg",
+  "status": "ok"
+ },
+ "prunella-koslowi": {
+  "name": "贺兰山岩鹨",
+  "latin": "Prunella koslowi",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/350434304",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/350434304/original.jpeg",
+  "status": "ok"
+ },
+ "saxicola-insignis": {
+  "name": "黑喉石䳭",
+  "latin": "Saxicola insignis",
+  "photographer": "kenny_well",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/728837197",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/728837197/large.jpg",
+  "status": "ok"
+ },
+ "carpodacus-sillemi": {
+  "name": "西藏红眉朱雀",
+  "latin": "Carpodacus sillemi",
+  "photographer": "管牧山",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/691191057",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/691191057/large.jpg",
+  "status": "ok"
+ },
+ "carpodacus-roseus": {
+  "name": "玫瑰红眉朱雀",
+  "latin": "Carpodacus roseus",
+  "photographer": "observe-syz",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/608550648",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/608550648/large.jpg",
+  "status": "ok"
+ },
+ "niltava-grandis": {
+  "name": "大蓝仙鹟",
+  "latin": "Niltava grandis",
+  "photographer": "Sam Hambly",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605349970",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605349970/large.jpg",
+  "status": "ok"
+ },
+ "carpodacus-roborowskii": {
+  "name": "白眉朱雀",
+  "latin": "Carpodacus roborowskii",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800657",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800657/large.jpg",
+  "status": "ok"
+ },
+ "niltava-davidi": {
+  "name": "黄腹蓝仙鹟",
+  "latin": "Niltava davidi",
+  "photographer": "stimes",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/610697021",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610697021/large.jpg",
+  "status": "ok"
+ },
+ "urocynchramus-pylzowi": {
+  "name": "朱鹀",
+  "latin": "Urocynchramus pylzowi",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/521250240",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/521250240/large.jpg",
+  "status": "ok"
+ },
+ "emberiza-aureola": {
+  "name": "黄胸鹀",
+  "latin": "Emberiza aureola",
+  "photographer": "Peter Ericsson",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/604391229",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/604391229/large.jpg",
+  "status": "ok"
+ },
+ "emberiza-koslowi": {
+  "name": "藏鹀",
+  "latin": "Emberiza koslowi",
+  "photographer": "James Eaton",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/367800225",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/367800225/large.jpg",
+  "status": "ok"
+ },
+ "emberiza-siemsseni": {
+  "name": "栗斑腹鹀",
+  "latin": "Emberiza siemsseni",
+  "photographer": "steve b",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/518674622",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/518674622/large.jpg",
+  "status": "ok"
+ },
+ "emberiza-jankowskii": {
+  "name": "栗鹀",
+  "latin": "Emberiza jankowskii",
+  "photographer": "ZhenningLiu",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "page": "https://www.inaturalist.org/photos/565726379",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/565726379/large.jpg",
+  "status": "ok"
+ },
+ "loxia-curvirostra": {
+  "name": "红交嘴雀",
+  "latin": "Loxia curvirostra",
+  "photographer": "Dmitry Anisimov",
+  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
+  "page": "https://www.inaturalist.org/photos/605092023",
+  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605092023/large.jpg",
+  "status": "refetched:527KB",
+  "refetched_size": 49614
+ }
+}
