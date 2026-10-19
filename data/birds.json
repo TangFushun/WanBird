@@ -17819,15 +17819,15 @@
  },
  {
   "id": "accipiter-badius",
-  "name": "棕尾鵟鹰",
+  "name": "褐耳鹰",
   "latin": "Accipiter badius",
   "english": "Shikra",
   "aliases": [],
   "iucn": "",
-  "protection": "",
+  "protection": "国家二级保护动物",
   "order": "鹰形目",
   "image": "/static/img/birds/Accipiter badius.jpg",
-  "summary": "棕尾鵟鹰（学名：Accipiter badius；英文名：Shikra）属鹰形目的鸟类。依据全球生物多样性数据库（GBIF），本种收录观测记录 655 条。本页为自动生成版，具体特征请在专业人员指导下复核。",
+  "summary": "褐耳鹰（学名：Accipiter badius；英文名：Shikra）属鹰形目的鸟类。依据全球生物多样性数据库（GBIF），本种收录观测记录 655 条。本页为自动生成版，具体特征请在专业人员指导下复核。",
   "taxonomy": [
    {
     "rank": "纲",
@@ -21621,7 +21621,7 @@
  },
  {
   "id": "bubo-nipalensis",
-  "name": "褐渔鸮",
+  "name": "林雕鸮",
   "latin": "Bubo nipalensis",
   "english": "Spot-bellied Eagle-Owl",
   "aliases": [],
@@ -21629,7 +21629,7 @@
   "protection": "国家二级保护动物",
   "order": "鸮形目",
   "image": "/static/img/birds/Bubo nipalensis.jpg",
-  "summary": "褐渔鸮（学名：Bubo nipalensis；英文名：Spot-bellied Eagle-Owl）属鸮形目的鸟类。依据全球生物多样性数据库（GBIF），本种收录观测记录 45 条。本页为自动生成版，具体特征请在专业人员指导下复核。",
+  "summary": "林雕鸮（学名：Bubo nipalensis；英文名：Spot-bellied Eagle-Owl）属鸮形目的鸟类。依据全球生物多样性数据库（GBIF），本种收录观测记录 45 条。本页为自动生成版，具体特征请在专业人员指导下复核。",
   "taxonomy": [
    {
     "rank": "纲",
