@@ -66,6 +66,9 @@ def _load_json(name: str, default):
 BIRDS = _load_json("birds.json", [])
 DRAMAS = _load_json("dramas.json", [])
 
+# 图片核对页开关：只在本地/测试时开，公网部署默认关闭
+REVIEW_ENABLED = os.environ.get("REVIEW_ENABLED", "0") == "1"
+
 
 def real_mode() -> bool:
     """是否处于真实识别模式（配置了 API key）。"""
@@ -383,6 +386,77 @@ def drama():
     """鸟类短剧频道：剧集列表 + 播放器。"""
     return render_template("drama.html", active="drama",
                            dramas_json=json.dumps(DRAMAS, ensure_ascii=False))
+
+
+# ---------------------------------------------------------------------------
+# 图片核对页（REVIEW_ENABLED=1 时可用）：候选图点选替换，降低人工核对成本
+# ---------------------------------------------------------------------------
+# 学名匹配偏弱、图片身份需重点人工确认的物种（其余 iNaturalist 图也建议抽查）
+_SUSPECT_NAMES = {"霍氏蛙口夜鹰", "斑胁田鸡", "黑嘴鸥", "黑鹰",
+                  "栗腹八色鸫", "栗背短脚鹛", "灰头噪鹛"}
+
+
+def _review_flags():
+    """返回 (suspect_ids, small_ids)：存疑种与低质小图种的 id 集合。"""
+    import os as _os
+    imgdir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "static", "img", "birds")
+    id_by_name = {b.get("name"): b.get("id") for b in BIRDS}
+    suspect = {id_by_name[n] for n in _SUSPECT_NAMES if n in id_by_name}
+    small = set()
+    for b in BIRDS:
+        fn = (b.get("image") or "").split("/")[-1]
+        path = _os.path.join(imgdir, fn)
+        if b.get("id") in suspect:
+            continue  # 存疑优先，不重复标记
+        if fn.endswith(".jpg") and _os.path.exists(path) and _os.path.getsize(path) < 20 * 1024:
+            small.add(b.get("id"))
+    return sorted(suspect), sorted(small)
+
+
+@app.route("/review")
+def review_page():
+    if not REVIEW_ENABLED:
+        return "图片核对页未启用：设置环境变量 REVIEW_ENABLED=1 后重启可用。", 404
+    suspect, small = _review_flags()
+    return render_template("review.html", active=None,
+                           birds_json=json.dumps(BIRDS, ensure_ascii=False),
+                           suspect_json=json.dumps(suspect),
+                           small_json=json.dumps(small))
+
+
+@app.route("/review/candidates/<bird_id>")
+def review_candidates(bird_id):
+    if not REVIEW_ENABLED:
+        return jsonify({"error": "未启用"}), 404
+    bird = next((b for b in BIRDS if b.get("id") == bird_id), None)
+    if not bird:
+        return jsonify({"error": "未找到该鸟"}), 404
+    try:
+        import photo_review as phrv
+        return jsonify({"candidates": phrv.candidates(bird), "current": bird.get("image")})
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
+
+
+@app.route("/review/pick/<bird_id>", methods=["POST"])
+def review_pick(bird_id):
+    if not REVIEW_ENABLED:
+        return jsonify({"error": "未启用"}), 404
+    bird = next((b for b in BIRDS if b.get("id") == bird_id), None)
+    if not bird:
+        return jsonify({"error": "未找到该鸟"}), 404
+    d = request.get_json(silent=True) or {}
+    url = (d.get("url") or "").strip()
+    if not url.startswith("http"):
+        return jsonify({"error": "非法链接"}), 400
+    meta = {"photographer": d.get("photographer", ""), "license": d.get("license", ""),
+            "page": d.get("page", "")}
+    try:
+        import photo_review as phrv
+        ok, kb, err = phrv.pick(bird, url, meta)
+        return jsonify({"ok": ok, "size_kb": kb, "error": err})
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
 
 
 @app.route("/classify", methods=["POST"])

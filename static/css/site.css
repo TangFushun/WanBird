@@ -15,11 +15,14 @@
   --dim:#7fa09a;
   --glow:0 0 8px rgba(232,168,56,.45);
   --mono:ui-monospace,SFMono-Regular,Consolas,"Courier New",monospace;
+  /* 排版：中文衬线（标题）+ 系统无衬线（正文）+ 等宽（HUD 标签）。全部系统字体，不联网加载 */
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun","Times New Roman",serif;
+  --sans:-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{height:100%;}
 body{
-  font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+  font-family:var(--sans);
   background:
     radial-gradient(1200px 600px at 80% -10%, rgba(31,95,90,.35), transparent 60%),
     radial-gradient(800px 500px at -10% 110%, rgba(232,168,56,.10), transparent 55%),
@@ -30,6 +33,10 @@ body{
   display:flex;justify-content:center;align-items:flex-start;
   background-attachment:fixed;
 }
+/* 标题层级用中文衬线（宋体系），与 HUD 等宽标签形成对比 */
+h1,h2,h3{font-family:var(--serif);font-weight:600;}
+#species,#latin{font-family:var(--serif);}
+#latin{font-style:italic;}
 /* 背景网格 */
 body::before{
   content:"";position:fixed;inset:0;
@@ -121,8 +128,8 @@ body::before{
   background:rgba(20,60,60,.35);padding:7px 10px;border-radius:3px;
 }
 .taxo .rk{font-family:var(--mono);font-size:9px;letter-spacing:.22em;color:var(--dim);}
-.taxo .cn{font-size:14px;color:var(--accent2);letter-spacing:.04em;}
-.taxo .lt{font-family:var(--mono);font-size:9px;color:#6d8f89;font-style:italic;
+.taxo .cn{font-family:var(--serif);font-size:15px;color:var(--accent2);letter-spacing:.04em;}
+.taxo .lt{font-family:var(--serif);font-size:10px;color:#6d8f89;font-style:italic;
           overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
 /* ---- 元信息徽章 ---- */
