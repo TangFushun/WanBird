@@ -1312,11 +1312,11 @@
  "sula-sula": {
   "name": "红脚鲣鸟",
   "latin": "Sula sula",
-  "photographer": "Damien Wallace",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
-  "page": "https://www.inaturalist.org/photos/610103487",
-  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610103487/large.jpg",
-  "status": "ok"
+  "photographer": "用户提供",
+  "license": "（用户提供）",
+  "page": "",
+  "direct": "",
+  "status": "user-provided"
  },
  "platalea-minor": {
   "name": "黑脸琵鹭",
@@ -1483,12 +1483,11 @@
  "ixobrychus-minutus": {
   "name": "小苇鳽",
   "latin": "Ixobrychus minutus",
-  "photographer": "Stichting Xeno-canto voor Natuurgeluiden",
-  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://xeno-canto.org/sounds/spectrograms/VWWRQKFKMD/1101998/colour.png",
-  "status": "refetched:905KB",
-  "refetched_size": 4727
+  "direct": "",
+  "status": "user-provided"
  },
  "elanus-caeruleus": {
   "name": "黑翅鸢",
@@ -1655,20 +1654,20 @@
  "accipiter-trivirgatus": {
   "name": "凤头鹰",
   "latin": "Accipiter trivirgatus",
-  "photographer": "Stichting Xeno-canto voor Natuurgeluiden",
-  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://xeno-canto.org/sounds/spectrograms/FROVFAFTMA/1082164/colour.png",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "accipiter-badius": {
   "name": "棕尾鵟鹰",
   "latin": "Accipiter badius",
-  "photographer": "Stichting Xeno-canto voor Natuurgeluiden",
-  "license": "http://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://xeno-canto.org/sounds/spectrograms/UXLMRFIWLM/1076938/colour.png",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "ictinaetus-malaiensis": {
   "name": "黑鹰",
@@ -1700,11 +1699,11 @@
  "accipiter-soloensis": {
   "name": "赤腹鹰",
   "latin": "Accipiter soloensis",
-  "photographer": "Division of Birds",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://collections.nmnh.si.edu/media/?i=15807305&h=2000",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "accipiter-nisus": {
   "name": "雀鹰",
@@ -1718,20 +1717,20 @@
  "accipiter-gularis": {
   "name": "日本松雀鹰",
   "latin": "Accipiter gularis",
-  "photographer": "Division of Birds",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://collections.nmnh.si.edu/media/?i=15813887&h=2000",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "accipiter-virgatus": {
   "name": "松雀鹰",
   "latin": "Accipiter virgatus",
-  "photographer": "Division of Birds",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://collections.nmnh.si.edu/media/?i=15806802&h=2000",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "accipiter-gentilis": {
   "name": "苍鹰",
@@ -1790,11 +1789,11 @@
  "haliaeetus-leucogaster": {
   "name": "白腹海雕",
   "latin": "Haliaeetus leucogaster",
-  "photographer": "Sofia Zvolanek",
-  "license": "http://creativecommons.org/licenses/by/4.0/",
-  "page": "https://www.inaturalist.org/photos/605422323",
-  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/605422323/large.jpg",
-  "status": "ok"
+  "photographer": "用户提供",
+  "license": "（用户提供）",
+  "page": "",
+  "direct": "",
+  "status": "user-provided"
  },
  "haliaeetus-pelagicus": {
   "name": "虎头海雕",
@@ -2069,11 +2068,11 @@
  "bubo-nipalensis": {
   "name": "褐渔鸮",
   "latin": "Bubo nipalensis",
-  "photographer": "Division of Birds",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://collections.nmnh.si.edu/media/?i=15819131&h=2000",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "ketupa-flavipes": {
   "name": "黄脚渔鸮",
@@ -2294,11 +2293,11 @@
  "rhyticeros-undulatus": {
   "name": "花冠皱盔犀鸟",
   "latin": "Rhyticeros undulatus",
-  "photographer": "(c) Jan Ebr &amp; Ivana Ebrová, some rights reserved (CC BY), uploaded by Jan Ebr &amp; Ivana Ebrová",
-  "license": "cc-by",
-  "page": "https://www.inaturalist.org/photos/246382938",
-  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/246382938/large.jpeg",
-  "status": "inat-default"
+  "photographer": "用户提供",
+  "license": "（用户提供）",
+  "page": "",
+  "direct": "",
+  "status": "user-provided"
  },
  "aceros-nipalensis": {
   "name": "棕颈犀鸟",
@@ -2654,11 +2653,11 @@
  "pitta-phayrei": {
   "name": "蓝斑八色鸫",
   "latin": "Pitta phayrei",
-  "photographer": "Division of Birds",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://collections.nmnh.si.edu/media/?i=15812372&h=2000",
-  "status": "ok"
+  "direct": "",
+  "status": "user-provided"
  },
  "psittacula-alexandri": {
   "name": "绯胸鹦鹉",
@@ -3123,11 +3122,11 @@
  "garrulax-berthemyi": {
   "name": "棕胸噪鹛",
   "latin": "Garrulax berthemyi",
-  "photographer": "solanine",
-  "license": "http://creativecommons.org/licenses/by-nc/4.0/",
-  "page": "https://www.inaturalist.org/photos/610922127",
-  "direct": "https://inaturalist-open-data.s3.amazonaws.com/photos/610922127/large.jpg",
-  "status": "ok"
+  "photographer": "用户提供",
+  "license": "（用户提供）",
+  "page": "",
+  "direct": "",
+  "status": "user-provided"
  },
  "garrulax-maximus": {
   "name": "大噪鹛",
@@ -3331,12 +3330,11 @@
  "garrulax-lumulatus": {
   "name": "灰头噪鹛",
   "latin": "Garrulax lumulatus",
-  "photographer": "Division of Birds",
-  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "photographer": "用户提供",
+  "license": "（用户提供）",
   "page": "",
-  "direct": "https://collections.nmnh.si.edu/media/?i=15822847&h=2000",
-  "status": "refetched:458KB",
-  "refetched_size": 92110
+  "direct": "",
+  "status": "user-provided"
  },
  "calliope-pectardens": {
   "name": "黑喉歌鸲",
