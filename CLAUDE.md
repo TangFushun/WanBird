@@ -92,6 +92,7 @@ README.md              # 安装、运行、配置说明
 - 栖息地地图：`birds.json` 每只鸟的 `map` 字段（`ranges` 范围多边形 + `sites` 关键地点，坐标为经纬度），由 `static/js/birdmap.js` 用 Leaflet 渲染，瓦片用高德 `webrd0*.is.autonavi.com`（本机实测可用；**OSM 瓦片在本网络被屏蔽，勿换**）。深色化通过只对瓦片做 CSS `filter: invert(...)` 实现，不动矢量图层。动态效果：点位呼吸脉冲光圈（`site-ring`）、范围轮廓虚线流动（`dashFlow`）+ 专属色光晕 + 加载渐入；`staging` 类停歇地渲染为发光流动折线；`prefers-reduced-motion: reduce` 时自动停用动画。
 - 真实观测点图层：`static/data/occur/<id>.json` 存每只鸟的 GBIF 真实坐标（[经, 纬] 数组，GBIF.org · CC BY 4.0，1980 年以来），页面开关控制显隐。用 `python download_gbif_occurrences.py` 可重新拉取刷新。地图默认是一幅完整世界地图（中心 0°经线、`minZoom=2` 整幅世界可见），`maxBounds` 钳制在世界边界——只能在一个单幅世界里平移，不能无限左右滑动进空白；「聚焦本种」按钮用 `setView(物种中心, 7)` 飞到分布中心（不用 fitBounds，因为在世界 maxBounds 下高缩放时中心锁消失）。
 - 自动配写真：`python download_bird_photos.py [鸟名]` 从 GBIF 检索 iNaturalist 开放数据授权照片，压存 `static/img/birds/<id>.jpg`（摄影师/许可写入 `CREDITS.json`）；已有用户照片（`<id>.png`）的鸟跳过不覆盖。
+- 图鉴改进（2026-10-19）：`improve_from_inaturalist.py` 用 iNaturalist **CC 授权精选图**替换图片（332 种）、用 GBIF **国家分布统计**重写「地理分布」（379 种）、补英文名；**只用 CC 图，ARR/版权保留一律不取**。详情页新增「DATA SOURCES 数据来源」区块（GBIF / 名录 / iNaturalist 摄影师+许可+原页 / 自动生成说明），路由通过 `PHOTO_CREDITS` 传入图片署名。已纠正「栗鹀」→「栗斑腹鹀」（一级）。`birds.json` 与 `CREDITS.json` 都在启动时载入，改动后需重启服务。
 - 环境无法访问 Wikimedia 等海外图源，故图鉴用本地图 + 剪影方案。
 
 ### 后端核心流程（真实模式，app.py:157-211）
