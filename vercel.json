@@ -2,7 +2,7 @@
   "functions": {
     "api/index.py": {
       "maxDuration": 60,
-      "includeFiles": ["templates/**", "static/**", "data/**"]
+      "includeFiles": "**"
     }
   },
   "rewrites": [
