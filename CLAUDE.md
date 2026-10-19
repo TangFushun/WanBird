@@ -94,6 +94,7 @@ README.md              # 安装、运行、配置说明
 - 自动配写真：`python download_bird_photos.py [鸟名]` 从 GBIF 检索 iNaturalist 开放数据授权照片，压存 `static/img/birds/<id>.jpg`（摄影师/许可写入 `CREDITS.json`）；已有用户照片（`<id>.png`）的鸟跳过不覆盖。
 - 图鉴改进（2026-10-19）：`improve_from_inaturalist.py` 用 iNaturalist **CC 授权精选图**替换图片（332 种）、用 GBIF **国家分布统计**重写「地理分布」（379 种）、补英文名；**只用 CC 图，ARR/版权保留一律不取**。详情页新增「DATA SOURCES 数据来源」区块（GBIF / 名录 / iNaturalist 摄影师+许可+原页 / 自动生成说明），路由通过 `PHOTO_CREDITS` 传入图片署名。已纠正「栗鹀」→「栗斑腹鹀」（一级）。`birds.json` 与 `CREDITS.json` 都在启动时载入，改动后需重启服务。
 - 环境无法访问 Wikimedia 等海外图源，故图鉴用本地图 + 剪影方案。
+- 部署：当前使用 **Vercel**（免费 Hobby，无需银行卡）：`api/index.py` 导入根目录的 `app`，`vercel.json` 用 rewrites 把全部请求转到 `/api/index`，`includeFiles` 必须是**字符串**（写成 `"**"`），函数 `maxDuration: 60`（识别轮询需要）。Render 需要绑定银行卡（已弃用）；国内服务器需 ICP 备案，备案省份须与身份证省份一致（重庆身份证→需重庆地域服务器，阿里云无重庆地域，腾讯云仅 CVM 有）。域名 `anhuibird.cn` 解析到 Vercel（海外）**无需备案**。
 
 ### 后端核心流程（真实模式，app.py:157-211）
 
