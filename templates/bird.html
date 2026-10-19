@@ -68,6 +68,16 @@
   .mnote{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--dim);margin-top:6px;}
   .mnote em{color:var(--accent2);font-style:normal;}
 
+  /* 数据来源区块 */
+  .sources{
+    margin-top:8px;border:1px dashed #2a4a46;background:rgba(13,38,38,.45);
+    padding:11px 13px;border-radius:3px;
+    font-family:var(--mono);font-size:10.5px;line-height:1.95;letter-spacing:.04em;color:var(--dim);
+    display:flex;flex-direction:column;gap:2px;
+  }
+  .sources a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--line);}
+  .sources a:hover{color:var(--accent2);}
+
   /* 地图栏：真实观测点开关 */
   .mapbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:10px;}
   .occswitch{display:inline-flex;align-items:center;gap:9px;cursor:pointer;user-select:none;
@@ -197,6 +207,19 @@
   {% endfor %}
 </div>
 {% if not bird.sections %}<p class="mnote" style="margin-top:8px;">本物种的图文档案整理中，敬请期待。</p>{% endif %}
+
+<div class="kplabel" style="margin-top:16px;">DATA SOURCES · 数据来源</div>
+<div class="sources">
+  <div>分类阶元 / 分布与观测：<a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF 全球生物多样性信息网络</a>（公开观测记录）</div>
+  <div>保护级别：《国家重点保护野生动物名录》（国家一级 / 二级）</div>
+  {% if credit and credit.photographer %}
+  <div>图片：iNaturalist · {{ credit.photographer }}{% if credit.license %}（{{ credit.license }}）{% endif %}
+    {% if credit.page %} · <a href="{{ credit.page }}" target="_blank" rel="noopener">原始页面</a>{% endif %}</div>
+  {% else %}
+  <div>图片：iNaturalist（CC 授权）</div>
+  {% endif %}
+  <div>百科文字：自动生成版（按目级通性整理，具体种级细节待人工复核）</div>
+</div>
 
 <div class="btnrow" style="margin-top:18px;">
   <a class="btn ghost slim" href="{{ url_for('guide') }}">← 返回图鉴</a>

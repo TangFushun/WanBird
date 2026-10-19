@@ -66,6 +66,16 @@ def _load_json(name: str, default):
 BIRDS = _load_json("birds.json", [])
 DRAMAS = _load_json("dramas.json", [])
 
+# 图片署名（iNaturalist 摄影师/许可/原页），存在则随详情页展示
+PHOTO_CREDITS = {}
+_credits_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                             "static", "img", "birds", "CREDITS.json")
+try:
+    with open(_credits_path, encoding="utf-8") as _f:
+        PHOTO_CREDITS = json.load(_f)
+except Exception:
+    pass
+
 # 图片核对页开关：只在本地/测试时开，公网部署默认关闭
 REVIEW_ENABLED = os.environ.get("REVIEW_ENABLED", "0") == "1"
 
@@ -378,6 +388,7 @@ def bird(bird_id):
         "bird.html", active="guide", bird=bird,
         prev=prev_bird, next=next_bird, IUCN_CN=IUCN_CN,
         bird_json=json.dumps(bird, ensure_ascii=False),
+        credit=PHOTO_CREDITS.get(bird_id),
     )
 
 
