@@ -22,7 +22,7 @@ from PIL import Image
 from import_birds_from_xlsx import BASE, UA, get_json, gbif_match, license_score
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-IMG_DIR = os.path.join(ROOT, "static", "img", "birds")
+IMG_DIR = os.path.join(ROOT, "public", "static", "img", "birds")
 CREDITS = os.path.join(IMG_DIR, "CREDITS.json")
 BIRDS = json.load(open(os.path.join(ROOT, "data", "birds.json"), encoding="utf-8"))
 N_WORKERS = 10

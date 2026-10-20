@@ -16,7 +16,7 @@ import urllib.request
 from PIL import Image
 
 BASE = "https://api.gbif.org/v1"
-OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "img", "birds")
+OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public", "static", "img", "birds")
 CREDITS_PATH = os.path.join(OUT_DIR, "CREDITS.json")
 UA = "wanbird-photos/0.1"
 MAX_W = 1200

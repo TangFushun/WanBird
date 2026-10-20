@@ -24,7 +24,7 @@ from import_birds_from_xlsx import BASE, UA, get_json, gbif_match
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BIRDS_PATH = os.path.join(ROOT, "data", "birds.json")
-IMG_DIR = os.path.join(ROOT, "static", "img", "birds")
+IMG_DIR = os.path.join(ROOT, "public", "static", "img", "birds")
 CREDITS_PATH = os.path.join(IMG_DIR, "CREDITS.json")
 INAT = "https://api.inaturalist.org/v1"
 N_WORKERS = 8

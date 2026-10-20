@@ -25,7 +25,7 @@ from import_birds_from_xlsx import BASE, UA, get_json, gbif_match, gbif_taxonomy
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BIRDS_PATH = os.path.join(ROOT, "data", "birds.json")
-OCC_DIR = os.path.join(ROOT, "static", "data", "occur")
+OCC_DIR = os.path.join(ROOT, "public", "static", "data", "occur")
 REPORT = os.path.join(ROOT, "data", "enrich_report.json")
 N_WORKERS = 12
 OCC_CAP = 600

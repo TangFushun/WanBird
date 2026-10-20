@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 1. **识别（首页）**：上传鸟类图片，识别鸟种、置信度并返回中文简介 + 完整物种档案。后端调用「懂鸟动物识别 API」（HHOLOVE AI 开放平台），Flask 作代理隐藏 API key。
 
-2. **鸟类图鉴**：安徽及全国重点保护鸟类的百科目录，当前 **394 种**全部具备**自动生成版六节档案 + 栖息地数据**（`enrich_birds_from_gbif.py`：GBIF 英文名 + 观测点下载到 `static/data/occur/<id>.json` + 目级科学模板正文 + 观测点凸包生成「观测分布区」范围；广布/跨洲种因跨度过大只显示观测点，地图角标"仅真实观测点"）。IUCN 等级与一级/二级保护级别、精写正文仍未填（自动生成版为模板通性描述，正文已标注自动生成）。
+2. **鸟类图鉴**：安徽及全国重点保护鸟类的百科目录，当前 **394 种**全部具备**自动生成版六节档案 + 栖息地数据**（`enrich_birds_from_gbif.py`：GBIF 英文名 + 观测点下载到 `public/static/data/occur/<id>.json` + 目级科学模板正文 + 观测点凸包生成「观测分布区」范围；广布/跨洲种因跨度过大只显示观测点，地图角标"仅真实观测点"）。IUCN 等级与一级/二级保护级别、精写正文仍未填（自动生成版为模板通性描述，正文已标注自动生成）。
 
 3. **鸟类短剧**：科普短剧播放频道，片源配置在 `data/dramas.json`（本地 MP4 / B 站 bvid）。
 
@@ -88,10 +88,10 @@ README.md              # 安装、运行、配置说明
 
 - `app.py` 启动时用 `_load_json()` 读取 `data/*.json`（标准库 json，无新依赖）。
 - 路由：`/`（识别）、`/guide`、`/guide/<bird_id>`、`/drama`、`/classify`、`/mode`。
-- 图鉴图片兜底：`<id>.jpg` → `<id>.png` → `<id>.svg`（剪影）→ `placeholder.svg`，见 `static/js/common.js` 的 `birdImg()`。
-- 栖息地地图：`birds.json` 每只鸟的 `map` 字段（`ranges` 范围多边形 + `sites` 关键地点，坐标为经纬度），由 `static/js/birdmap.js` 用 Leaflet 渲染，瓦片用高德 `webrd0*.is.autonavi.com`（本机实测可用；**OSM 瓦片在本网络被屏蔽，勿换**）。深色化通过只对瓦片做 CSS `filter: invert(...)` 实现，不动矢量图层。动态效果：点位呼吸脉冲光圈（`site-ring`）、范围轮廓虚线流动（`dashFlow`）+ 专属色光晕 + 加载渐入；`staging` 类停歇地渲染为发光流动折线；`prefers-reduced-motion: reduce` 时自动停用动画。
-- 真实观测点图层：`static/data/occur/<id>.json` 存每只鸟的 GBIF 真实坐标（[经, 纬] 数组，GBIF.org · CC BY 4.0，1980 年以来），页面开关控制显隐。用 `python download_gbif_occurrences.py` 可重新拉取刷新。地图默认是一幅完整世界地图（中心 0°经线、`minZoom=2` 整幅世界可见），`maxBounds` 钳制在世界边界——只能在一个单幅世界里平移，不能无限左右滑动进空白；「聚焦本种」按钮用 `setView(物种中心, 7)` 飞到分布中心（不用 fitBounds，因为在世界 maxBounds 下高缩放时中心锁消失）。
-- 自动配写真：`python download_bird_photos.py [鸟名]` 从 GBIF 检索 iNaturalist 开放数据授权照片，压存 `static/img/birds/<id>.jpg`（摄影师/许可写入 `CREDITS.json`）；已有用户照片（`<id>.png`）的鸟跳过不覆盖。
+- 图鉴图片兜底：`<id>.jpg` → `<id>.png` → `<id>.svg`（剪影）→ `placeholder.svg`，见 `public/static/js/common.js` 的 `birdImg()`。
+- 栖息地地图：`birds.json` 每只鸟的 `map` 字段（`ranges` 范围多边形 + `sites` 关键地点，坐标为经纬度），由 `public/static/js/birdmap.js` 用 Leaflet 渲染，瓦片用高德 `webrd0*.is.autonavi.com`（本机实测可用；**OSM 瓦片在本网络被屏蔽，勿换**）。深色化通过只对瓦片做 CSS `filter: invert(...)` 实现，不动矢量图层。动态效果：点位呼吸脉冲光圈（`site-ring`）、范围轮廓虚线流动（`dashFlow`）+ 专属色光晕 + 加载渐入；`staging` 类停歇地渲染为发光流动折线；`prefers-reduced-motion: reduce` 时自动停用动画。
+- 真实观测点图层：`public/static/data/occur/<id>.json` 存每只鸟的 GBIF 真实坐标（[经, 纬] 数组，GBIF.org · CC BY 4.0，1980 年以来），页面开关控制显隐。用 `python download_gbif_occurrences.py` 可重新拉取刷新。地图默认是一幅完整世界地图（中心 0°经线、`minZoom=2` 整幅世界可见），`maxBounds` 钳制在世界边界——只能在一个单幅世界里平移，不能无限左右滑动进空白；「聚焦本种」按钮用 `setView(物种中心, 7)` 飞到分布中心（不用 fitBounds，因为在世界 maxBounds 下高缩放时中心锁消失）。
+- 自动配写真：`python download_bird_photos.py [鸟名]` 从 GBIF 检索 iNaturalist 开放数据授权照片，压存 `public/static/img/birds/<id>.jpg`（摄影师/许可写入 `CREDITS.json`）；已有用户照片（`<id>.png`）的鸟跳过不覆盖。
 - 图鉴改进（2026-10-19）：`improve_from_inaturalist.py` 用 iNaturalist **CC 授权精选图**替换图片（332 种）、用 GBIF **国家分布统计**重写「地理分布」（379 种）、补英文名；**只用 CC 图，ARR/版权保留一律不取**。详情页新增「DATA SOURCES 数据来源」区块（GBIF / 名录 / iNaturalist 摄影师+许可+原页 / 自动生成说明），路由通过 `PHOTO_CREDITS` 传入图片署名。已纠正「栗鹀」→「栗斑腹鹀」（一级）。`birds.json` 与 `CREDITS.json` 都在启动时载入，改动后需重启服务。
 - 环境无法访问 Wikimedia 等海外图源，故图鉴用本地图 + 剪影方案。
 - 部署：当前使用 **Vercel**（免费 Hobby，无需银行卡）：`api/index.py` 导入根目录的 `app`，`vercel.json` 用 rewrites 把全部请求转到 `/api/index`，`includeFiles` 必须是**字符串**（写成 `"**"`），函数 `maxDuration: 60`（识别轮询需要）。Render 需要绑定银行卡（已弃用）；国内服务器需 ICP 备案，备案省份须与身份证省份一致（重庆身份证→需重庆地域服务器，阿里云无重庆地域，腾讯云仅 CVM 有）。域名 `anhuibird.cn` 解析到 Vercel（海外）**无需备案**。

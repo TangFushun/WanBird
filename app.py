@@ -27,7 +27,7 @@ try:
 except ImportError:
     pass
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="public/static")
 
 # 懂鸟 API
 DONGNIAO_BASE = "https://ai.open.hhodata.com/api/v2"
@@ -69,7 +69,7 @@ DRAMAS = _load_json("dramas.json", [])
 # 图片署名（iNaturalist 摄影师/许可/原页），存在则随详情页展示
 PHOTO_CREDITS = {}
 _credits_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                             "static", "img", "birds", "CREDITS.json")
+                             "public", "static", "img", "birds", "CREDITS.json")
 try:
     with open(_credits_path, encoding="utf-8") as _f:
         PHOTO_CREDITS = json.load(_f)
@@ -410,7 +410,7 @@ _SUSPECT_NAMES = {"霍氏蛙口夜鹰", "斑胁田鸡", "黑嘴鸥", "黑鹰",
 def _review_flags():
     """返回 (suspect_ids, small_ids)：存疑种与低质小图种的 id 集合。"""
     import os as _os
-    imgdir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "static", "img", "birds")
+    imgdir = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "public", "static", "img", "birds")
     id_by_name = {b.get("name"): b.get("id") for b in BIRDS}
     suspect = {id_by_name[n] for n in _SUSPECT_NAMES if n in id_by_name}
     small = set()

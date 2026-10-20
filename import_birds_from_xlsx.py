@@ -29,7 +29,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 XLSX = os.path.join(ROOT, "国家重点保护动物名录-鸟纲-图片链接.xlsx")
 OUT_BIRDS = os.path.join(ROOT, "data", "birds.json")
 REPORT = os.path.join(ROOT, "data", "import_report.json")
-IMG_DIR = os.path.join(ROOT, "static", "img", "birds")
+IMG_DIR = os.path.join(ROOT, "public", "static", "img", "birds")
 
 BASE = "https://api.gbif.org/v1"
 UA = "wanbird-import/0.4"

@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 
 BASE = "https://api.gbif.org/v1"
-OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "data", "occur")
+OUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public", "static", "data", "occur")
 
 SPECIES = [
     ("oriental-stork", "Ciconia boyciana"),
