@@ -43,6 +43,13 @@
   .ep .ttl{font-family:var(--serif);font-size:15px;color:var(--accent2);letter-spacing:.04em;line-height:1.45;}
   .ep .sub{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.08em;display:flex;gap:8px;flex-wrap:wrap;}
   .ep .syn{font-size:12px;color:var(--dim);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .ep .sci{font-size:11px;color:var(--accent2);line-height:1.5;opacity:.9;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+  .epinfo{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--dim);
+    line-height:1.9;margin:4px 0 2px;display:none;
+  }
+  .epinfo.show{display:block;}
+  .epinfo b{color:var(--accent2);font-weight:600;}
   .age{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:2px 7px;border:1px solid var(--line);color:var(--accent);}
 </style>
 {% endblock %}
@@ -62,6 +69,7 @@
   </div>
 </div>
 <div class="nowplaying">NOW PLAYING · <b id="nowTtl">--</b></div>
+<div class="epinfo" id="epInfo"></div>
 
 <div class="kplabel">EPISODES · 剧集列表</div>
 <div class="epgrid" id="eps"></div>
@@ -74,6 +82,7 @@
   var playerEl = document.getElementById('player');
   var notready = document.getElementById('notready');
   var nowTtl = document.getElementById('nowTtl');
+  var epInfo = document.getElementById('epInfo');
   var epGrid = document.getElementById('eps');
   var current = null;
 
@@ -90,8 +99,18 @@
     Array.prototype.forEach.call(epGrid.children, function(c){
       c.classList.toggle('active', c.dataset.id === current);
     });
-    if (!d) { showNotReady('暂无可播放的剧集', ''); nowTtl.textContent = '--'; return; }
+    if (!d) { showNotReady('暂无可播放的剧集', ''); nowTtl.textContent = '--'; epInfo.classList.remove('show'); return; }
     nowTtl.textContent = d.title;
+    // 本集科普与片尾转场
+    var infoParts = [];
+    if (d.science) infoParts.push('<b>核心科普</b>　' + d.science);
+    if (d.transition) infoParts.push('<b>片尾转场</b>　' + d.transition);
+    if (infoParts.length) {
+      epInfo.innerHTML = infoParts.join('<br>');
+      epInfo.classList.add('show');
+    } else {
+      epInfo.classList.remove('show');
+    }
     notready.style.display = 'none';
     playerEl.querySelectorAll('video,iframe').forEach(function(n){ n.remove(); });
 
@@ -130,11 +149,18 @@
     meta.className = 'meta';
     var ttl = document.createElement('div'); ttl.className = 'ttl'; ttl.textContent = d.title;
     var sub = document.createElement('div'); sub.className = 'sub';
-    var age = document.createElement('span'); age.className = 'age'; age.textContent = '适龄 ' + (d.age || '--');
+    if (d.age) {
+      var age = document.createElement('span'); age.className = 'age'; age.textContent = '适龄 ' + d.age;
+      sub.appendChild(age);
+    }
     var dur = document.createElement('span'); dur.textContent = d.duration || '--:--';
-    sub.appendChild(age); sub.appendChild(dur);
+    sub.appendChild(dur);
     var syn = document.createElement('div'); syn.className = 'syn'; syn.textContent = d.synopsis || '';
     meta.appendChild(ttl); meta.appendChild(sub); meta.appendChild(syn);
+    if (d.science) {
+      var sci = document.createElement('div'); sci.className = 'sci'; sci.textContent = '科普 · ' + d.science;
+      meta.appendChild(sci);
+    }
     b.appendChild(meta);
 
     b.addEventListener('click', function(){ play(d); });
