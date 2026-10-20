@@ -116,7 +116,11 @@
 
     if (d.type === 'mp4' && d.src) {
       var v = document.createElement('video');
-      v.controls = true; v.autoplay = true; v.preload = 'metadata';
+      v.controls = true;
+      v.autoplay = false;          // 不自动播放，必须用户手动点播放
+      v.preload = 'metadata';
+      v.playsInline = true;
+      if (d.cover) v.poster = d.cover;
       v.src = d.src;
       v.addEventListener('error', function(){
         showNotReady('无法加载视频', '未找到文件 <em>' + d.src + '</em>。请将 MP4 放入 static/media/ 并核对 data/dramas.json 中的路径。');
