@@ -26,3 +26,4 @@ Thumbs.db
 # ---- 工具端内部目录（不进公开仓库）----
 .zcode/
 .claude/
+_tools/
