@@ -9,7 +9,7 @@
     "science": "安徽是候鸟迁徙的重要驿站。",
     "transition": "五羽剪影 → 安徽湿地群鸟实拍",
     "type": "mp4",
-    "src": "/static/media/ep01.mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep01.mp4",
     "bvid": null
   },
   {
@@ -22,7 +22,7 @@
     "science": "东方白鹳的越冬习性与浅水觅食。",
     "transition": "白白卡通 → 安庆菜子湖东方白鹳实拍",
     "type": "mp4",
-    "src": "/static/media/ep02.mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep02.mp4",
     "bvid": null
   },
   {
@@ -35,7 +35,7 @@
     "science": "朱鹮的栖息地需求与安徽生态修复。",
     "transition": "小粉卡通 → 皖南朱鹮实拍",
     "type": "mp4",
-    "src": "/static/media/ep03.mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep03.mp4",
     "bvid": null
   },
   {
@@ -48,7 +48,7 @@
     "science": "勺嘴鹬的迁徙机制与对滩涂的依赖。",
     "transition": "小勺子卡通 → 沿江滩涂勺嘴鹬实拍",
     "type": "mp4",
-    "src": "/static/media/ep04.mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep04.mp4",
     "bvid": null
   },
   {
