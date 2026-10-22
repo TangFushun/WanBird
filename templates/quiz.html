@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+{% block title %}知识答题 · 皖境飞鸟观测台{% endblock %}
+{% block head %}
+<style>
+  .quiz-head{margin:4px 0 14px;}
+  .quiz-head h2{font-size:22px;color:var(--accent2);letter-spacing:.08em;}
+  .quiz-head p{font-size:13px;color:var(--dim);margin-top:4px;letter-spacing:.04em;}
+
+  /* 科普资源 */
+  .resgrid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px;}
+  @media(min-width:640px){ .resgrid{grid-template-columns:1fr 1fr;} }
+  .res{
+    display:flex;flex-direction:column;gap:6px;padding:12px 13px;text-decoration:none;
+    border:1px solid;border-radius:3px;
+  }
+  .res.site{border-color:var(--accent);background:rgba(232,168,56,.08);}
+  .res.external{border-color:#2a4a46;background:rgba(20,60,60,.35);transition:border-color .15s;}
+  .res.external:hover{border-color:var(--accent);}
+  .res .rt{font-size:15px;color:var(--accent2);letter-spacing:.05em;display:flex;align-items:center;gap:8px;}
+  .res .rt .tag{font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--dim);
+                border:1px solid #2a4a46;padding:1px 6px;border-radius:2px;}
+  .res .rd{font-size:12px;color:var(--dim);line-height:1.6;}
+
+  /* 答题 */
+  .zonesep{border:0;border-top:1px dashed #2a4a46;margin:20px 0 6px;}
+  #quizIntro .btn{margin-top:6px;}
+  .qmeta{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim);margin-bottom:4px;}
+
+  #quizList{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+  .qcard{border:1px solid #22403d;border-left:3px solid var(--accent);
+         background:linear-gradient(180deg,rgba(18,48,48,.6),rgba(13,38,38,.5));
+         padding:13px 14px;border-radius:3px;}
+  .qcard .qno{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim);margin-bottom:6px;}
+  .qcard .qtext{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:10px;}
+  .qopts{display:flex;flex-wrap:wrap;gap:8px;}
+  .qopt{
+    font-size:13px;color:var(--text);background:rgba(13,38,38,.7);
+    border:1px solid #2a4a46;border-radius:3px;padding:8px 14px;cursor:pointer;text-align:left;
+    transition:.15s;font-family:inherit;
+  }
+  .qopt:hover{border-color:var(--accent);color:var(--accent2);}
+  .qopt.sel{border-color:var(--accent);box-shadow:var(--glow);color:var(--accent2);background:rgba(232,168,56,.12);}
+  .qopt.right{border-color:#7fe0b0;color:#7fe0b0;background:rgba(70,180,130,.15);}
+  .qopt.wrong{border-color:#ff8f7a;color:#ff8f7a;background:rgba(160,40,30,.2);}
+  .qopt:disabled{cursor:not-allowed;opacity:.9;}
+
+  .qexpl{display:none;margin-top:10px;font-size:12.5px;line-height:1.7;padding:9px 12px;border-radius:3px;
+         border-left:2px solid var(--accent);background:rgba(10,31,31,.5);color:var(--text);}
+  .qexpl.good{border-color:#7fe0b0;color:#bfe8dd;}
+  .qexpl.bad{border-color:#ff8f7a;color:#ffd2c6;}
+
+  #resBox{display:none;margin-top:16px;border:1px solid var(--line);border-top:2px solid var(--accent);
+          background:linear-gradient(180deg,var(--panel),var(--panel2));padding:18px;text-align:center;}
+  #resBox .score{font-size:40px;color:var(--accent2);font-family:var(--mono);}
+  #resBox .pct{font-family:var(--mono);font-size:14px;color:var(--accent);margin:4px 0 8px;letter-spacing:.15em;}
+  #resBox .msg{font-size:15px;color:var(--text);margin-bottom:14px;}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="quiz-head">
+  <div class="kplabel" style="margin-top:0;">QUIZ ZONE · 知识答题</div>
+  <h2>珍禽知识小挑战</h2>
+  <p>先从科普资源里学习，再随机抽 10 题作答；提交后每题给出解析与得分。</p>
+</div>
+
+<div class="kplabel">RESOURCES · 科普资源</div>
+<div class="resgrid" id="resGrid"></div>
+
+<hr class="zonesep">
+<div class="kplabel">QUIZ · 答题</div>
+<div id="quizIntro">
+  <p class="mnote">共 {{ quiz.questions|length }} 道题，每轮随机抽 {{ quiz.round }} 题。</p>
+  <button type="button" class="btn primary" id="btnStart" style="margin-top:10px;">开始答题</button>
+</div>
+
+<div id="quizWrap" style="display:none;">
+  <div class="qmeta" id="qMeta"></div>
+  <div id="quizList"></div>
+  <div class="controls" style="margin-top:16px;">
+    <button type="button" class="btn ghost" id="btnRe">再来一轮</button>
+    <button type="button" class="btn primary" id="btnSubmit">提交</button>
+  </div>
+</div>
+
+<div id="resBox">
+  <div class="kplabel" style="margin-top:0;">SCORE · 本轮得分</div>
+  <div class="score" id="resScore">0 / 10</div>
+  <div class="pct" id="resPct">0%</div>
+  <div class="msg" id="resMsg"></div>
+  <button type="button" class="btn primary" id="btnAgain">再来一轮</button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  var QUIZ = {{ quiz_json|safe }};
+  var ROUND = {{ quiz.round }};
+
+  // ---- 科普资源 ----
+  (function renderResources(){
+    var grid = document.getElementById('resGrid');
+    (QUIZ.resources || []).forEach(function(r){
+      var a = document.createElement('a');
+      a.className = 'res ' + (r.type === 'site' ? 'site' : 'external');
+      a.href = r.url;
+      if (r.type === 'external') { a.target = '_blank'; a.rel = 'noopener'; }
+      var rt = document.createElement('div'); rt.className = 'rt';
+      rt.appendChild(document.createTextNode(r.title));
+      var tag = document.createElement('span'); tag.className = 'tag';
+      tag.textContent = r.type === 'site' ? '站内' : '外链';
+      rt.appendChild(tag);
+      a.appendChild(rt);
+      var rd = document.createElement('div'); rd.className = 'rd'; rd.textContent = r.desc || '';
+      a.appendChild(rd);
+      grid.appendChild(a);
+    });
+  })();
+
+  // ---- 答题 ----
+  var pool = (QUIZ.questions || []).slice();
+  var round = [], roundCards = {}, picks = {};
+  var quizWrap = document.getElementById('quizWrap');
+  var intro = document.getElementById('quizIntro');
+  var list = document.getElementById('quizList');
+  var qMeta = document.getElementById('qMeta');
+  var resBox = document.getElementById('resBox');
+
+  function shuffle(a){ for (var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  function start(){
+    round = shuffle(pool.slice()).slice(0, Math.min(ROUND, pool.length));
+    roundCards = {}; picks = {};
+    intro.style.display = 'none';
+    resBox.style.display = 'none';
+    quizWrap.style.display = 'block';
+    render();
+  }
+
+  function pick(q, oi, card){
+    picks[q.id] = oi;
+    card.querySelectorAll('.qopt').forEach(function(b){
+      b.classList.toggle('sel', Number(b.dataset.oi) === oi);
+    });
+  }
+
+  function render(){
+    list.replaceChildren();
+    qMeta.textContent = '第 ' + round.length + ' 题 · 请选择答案';
+    round.forEach(function(q, idx){
+      var card = document.createElement('div'); card.className = 'qcard';
+      var no = document.createElement('div'); no.className = 'qno';
+      no.textContent = 'QUESTION ' + (idx + 1) + ' / ' + round.length;
+      card.appendChild(no);
+      var text = document.createElement('div'); text.className = 'qtext'; text.textContent = q.q;
+      card.appendChild(text);
+      var opts = document.createElement('div'); opts.className = 'qopts';
+      q.options.forEach(function(o, oi){
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'qopt';
+        b.textContent = o; b.dataset.oi = String(oi);
+        b.addEventListener('click', function(){ pick(q, oi, card); });
+        opts.appendChild(b);
+      });
+      card.appendChild(opts);
+      var ex = document.createElement('div'); ex.className = 'qexpl';
+      card.appendChild(ex);
+      list.appendChild(card);
+      roundCards[q.id] = card;
+    });
+  }
+
+  function message(score, total){
+    var pct = score / total;
+    if (score === total) return '满分！你是观鸟大侦探 🎉';
+    if (pct >= 0.8) return '很棒的观鸟达人！';
+    if (pct >= 0.6) return '不错，继续积累珍禽知识！';
+    return '再回科普资源里学习一下，下次一定更好！';
+  }
+
+  function submit(){
+    if (Object.keys(picks).length < round.length) { return; }
+    var score = 0;
+    round.forEach(function(q){
+      var card = roundCards[q.id];
+      var chosen = picks[q.id];
+      var ok = chosen === q.answer;
+      if (ok) score++;
+      card.querySelectorAll('.qopt').forEach(function(b, i){
+        if (i === q.answer) b.classList.add('right');
+        else if (i === chosen && !ok) b.classList.add('wrong');
+        b.disabled = true;
+      });
+      var ex = card.querySelector('.qexpl');
+      ex.style.display = 'block';
+      ex.textContent = (ok ? '✓ 正确：' : '✗ 错误：') + q.explain;
+      ex.classList.add(ok ? 'good' : 'bad');
+    });
+    document.getElementById('btnSubmit').style.display = 'none';
+    resBox.style.display = 'block';
+    document.getElementById('resScore').textContent = score + ' / ' + round.length;
+    document.getElementById('resPct').textContent = Math.round(100 * score / round.length) + '%';
+    document.getElementById('resMsg').textContent = message(score, round.length);
+  }
+
+  document.getElementById('btnStart').addEventListener('click', start);
+  document.getElementById('btnRe').addEventListener('click', start);
+  document.getElementById('btnAgain').addEventListener('click', start);
+  document.getElementById('btnSubmit').addEventListener('click', submit);
+</script>
+{% endblock %}

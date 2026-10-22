@@ -65,6 +65,7 @@ def _load_json(name: str, default):
 
 BIRDS = _load_json("birds.json", [])
 DRAMAS = _load_json("dramas.json", [])
+QUIZ = _load_json("quiz.json", {})
 
 # 图片署名（iNaturalist 摄影师/许可/原页），存在则随详情页展示
 PHOTO_CREDITS = {}
@@ -397,6 +398,13 @@ def drama():
     """鸟类短剧频道：剧集列表 + 播放器。"""
     return render_template("drama.html", active="drama",
                            dramas_json=json.dumps(DRAMAS, ensure_ascii=False))
+
+
+@app.route("/quiz")
+def quiz():
+    """知识答题：科普资源链接 + 题库 + 答题。"""
+    return render_template("quiz.html", active="quiz", quiz=QUIZ,
+                           quiz_json=json.dumps(QUIZ, ensure_ascii=False))
 
 
 # ---------------------------------------------------------------------------
