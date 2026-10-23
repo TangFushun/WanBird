@@ -6,22 +6,23 @@
   .quiz-head h2{font-size:22px;color:var(--accent2);letter-spacing:.08em;}
   .quiz-head p{font-size:13px;color:var(--dim);margin-top:4px;letter-spacing:.04em;}
 
-  /* 科普资源 */
-  .resgrid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px;}
-  @media(min-width:640px){ .resgrid{grid-template-columns:1fr 1fr;} }
-  .res{
-    display:flex;flex-direction:column;gap:6px;padding:12px 13px;text-decoration:none;
-    border:1px solid;border-radius:3px;
+  /* 考点速学 */
+  .topics{display:grid;grid-template-columns:1fr;gap:12px;margin-top:10px;}
+  @media(min-width:760px){ .topics{grid-template-columns:1fr 1fr;} }
+  .topic{
+    border:1px solid #22403d;border-top:2px solid var(--teal2);border-radius:3px;
+    background:linear-gradient(180deg,rgba(18,48,48,.6),rgba(13,38,38,.5));
+    padding:13px 14px;display:flex;flex-direction:column;gap:8px;
   }
-  .res.site{border-color:var(--accent);background:rgba(232,168,56,.08);}
-  .res.external{border-color:#2a4a46;background:rgba(20,60,60,.35);transition:border-color .15s;}
-  .res.external:hover{border-color:var(--accent);}
-  .res .rt{font-size:15px;color:var(--accent2);letter-spacing:.05em;display:flex;align-items:center;gap:8px;}
-  .res .rt .tag{font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--dim);
-                border:1px solid #2a4a46;padding:1px 6px;border-radius:2px;}
-  .res .rd{font-size:12px;color:var(--dim);line-height:1.6;}
+  .topic h3{font-size:16px;color:var(--accent2);letter-spacing:.05em;}
+  .topic .tl{font-size:12.5px;line-height:1.8;color:var(--text);}
+  .topiclinks{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;}
+  .topiclinks a{
+    font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-decoration:none;
+    color:var(--accent);border:1px solid var(--line);padding:4px 10px;border-radius:3px;
+  }
+  .topiclinks a:hover{background:rgba(232,168,56,.12);box-shadow:var(--glow);}
 
-  /* 答题 */
   .zonesep{border:0;border-top:1px dashed #2a4a46;margin:20px 0 6px;}
   #quizIntro .btn{margin-top:6px;}
   .qmeta{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim);margin-bottom:4px;}
@@ -31,6 +32,7 @@
          background:linear-gradient(180deg,rgba(18,48,48,.6),rgba(13,38,38,.5));
          padding:13px 14px;border-radius:3px;}
   .qcard .qno{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim);margin-bottom:6px;}
+  .qcard .qno b{color:var(--accent);font-weight:600;}
   .qcard .qtext{font-size:15px;color:var(--text);line-height:1.7;margin-bottom:10px;}
   .qopts{display:flex;flex-wrap:wrap;gap:8px;}
   .qopt{
@@ -61,16 +63,16 @@
 <div class="quiz-head">
   <div class="kplabel" style="margin-top:0;">QUIZ ZONE · 知识答题</div>
   <h2>珍禽知识小挑战</h2>
-  <p>先从科普资源里学习，再随机抽 10 题作答；提交后每题给出解析与得分。</p>
+  <p>先看下面的「考点速学」直接学习知识点，再随机抽 10 题作答；提交后每题给出解析与得分。</p>
 </div>
 
-<div class="kplabel">RESOURCES · 科普资源</div>
-<div class="resgrid" id="resGrid"></div>
+<div class="kplabel">LEARN FIRST · 考点速学</div>
+<div class="topics" id="topicList"></div>
 
 <hr class="zonesep">
 <div class="kplabel">QUIZ · 答题</div>
 <div id="quizIntro">
-  <p class="mnote">共 {{ quiz.questions|length }} 道题，每轮随机抽 {{ quiz.round }} 题。</p>
+  <p class="mnote">题库共 {{ quiz.questions|length }} 道，每轮随机抽 {{ quiz.round }} 题。</p>
   <button type="button" class="btn primary" id="btnStart" style="margin-top:10px;">开始答题</button>
 </div>
 
@@ -96,24 +98,24 @@
 <script>
   var QUIZ = {{ quiz_json|safe }};
   var ROUND = {{ quiz.round }};
+  var TOPIC_NAME = {};
+  (QUIZ.topics || []).forEach(function(t){ TOPIC_NAME[t.id] = t.name; });
 
-  // ---- 科普资源 ----
-  (function renderResources(){
-    var grid = document.getElementById('resGrid');
-    (QUIZ.resources || []).forEach(function(r){
-      var a = document.createElement('a');
-      a.className = 'res ' + (r.type === 'site' ? 'site' : 'external');
-      a.href = r.url;
-      if (r.type === 'external') { a.target = '_blank'; a.rel = 'noopener'; }
-      var rt = document.createElement('div'); rt.className = 'rt';
-      rt.appendChild(document.createTextNode(r.title));
-      var tag = document.createElement('span'); tag.className = 'tag';
-      tag.textContent = r.type === 'site' ? '站内' : '外链';
-      rt.appendChild(tag);
-      a.appendChild(rt);
-      var rd = document.createElement('div'); rd.className = 'rd'; rd.textContent = r.desc || '';
-      a.appendChild(rd);
-      grid.appendChild(a);
+  // ---- 考点速学（知识点 + 直链）----
+  (function renderTopics(){
+    var box = document.getElementById('topicList');
+    (QUIZ.topics || []).forEach(function(t){
+      var card = document.createElement('div'); card.className = 'topic';
+      var h = document.createElement('h3'); h.textContent = '▸ ' + t.name; card.appendChild(h);
+      var p = document.createElement('p'); p.className = 'tl'; p.textContent = t.learn || ''; card.appendChild(p);
+      var links = document.createElement('div'); links.className = 'topiclinks';
+      (t.links || []).forEach(function(l){
+        var a = document.createElement('a'); a.textContent = l.label; a.href = l.url;
+        if (l.type === 'external') { a.target = '_blank'; a.rel = 'noopener'; }
+        links.appendChild(a);
+      });
+      card.appendChild(links);
+      box.appendChild(card);
     });
   })();
 
@@ -151,6 +153,9 @@
       var card = document.createElement('div'); card.className = 'qcard';
       var no = document.createElement('div'); no.className = 'qno';
       no.textContent = 'QUESTION ' + (idx + 1) + ' / ' + round.length;
+      var tag = document.createElement('b');
+      tag.textContent = '　考点：' + (TOPIC_NAME[q.topic] || q.topic || '综合');
+      no.appendChild(tag);
       card.appendChild(no);
       var text = document.createElement('div'); text.className = 'qtext'; text.textContent = q.q;
       card.appendChild(text);
@@ -174,7 +179,7 @@
     if (score === total) return '满分！你是观鸟大侦探 🎉';
     if (pct >= 0.8) return '很棒的观鸟达人！';
     if (pct >= 0.6) return '不错，继续积累珍禽知识！';
-    return '再回科普资源里学习一下，下次一定更好！';
+    return '回上方「考点速学」复习一下，下次一定更好！';
   }
 
   function submit(){
