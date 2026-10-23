@@ -780,5 +780,43 @@
       "answer": 1,
       "explain": "人为投喂可能引起营养失衡、疾病与依赖，一般不利于野生鸟类。"
     }
+  ],
+  "videos": [
+    {
+      "title": "《美丽中国》自然纪录片",
+      "source": "央视网",
+      "desc": "央视与 BBC 联合摄制的自然纪录片，含大量湿地与水鸟画面，适合认识鸟类栖息环境。",
+      "url": "https://search.cctv.com/search.php?qtext=美丽中国%20纪录片"
+    },
+    {
+      "title": "《航拍中国》· 安徽",
+      "source": "央视网",
+      "desc": "从空中看安徽的江河湖泊与湿地，理解候鸟越冬的生境。",
+      "url": "https://search.cctv.com/search.php?qtext=航拍中国%20安徽"
+    },
+    {
+      "title": "央视纪录频道 CCTV-9",
+      "source": "央视",
+      "desc": "自然与野生动物纪录片频道，常有鸟类、湿地主题节目。",
+      "url": "https://tv.cctv.com/cctv9/"
+    },
+    {
+      "title": "科普中国 · 鸟类科普",
+      "source": "中国科协",
+      "desc": "权威科普平台，站内搜索“鸟类”可看大量短视频与图文。",
+      "url": "https://www.kepuchina.cn/"
+    },
+    {
+      "title": "中国国家地理 · 野生动物",
+      "source": "中国国家地理",
+      "desc": "地理与野生动物内容平台，含鸟类生态与保护报道。",
+      "url": "https://www.dili360.com/"
+    },
+    {
+      "title": "B 站 · 鸟类科普合集",
+      "source": "哔哩哔哩",
+      "desc": "CCTV 纪录、科普中国等官方账号的科普视频；观看无需账号。",
+      "url": "https://search.bilibili.com/all?keyword=鸟类科普"
+    }
   ]
 }

@@ -23,6 +23,21 @@
   }
   .topiclinks a:hover{background:rgba(232,168,56,.12);box-shadow:var(--glow);}
 
+  /* 权威科普视频 */
+  .videos{display:grid;grid-template-columns:1fr;gap:10px;margin-top:10px;}
+  @media(min-width:760px){ .videos{grid-template-columns:1fr 1fr;} }
+  .video{
+    display:flex;gap:12px;align-items:flex-start;text-decoration:none;
+    padding:12px 13px;border:1px solid #2a4a46;border-radius:3px;
+    background:rgba(13,38,38,.5);transition:border-color .15s;
+  }
+  .video:hover{border-color:var(--accent);box-shadow:var(--glow);}
+  .video .vic{font-size:18px;color:var(--accent);line-height:1.3;flex:none;}
+  .video .vbody{display:flex;flex-direction:column;gap:3px;}
+  .video .vt{font-size:14.5px;color:var(--accent2);letter-spacing:.03em;}
+  .video .vs{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--dim);}
+  .video .vd{font-size:12px;color:var(--dim);line-height:1.6;}
+
   .zonesep{border:0;border-top:1px dashed #2a4a46;margin:20px 0 6px;}
   #quizIntro .btn{margin-top:6px;}
   .qmeta{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--dim);margin-bottom:4px;}
@@ -73,6 +88,9 @@
 
 <div class="kplabel">LEARN FIRST · 考点速学</div>
 <div class="topics" id="topicList"></div>
+
+<div class="kplabel" style="margin-top:16px;">VIDEOS · 权威科普视频</div>
+<div class="videos" id="videoList"></div>
 
 <hr class="zonesep">
 <div class="kplabel">QUIZ · 答题</div>
@@ -125,6 +143,23 @@
       });
       card.appendChild(links);
       box.appendChild(card);
+    });
+  })();
+
+  // ---- 权威科普视频 ----
+  (function renderVideos(){
+    var box = document.getElementById('videoList');
+    (QUIZ.videos || []).forEach(function(v){
+      var a = document.createElement('a');
+      a.className = 'video'; a.href = v.url; a.target = '_blank'; a.rel = 'noopener';
+      var ic = document.createElement('span'); ic.className = 'vic'; ic.textContent = '▶';
+      a.appendChild(ic);
+      var body = document.createElement('span'); body.className = 'vbody';
+      var t = document.createElement('span'); t.className = 'vt'; t.textContent = v.title; body.appendChild(t);
+      var s = document.createElement('span'); s.className = 'vs'; s.textContent = '来源 · ' + (v.source || ''); body.appendChild(s);
+      var d = document.createElement('span'); d.className = 'vd'; d.textContent = v.desc || ''; body.appendChild(d);
+      a.appendChild(body);
+      box.appendChild(a);
     });
   })();
 
