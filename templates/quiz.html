@@ -50,6 +50,11 @@
          border-left:2px solid var(--accent);background:rgba(10,31,31,.5);color:var(--text);}
   .qexpl.good{border-color:#7fe0b0;color:#bfe8dd;}
   .qexpl.bad{border-color:#ff8f7a;color:#ffd2c6;}
+  .qexpl a.qlink{
+    display:inline-block;margin-top:6px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+    color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--line);
+  }
+  .qexpl a.qlink:hover{color:var(--accent2);}
 
   #resBox{display:none;margin-top:16px;border:1px solid var(--line);border-top:2px solid var(--accent);
           background:linear-gradient(180deg,var(--panel),var(--panel2));padding:18px;text-align:center;}
@@ -63,7 +68,7 @@
 <div class="quiz-head">
   <div class="kplabel" style="margin-top:0;">QUIZ ZONE · 知识答题</div>
   <h2>珍禽知识小挑战</h2>
-  <p>先看下面的「考点速学」直接学习知识点，再随机抽 10 题作答；提交后每题给出解析与得分。</p>
+  <p>先看下面的「考点速学」学习知识点（链接均为站外科普站点：百度百科、iNaturalist、懂鸟、IUCN 等），再随机抽 10 题作答；提交后每题给出解析与得分。</p>
 </div>
 
 <div class="kplabel">LEARN FIRST · 考点速学</div>
@@ -99,7 +104,11 @@
   var QUIZ = {{ quiz_json|safe }};
   var ROUND = {{ quiz.round }};
   var TOPIC_NAME = {};
-  (QUIZ.topics || []).forEach(function(t){ TOPIC_NAME[t.id] = t.name; });
+  var TOPIC_LINK = {};
+  (QUIZ.topics || []).forEach(function(t){
+    TOPIC_NAME[t.id] = t.name;
+    if (t.links && t.links.length) TOPIC_LINK[t.id] = t.links[0].url;
+  });
 
   // ---- 考点速学（知识点 + 直链）----
   (function renderTopics(){
@@ -199,6 +208,14 @@
       ex.style.display = 'block';
       ex.textContent = (ok ? '✓ 正确：' : '✗ 错误：') + q.explain;
       ex.classList.add(ok ? 'good' : 'bad');
+      var linkUrl = TOPIC_LINK[q.topic];
+      if (linkUrl) {
+        var a = document.createElement('a');
+        a.className = 'qlink'; a.href = linkUrl; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = '去学考点：' + (TOPIC_NAME[q.topic] || '') + ' ↗';
+        ex.appendChild(document.createElement('br'));
+        ex.appendChild(a);
+      }
     });
     document.getElementById('btnSubmit').style.display = 'none';
     resBox.style.display = 'block';
