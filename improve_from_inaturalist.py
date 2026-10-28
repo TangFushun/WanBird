@@ -178,10 +178,10 @@ def process(b, credits):
                 out["en"] = "set"
         # 2) GBIF 国家分布
         key = gbif_match(b["latin"]).get("key")
-        if key:
+        if key and b.get("content_review", {}).get("status") != "sourced":
             total, top = country_stats(key)
             if top:
-                txt = ("依据 GBIF 公开观测记录（1980 年至今，共 %d 条），记录主要来自：%s。"
+                txt = ("依据本次 GBIF 查询返回的历史记录（%d 条），记录主要来自：%s。"
                        "具体分布范围以权威名录与图鉴为准。"
                        % (total, "、".join(f"{n}（{c} 条）" for n, c in top)))
                 sec = next((s for s in b.get("sections", []) if s.get("key") == "distribution"), None)

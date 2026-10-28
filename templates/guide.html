@@ -65,8 +65,8 @@
 <div class="guide-head">
   <div class="kplabel" style="margin-top:0;">BIRD GUIDE · 鸟类图鉴</div>
   <h2>国家重点保护鸟类档案</h2>
-  <p>《国家重点保护野生动物名录》鸟纲 394 种：点开卡片查看分类、保护级别、百科档案与分布地图。</p>
-  <p class="srcnote">数据来源：GBIF · iNaturalist（CC 授权）·《国家重点保护野生动物名录》· IUCN 红色名录（经 Wikidata）；各鸟种详情页注有具体来源与图片署名。</p>
+  <p>本地图鉴收录 {{ bird_count }} 种鸟类，点开查看分类、保护级别与观测资料。国家保护级别和 IUCN 全球受威胁等级分别展示。</p>
+  <p class="srcnote">资料进度：{{ sourced_count }} 种已补充正文出处，{{ bird_count - sourced_count }} 种基础资料待复核。分类与坐标来自 GBIF 整理；百科文字的依据请查看各详情页，数据库名称不代表对正文的审校。</p>
 </div>
 
 <div class="toolbar">
@@ -74,8 +74,11 @@
   <select id="fOrder" aria-label="按目筛选">
     <option value="">全部目</option>
   </select>
-  <select id="fIucn" aria-label="按保护等级筛选">
-    <option value="">全部等级</option>
+  <select id="fProtection" aria-label="按国家保护级别筛选">
+    <option value="">国家保护 · 全部</option>
+  </select>
+  <select id="fIucn" aria-label="按 IUCN 受威胁等级筛选">
+    <option value="">IUCN 等级 · 全部</option>
   </select>
   <span class="cnt">共 <b id="cnt">0</b> 种</span>
 </div>
@@ -95,13 +98,15 @@
   var qEl = document.getElementById('q');
   var fOrder = document.getElementById('fOrder');
   var fIucn = document.getElementById('fIucn');
+  var fProtection = document.getElementById('fProtection');
 
   // 生成筛选下拉选项
   (function(){
-    var orders = {}, iucns = {};
+    var orders = {}, iucns = {}, protections = {};
     BIRDS.forEach(function(b){
       if (b.order) orders[b.order] = 1;
       if (b.iucn) iucns[b.iucn] = 1;
+      if (b.protection) protections[b.protection] = 1;
     });
     Object.keys(orders).sort().forEach(function(o){
       var op = document.createElement('option');
@@ -110,6 +115,9 @@
     Object.keys(iucns).sort().forEach(function(c){
       var op = document.createElement('option');
       op.value = c; op.textContent = c + ' · ' + (IUCN_CN[c] || ''); fIucn.appendChild(op);
+    });
+    Object.keys(protections).sort().forEach(function(p){
+      var op = document.createElement('option'); op.value = p; op.textContent = p; fProtection.appendChild(op);
     });
   })();
 
@@ -129,14 +137,18 @@
 
     if (b.iucn) {
       var badge = document.createElement('span');
-      badge.className = 'iucn';
-      badge.textContent = b.iucn;
+      badge.className = 'iucn ' + b.iucn;
+      badge.textContent = b.iucn + ' · ' + (IUCN_CN[b.iucn] || '');
       thumb.appendChild(badge);
     }
 
     var body = document.createElement('div');
     body.className = 'cardbody';
     var h = document.createElement('h3'); h.textContent = b.name;
+    var review = document.createElement('span');
+    var sourced = b.content_review && b.content_review.status === 'sourced';
+    review.className = 'review-state ' + (sourced ? 'sourced' : 'draft');
+    review.textContent = sourced ? '正文附出处' : '基础资料 · 待复核';
     var lat = document.createElement('div'); lat.className = 'lat'; lat.textContent = b.latin || '';
     var tags = document.createElement('div'); tags.className = 'tags';
     [b.order, (b.protection || '').replace('国家', '国家')].forEach(function(t){
@@ -146,7 +158,7 @@
       c.textContent = t;
       tags.appendChild(c);
     });
-    body.appendChild(h); body.appendChild(lat); body.appendChild(tags);
+    body.appendChild(h); body.appendChild(lat); body.appendChild(tags); body.appendChild(review);
 
     a.appendChild(thumb); a.appendChild(body);
     return a;
@@ -154,10 +166,11 @@
 
   function render(){
     var kw = qEl.value.trim().toLowerCase();
-    var ord = fOrder.value, iu = fIucn.value;
+    var ord = fOrder.value, iu = fIucn.value, protection = fProtection.value;
     var list = BIRDS.filter(function(b){
       if (ord && b.order !== ord) return false;
       if (iu && b.iucn !== iu) return false;
+      if (protection && b.protection !== protection) return false;
       if (!kw) return true;
       var hay = [b.name, b.latin, b.english, b.order, b.iucn]
         .concat(b.aliases || []).join(' ').toLowerCase();
@@ -172,6 +185,7 @@
   qEl.addEventListener('input', render);
   fOrder.addEventListener('change', render);
   fIucn.addEventListener('change', render);
+  fProtection.addEventListener('change', render);
   render();
 </script>
 {% endblock %}

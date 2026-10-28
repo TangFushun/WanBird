@@ -58,17 +58,19 @@
 <div class="drama-head">
   <div class="kplabel" style="margin-top:0;">BIRD SHORTS · 鸟类短剧</div>
   <h2>鸟类科普小剧场</h2>
-  <p>用短剧讲故事：稀世珍禽的前世今生。片源填入 data/dramas.json 后即可在此播放。</p>
+  <p>跟随飞鸟伙伴，走近湿地与山林。选择已上线剧集，开启一段自然故事。</p>
 </div>
+<aside class="story-disclaimer"><b>故事与科学资料</b><p>角色对话、互助与 AI 情节为拟人化创作。每集下方分别展示故事设定、可查证的科学知识和资料链接；视频实拍素材的拍摄地点、日期及逐段物种标注仍待核实。</p></aside>
 
 <div class="player" id="player">
   <div class="notready" id="notready">
     <div class="ic">▶</div>
-    <b>暂无可播放的剧集</b>
-    <span>在 <em>data/dramas.json</em> 中加入剧集（本地 MP4 或 B 站视频），此处即会显示播放器。左侧/下方列表点击即可切换剧集。</span>
+    <b>故事正在准备中</b>
+    <span>新剧集上线后，即可在这里观看。</span>
+    <button type="button" class="btn slim" id="retryVideo" hidden>重新加载</button>
   </div>
 </div>
-<div class="nowplaying">NOW PLAYING · <b id="nowTtl">--</b></div>
+<div class="nowplaying">当前剧集 · <b id="nowTtl">--</b></div>
 <div class="epinfo" id="epInfo"></div>
 
 <div class="kplabel">EPISODES · 剧集列表</div>
@@ -79,39 +81,61 @@
 <script src="{{ url_for('static', filename='js/common.js') }}"></script>
 <script>
   var DRAMAS = {{ dramas_json|safe }};
+  var SOURCES = {{ sources_json|safe }};
   var playerEl = document.getElementById('player');
   var notready = document.getElementById('notready');
   var nowTtl = document.getElementById('nowTtl');
   var epInfo = document.getElementById('epInfo');
   var epGrid = document.getElementById('eps');
   var current = null;
+  var currentDrama = null;
+  var retryVideo = document.getElementById('retryVideo');
+  function available(d){ return (d.type === 'mp4' && !!d.src) || (d.type === 'bilibili' && !!d.bvid); }
+  retryVideo.addEventListener('click', function(){ if (currentDrama) play(currentDrama); });
 
-  function showNotReady(title, msg){
+  function showNotReady(title, msg, retry){
     notready.style.display = 'flex';
     notready.querySelector('b').textContent = title || '该剧集暂无片源';
-    notready.querySelector('span').innerHTML = msg || '请在 data/dramas.json 中为本剧集配置片源。';
+    notready.querySelector('span').textContent = msg || '新故事正在制作中，敬请期待。';
+    retryVideo.hidden = !retry;
     playerEl.querySelectorAll('video,iframe').forEach(function(n){ n.remove(); });
   }
 
   function play(d){
+    currentDrama = d;
     current = d ? d.id : null;
     // 高亮列表
     Array.prototype.forEach.call(epGrid.children, function(c){
       c.classList.toggle('active', c.dataset.id === current);
     });
-    if (!d) { showNotReady('暂无可播放的剧集', ''); nowTtl.textContent = '--'; epInfo.classList.remove('show'); return; }
+    if (!d) { showNotReady('故事正在准备中', '新剧集上线后，即可在这里观看。'); nowTtl.textContent = '--'; epInfo.classList.remove('show'); return; }
     nowTtl.textContent = d.title;
-    // 本集科普与片尾转场
-    var infoParts = [];
-    if (d.science) infoParts.push('<b>核心科普</b>　' + d.science);
-    if (d.transition) infoParts.push('<b>片尾转场</b>　' + d.transition);
-    if (infoParts.length) {
-      epInfo.innerHTML = infoParts.join('<br>');
-      epInfo.classList.add('show');
-    } else {
-      epInfo.classList.remove('show');
+    epInfo.replaceChildren();
+    function addInfo(label, text){
+      if (!text) return;
+      var section = document.createElement('section'); section.className = 'episode-note';
+      var heading = document.createElement('h3'); heading.textContent = label;
+      var paragraph = document.createElement('p'); paragraph.textContent = text;
+      section.append(heading, paragraph); epInfo.appendChild(section); return section;
     }
+    addInfo('故事设定', d.story_note);
+    var scienceBox = addInfo('本集科学知识', d.science);
+    if (scienceBox) {
+      var links = document.createElement('div'); links.className = 'science-sources';
+      (d.science_sources || []).forEach(function(sid){
+        var source = SOURCES[sid]; if (!source) return;
+        var a = document.createElement('a'); a.href = source.url; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = source.title + ' ↗';
+        var meta = document.createElement('small');
+        meta.textContent = source.publisher + ' · 发布：' + (source.published_on || '未注明') + ' · 查阅：' + source.checked_on;
+        var item = document.createElement('div'); item.append(a, meta); links.appendChild(item);
+      });
+      scienceBox.appendChild(links);
+    }
+    addInfo('实拍素材说明', d.footage_note);
+    epInfo.classList.add('show');
     notready.style.display = 'none';
+    retryVideo.hidden = true;
     playerEl.querySelectorAll('video,iframe').forEach(function(n){ n.remove(); });
 
     if (d.type === 'mp4' && d.src) {
@@ -123,7 +147,8 @@
       if (d.cover) v.poster = d.cover;
       v.src = d.src;
       v.addEventListener('error', function(){
-        showNotReady('无法加载视频', '未找到文件 <em>' + d.src + '</em>。请将 MP4 放入 static/media/ 并核对 data/dramas.json 中的路径。');
+        if (currentDrama !== d || !v.isConnected) return;
+        showNotReady('视频暂时无法加载', '请检查网络连接，再点击重新加载。', true);
       });
       playerEl.appendChild(v);
     } else if (d.type === 'bilibili' && d.bvid) {
@@ -131,22 +156,25 @@
       ifr.src = '//player.bilibili.com/player.html?bvid=' + d.bvid + '&page=1&high_quality=1&autoplay=0';
       ifr.setAttribute('allowfullscreen', '');
       ifr.setAttribute('scrolling', 'no');
+      ifr.title = d.title + ' 视频播放器';
       playerEl.appendChild(ifr);
     } else {
-      showNotReady('该剧集暂无片源', '请在 <em>data/dramas.json</em> 中填写 type（mp4 或 bilibili）与对应 src/bvid 字段。');
+      showNotReady('本集即将上线', '新故事正在制作中，敬请期待。');
     }
   }
 
   function makeEp(d){
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'ep';
+    var ready = available(d);
+    var b = document.createElement(ready ? 'button' : 'article');
+    if (ready) b.type = 'button';
+    b.className = 'ep' + (ready ? '' : ' upcoming');
     b.dataset.id = d.id;
-    b.setAttribute('aria-label', '播放：' + d.title);
+    b.setAttribute('aria-label', (ready ? '播放：' : '即将上线：') + d.title);
 
     var cov = document.createElement('div');
     cov.className = 'cov';
-    cov.appendChild(coverImg(d.cover, d.title));
+    if (ready) cov.appendChild(coverImg(d.cover, d.title));
+    else { var soon = document.createElement('span'); soon.textContent = '即将上线'; cov.appendChild(soon); }
     b.appendChild(cov);
 
     var meta = document.createElement('div');
@@ -158,7 +186,9 @@
       sub.appendChild(age);
     }
     var dur = document.createElement('span'); dur.textContent = d.duration || '--:--';
-    sub.appendChild(dur);
+    if (ready) sub.appendChild(dur);
+    var availability = document.createElement('span'); availability.className = 'episode-state';
+    availability.textContent = ready ? '已上线' : '制作中'; sub.appendChild(availability);
     var syn = document.createElement('div'); syn.className = 'syn'; syn.textContent = d.synopsis || '';
     meta.appendChild(ttl); meta.appendChild(sub); meta.appendChild(syn);
     if (d.science) {
@@ -167,12 +197,12 @@
     }
     b.appendChild(meta);
 
-    b.addEventListener('click', function(){ play(d); });
+    if (ready) b.addEventListener('click', function(){ play(d); });
     return b;
   }
 
   DRAMAS.forEach(function(d){ epGrid.appendChild(makeEp(d)); });
   // 默认自动播放第一集；placeholder 会显示未就绪提示
-  play(DRAMAS[0] || null);
+  play(DRAMAS.find(available) || null);
 </script>
 {% endblock %}

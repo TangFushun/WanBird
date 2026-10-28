@@ -6,26 +6,29 @@
 <title>{% block title %}皖境飞鸟观测台 · WANBIRD OBSERVATORY{% endblock %}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
 {% block head %}{% endblock %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/experience.css') }}">
 </head>
-<body>
+<body data-page="{{ active }}">
+<a class="skip-link" href="#main">跳到主要内容</a>
 <div class="wrap">
 
   <!-- 顶部状态条：品牌 + 站点导航 + 系统状态 -->
   <header class="statusbar">
-    <span class="brand">◆ WANBIRD OBSERVATORY</span>
+    <a class="brand" href="{{ url_for('index') }}"><span>皖境飞鸟观测台</span><small>WANBIRD OBSERVATORY</small></a>
     <nav class="sitenav" aria-label="站点导航">
-      <a href="{{ url_for('index') }}" class="{{ 'active' if active == 'index' else '' }}">识别</a>
-      <a href="{{ url_for('guide') }}" class="{{ 'active' if active == 'guide' else '' }}">鸟类图鉴</a>
-      <a href="{{ url_for('drama') }}" class="{{ 'active' if active == 'drama' else '' }}">鸟类短剧</a>
-      <a href="{{ url_for('quiz') }}" class="{{ 'active' if active == 'quiz' else '' }}">知识答题</a>
+      {% for key, label in [('index', '鸟类识别'), ('guide', '鸟类图鉴'), ('drama', '鸟类短剧'), ('quiz', '知识答题')] %}
+      <a href="{{ url_for(key) }}" class="{{ 'active' if active == key else '' }}" {% if active == key %}aria-current="page"{% endif %}>{{ label }}</a>
+      {% endfor %}
     </nav>
     <div class="meta">
-      <span class="rec"><i></i>SYSTEM·ONLINE</span>
-      <span id="modeLbl">MODE·DEMO</span>
+      <span class="rec"><i></i>识别服务</span>
+      <span id="modeLbl">{{ '真实识别' if recognition_real else '演示模式' }}</span>
     </div>
   </header>
 
-  {% block content %}{% endblock %}
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
 
   <p class="foot">POWERED BY <b>懂鸟·ABOUTBIRDS API</b> · 皖境飞鸟观测台 WANBIRD OBSERVATORY</p>
 </div>

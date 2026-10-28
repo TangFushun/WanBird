@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """从 GBIF 下载六种鸟的真实观测坐标，去重后存入 static/data/occur/<id>.json。
-数据：GBIF.org（CC-BY 4.0）——自然历史馆藏 + 观鸟记录 + 科研调查等真实观测。"""
+数据：GBIF.org 聚合记录；许可须以原始数据集为准，坐标点不代表实时分布。"""
+from datetime import datetime, timezone
 import json
 import os
 import time
@@ -69,6 +70,12 @@ for bid, sp in SPECIES:
         path = os.path.join(OUT_DIR, bid + ".json")
         with open(path, "w", encoding="utf-8") as f:
             json.dump(pts, f, ensure_ascii=False, separators=(",", ":"))
+        with open(path.replace(".json", ".meta.json"), "w", encoding="utf-8") as f:
+            json.dump({"source": "GBIF", "species_key": key,
+                       "retrieved_on": datetime.now(timezone.utc).isoformat(),
+                       "year_range": [YEAR_FROM, 2026], "coordinate_count": len(pts),
+                       "query": {"hasCoordinate": True, "spatialIssues": False},
+                       "note": "抽样、去重和简化后的坐标；不代表记录总数或完整分布。"}, f, ensure_ascii=False, indent=2)
         print("%-24s key=%-10s points=%d -> %s" % (bid, key, len(pts), os.path.relpath(path)))
     except Exception as e:
         print("%-24s ERROR %s" % (bid, e))

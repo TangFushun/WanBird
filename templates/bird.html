@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% macro cite(ids) -%}
+{% if ids %}<div class="paragraph-refs"><span>本段依据</span>
+{% for sid in ids %}{% if sid in source_numbers %}<a href="#source-{{ sid }}" aria-label="查看依据 {{ source_numbers[sid] }}：{{ sources[sid].title }}">[{{ source_numbers[sid] }}]</a>{% endif %}{% endfor %}
+</div>{% endif %}
+{%- endmacro %}
 {% block title %}{{ bird.name }} · 鸟类图鉴 · 皖境飞鸟观测台{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='lib/leaflet/leaflet.css') }}">
@@ -150,6 +155,12 @@
   </div>
 </div>
 
+<aside class="content-status {{ bird.content_review.status }}" aria-label="资料整理状态">
+  <b>{{ '正文已补充出处' if bird.content_review.status == 'sourced' else '基础资料 · 待复核' }}</b>
+  <p>{{ bird.content_review.note }}{% if bird.content_review.updated_on %} 本页文字整理：{{ bird.content_review.updated_on }}。{% endif %}</p>
+  {% if bird.content_review.status != 'sourced' %}<p>GBIF 分类与坐标、图片来源不作为下方生态习性正文的证据。部分 IUCN 标记来自既有整理，评估年份尚待补齐。</p>{% endif %}
+</aside>
+
 <div class="hero">
   <div class="heroimg"></div>
   <div>
@@ -164,6 +175,10 @@
       {% if bird.aliases %}<span class="chip"><b>俗名 </b>{{ bird.aliases | join('、') }}</span>{% endif %}
     </div>
     <p class="summary">{{ bird.summary }}</p>
+    {{ cite(bird.summary_sources) }}
+    {% if bird.iucn_evidence %}
+    <div class="assessment-note">IUCN 资料版本：{{ bird.iucn_evidence.note }} {{ cite([bird.iucn_evidence.source]) }}</div>
+    {% elif bird.iucn %}<p class="assessment-note">IUCN {{ bird.iucn }} 为既有收录标记，对应的全球评估年份与原始链接待核实。</p>{% endif %}
   </div>
 </div>
 
@@ -180,23 +195,28 @@
 {% if not bird.taxonomy %}<p class="mnote">（分类信息整理中）</p>{% endif %}
 
 {% if bird.anhui %}
-<div class="kplabel" style="margin-top:16px;">ANHUI TRACE · 皖境踪迹</div>
+<div class="kplabel" style="margin-top:16px;">ANHUI TRACE · 安徽关联{% if bird.anhui_status %} · {{ bird.anhui_status }}{% endif %}</div>
 <div class="secgrid">
-  <div class="sec anhui"><h4>皖境踪迹</h4><p>{{ bird.anhui }}</p></div>
+  <div class="sec anhui wide"><h4>安徽关联</h4><p>{{ bird.anhui }}</p>{{ cite(bird.anhui_sources) }}</div>
 </div>
 {% endif %}
 
-<div class="kplabel" style="margin-top:16px;">HABITAT MAP · 栖息地分布</div>
+<div class="kplabel" style="margin-top:16px;">OBSERVATIONS · 观测记录与分布示意</div>
+<p class="map-disclaimer">色块为本站绘制或由坐标推算的示意范围，尚未逐点复核，不是权威分布图。历史观测记录不代表当前种群数量，也不保证现场能观察到鸟类。</p>
 <div class="birdmap" id="birdmap"></div>
 <div class="mapbar">
   <label class="occswitch" for="occToggle">
     <input type="checkbox" id="occToggle" checked>
     <span class="track"><i></i></span>
-    <span class="lbl">真实观测记录 · GBIF</span>
+    <span class="lbl">历史收录坐标 · GBIF</span>
   </label>
   <button type="button" class="btn ghost slim" id="focusBird">聚焦本种</button>
 </div>
-<p class="mnote">默认是一幅<em>完整世界地图</em>（活动范围钳制在世界边界，不会左右滑出空白），可自由放大缩小；青绿小点为<em>真实观测记录</em>（数据 GBIF.org · CC BY 4.0，1980 年以来），金点为重点保护区与观测地，示意色块为繁殖/越冬/留鸟范围（见地图内图例）。点「聚焦本种」可缩放到该鸟的分布区域。</p>
+<div class="map-data-note">
+  <p>{% if observations.available %}本地坐标点：<b>{{ observations.count }}</b> 个（简化后保存的坐标，不等于原始记录总数）。{% else %}本地观测坐标暂不可用。{% endif %}<span id="occLoadStatus" role="status"></span></p>
+  <p>数据下载时间：{{ observations.retrieved_on or '未记录' }}。{% if observations.year_range %}检索年份范围：{{ observations.year_range | join('—') }}。{% else %}现有文件未保存逐条日期，无法据此核对完整观测时间范围。{% endif %}</p>
+  <p>青绿点为 GBIF 历史收录坐标，金点为地点示意中心。记录可能包含不同来源和数据误差；色块及连线不表示鸟类实际迁徙轨迹。数据许可应以原始记录为准，现有坐标文件未保存逐条许可。</p>
+</div>
 
 <div class="kplabel" style="margin-top:16px;">PROFILE · 百科档案</div>
 <div class="secgrid">
@@ -204,6 +224,7 @@
   <div class="sec{% if s.key in ('distribution','conservation') %} wide{% endif %}">
     <h4>{{ s.label }}</h4>
     <p>{{ s.text }}</p>
+    {{ cite(s.sources) }}
   </div>
   {% endfor %}
 </div>
@@ -211,18 +232,26 @@
 
 <div class="kplabel" style="margin-top:16px;">DATA SOURCES · 数据来源</div>
 <div class="sources">
-  <div>分类阶元 / 分布与观测：<a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF 全球生物多样性信息网络</a>（公开观测记录）</div>
-  <div>保护级别：《国家重点保护野生动物名录》（国家一级 / 二级）</div>
-  <div>IUCN 等级：<a href="https://www.iucnredlist.org/" target="_blank" rel="noopener">IUCN 红色名录</a>（经 Wikidata 结构化数据；个别物种未收录）</div>
+  <p>下列引用对应正文旁的编号。资料查阅日与发布日、IUCN 评估年份、坐标下载时间分别记录，互不替代。</p>
+  {% for sid, number in source_numbers.items() %}
+  {% set source = sources[sid] %}
+  <article class="source-entry" id="source-{{ sid }}">
+    <a href="{{ source.url }}" target="_blank" rel="noopener">[{{ number }}] {{ source.title }} ↗</a>
+    <p>{{ source.publisher }} · 发布：{{ source.published_on or '未注明' }} · 查阅：{{ source.checked_on }}</p>
+    <p>引用用途：{{ source.scope }}</p>
+  </article>
+  {% else %}<p>本页生态习性正文的具体文献尚待补充，目前不作为已核实的种级科普资料。</p>{% endfor %}
+  <div>分类与观测数据库入口：<a href="https://www.gbif.org/" target="_blank" rel="noopener">GBIF</a>（数据库入口，非本页全部正文的出处）</div>
+  <div>国家保护级别名录依据：<a href="{{ sources['national-list-2021'].url }}" target="_blank" rel="noopener">2021 年公告及附件</a>（国家保护级别与全球 IUCN 风险等级是不同制度）</div>
   {% if credit and credit.status == 'user-provided' %}
   <div>图片：用户提供</div>
   {% elif credit and credit.photographer %}
   <div>图片：iNaturalist · {{ credit.photographer }}{% if credit.license %}（{{ credit.license }}）{% endif %}
     {% if credit.page %} · <a href="{{ credit.page }}" target="_blank" rel="noopener">原始页面</a>{% endif %}</div>
   {% else %}
-  <div>图片：iNaturalist（CC 授权）</div>
+  <div>图片：原始署名与许可信息待补充，不据缺失信息推定为 CC 授权。</div>
   {% endif %}
-  <div>百科文字：自动生成版（按目级通性整理，具体种级细节待人工复核）</div>
+  <div>图片署名仅说明图像来源，不构成百科文字或物种鉴定的审校。</div>
 </div>
 
 <div class="btnrow" style="margin-top:18px;">
@@ -246,7 +275,8 @@
 
   // 栖息地分布地图（示意范围 + GBIF 真实观测点图层，地图范围钳制在东亚相关区域）
   initBirdMap('birdmap', {{ (bird.map or {}) | tojson }}, {
-    occurUrl: '/static/data/occur/' + bird.id + '.json'
+    occurUrl: '/static/data/occur/' + bird.id + '.json',
+    onOccurStatus: function(message){ document.getElementById('occLoadStatus').textContent = message; }
   });
 
   // 真实观测点开关

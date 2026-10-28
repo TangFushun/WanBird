@@ -66,6 +66,32 @@ def _load_json(name: str, default):
 BIRDS = _load_json("birds.json", [])
 DRAMAS = _load_json("dramas.json", [])
 QUIZ = _load_json("quiz.json", {})
+SOURCES = _load_json("sources.json", {})
+for _bird in BIRDS:
+    _bird.setdefault("content_review", {"status": "draft", "updated_on": None,
+                                        "note": "基础资料，种级事实与段落来源待复核。"})
+
+
+def observation_info(bird_id):
+    """只显示已存档的信息；不以文件修改时间冒充数据下载时间。"""
+    root = os.path.join(app.static_folder, "data", "occur")
+    result = {"count": 0, "available": False, "retrieved_on": None, "year_range": None}
+    try:
+        with open(os.path.join(root, bird_id + ".json"), encoding="utf-8") as f:
+            points = json.load(f)
+        if isinstance(points, list):
+            result["count"] = sum(1 for p in points if isinstance(p, list) and len(p) >= 2)
+            result["available"] = True
+    except (OSError, ValueError):
+        pass
+    try:
+        with open(os.path.join(root, bird_id + ".meta.json"), encoding="utf-8") as f:
+            meta = json.load(f)
+        result["retrieved_on"] = meta.get("retrieved_on")
+        result["year_range"] = meta.get("year_range")
+    except (OSError, ValueError):
+        pass
+    return result
 
 # 图片署名（iNaturalist 摄影师/许可/原页），存在则随详情页展示
 PHOTO_CREDITS = {}
@@ -84,6 +110,12 @@ REVIEW_ENABLED = os.environ.get("REVIEW_ENABLED", "0") == "1"
 def real_mode() -> bool:
     """是否处于真实识别模式（配置了 API key）。"""
     return bool(os.environ.get("DONGNIAO_API_KEY", "").strip())
+
+
+@app.context_processor
+def recognition_context():
+    """服务端统一提供模式，避免各页面短暂误显示为演示模式。"""
+    return {"recognition_real": real_mode()}
 
 
 # ---------------------------------------------------------------------------
@@ -373,7 +405,9 @@ def index():
 def guide():
     """鸟类图鉴首页：搜索/筛选的物种卡片网格。"""
     return render_template("guide.html", active="guide",
-                           birds_json=json.dumps(BIRDS, ensure_ascii=False))
+                           birds_json=json.dumps(BIRDS, ensure_ascii=False),
+                           bird_count=len(BIRDS),
+                           sourced_count=sum(b.get("content_review", {}).get("status") == "sourced" for b in BIRDS))
 
 
 @app.route("/guide/<bird_id>")
@@ -390,6 +424,9 @@ def bird(bird_id):
         prev=prev_bird, next=next_bird, IUCN_CN=IUCN_CN,
         bird_json=json.dumps(bird, ensure_ascii=False),
         credit=PHOTO_CREDITS.get(bird_id),
+        sources=SOURCES,
+        source_numbers={sid: i + 1 for i, sid in enumerate(bird.get("source_ids", [])) if sid in SOURCES},
+        observations=observation_info(bird_id),
     )
 
 
@@ -397,14 +434,16 @@ def bird(bird_id):
 def drama():
     """鸟类短剧频道：剧集列表 + 播放器。"""
     return render_template("drama.html", active="drama",
-                           dramas_json=json.dumps(DRAMAS, ensure_ascii=False))
+                           dramas_json=json.dumps(DRAMAS, ensure_ascii=False),
+                           sources_json=json.dumps(SOURCES, ensure_ascii=False))
 
 
 @app.route("/quiz")
 def quiz():
     """知识答题：科普资源链接 + 题库 + 答题。"""
     return render_template("quiz.html", active="quiz", quiz=QUIZ,
-                           quiz_json=json.dumps(QUIZ, ensure_ascii=False))
+                           quiz_json=json.dumps(QUIZ, ensure_ascii=False),
+                           sources_json=json.dumps(SOURCES, ensure_ascii=False))
 
 
 # ---------------------------------------------------------------------------

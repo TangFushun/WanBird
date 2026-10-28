@@ -17,6 +17,7 @@ import re
 import sys
 import time
 import urllib.parse
+from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from PIL import Image  # noqa: F401  (占位，后续如需图片处理)
@@ -311,6 +312,12 @@ def enrich(bird):
             total, pts = occ_points(key)
             with open(occ_path, "w", encoding="utf-8") as f:
                 json.dump(pts, f, ensure_ascii=False, separators=(",", ":"))
+            with open(occ_path.replace(".json", ".meta.json"), "w", encoding="utf-8") as f:
+                json.dump({"source": "GBIF", "species_key": key,
+                           "retrieved_on": datetime.now(timezone.utc).isoformat(),
+                           "year_range": [YEAR_FROM, 2026], "coordinate_count": len(pts),
+                           "query": {"hasCoordinate": True, "spatialIssues": False},
+                           "note": "抽样坐标，不代表全部记录或实时分布。"}, f, ensure_ascii=False, indent=2)
         else:
             total = len(pts)
 
@@ -327,7 +334,7 @@ def enrich(bird):
             span = f"经度约 {lonmin:.0f}°–{lonmax:.0f}°，纬度约 {latmin:.0f}°–{latmax:.0f}°"
             area = region_of((lonmin + lonmax) / 2, (latmin + latmax) / 2)
             section_text["distribution"] = (
-                f"依据 GBIF 观测记录（{YEAR_FROM} 年至今，共 {n} 条），本种记录分布{span}，主要见于{area}。"
+                f"依据本地保存的 GBIF 历史坐标（{n} 个），坐标覆盖{span}，主要位于{area}。"
                 "提示：为观测记录概括，不等同于权威分布范围。")
         else:
             section_text["distribution"] = "暂无公开观测记录数据（GBIF）。"
@@ -335,18 +342,19 @@ def enrich(bird):
         section_text["habit"] = bio["habit"]
         section_text["breeding"] = bio["breed"]
         section_text["conservation"] = (
-            "列入《国家重点保护野生动物名录》，属国家保护对象；具体保护级别（一级/二级）"
-            "与 IUCN 红色名录等级暂未在本地数据中确认，待补充核实。")
+            "国家保护级别见本页名录字段；国家保护级别与 IUCN 全球受威胁等级用途不同。"
+            "本页尚未逐项核对原始评估版本。")
 
         en_part = f"；英文名：{en}" if en else ""
         summary = (
             f"{cn}（学名：{latin}{en_part}）属{order_cn}的鸟类。"
-            f"依据全球生物多样性数据库（GBIF），本种收录观测记录 {n} 条。"
-            "本页为自动生成版，具体特征请在专业人员指导下复核。")
+            "本页为按目级通性生成的基础资料，种级特征尚待逐项核查。")
 
         ranges = build_range(pts)
         bird["english"] = en
         bird["summary"] = summary
+        bird["content_review"] = {"status": "draft", "updated_on": None,
+                                  "note": "按目级通性生成，种级特征和段落来源待复核。"}
         bird["sections"] = [
             {"key": "appearance", "label": "外形特征", "text": section_text["appearance"]},
             {"key": "distribution", "label": "地理分布", "text": section_text["distribution"]},

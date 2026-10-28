@@ -6,11 +6,16 @@
     "age": "",
     "duration": "00:55",
     "synopsis": "AI 观测者「皖小观」启动，扫描安徽湿地与山林，为五羽建立数字档案。",
-    "science": "安徽是候鸟迁徙的重要驿站。",
-    "transition": "五羽剪影 → 安徽湿地群鸟实拍",
+    "science": "安徽黄山的公开观鸟资料介绍了多种鸟类及其季节性观测信息。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "mp4",
     "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep01.mp4",
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "huangshan-birds"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep02",
@@ -19,11 +24,17 @@
     "age": "",
     "duration": "00:55",
     "synopsis": "冬日湖面结冰，小勺子找不到食物，白白带大家找到未结冰的浅水区。",
-    "science": "东方白鹳的越冬习性与浅水觅食。",
-    "transition": "白白卡通 → 安庆菜子湖东方白鹳实拍",
+    "science": "东方白鹳在湿地取食鱼类等水生动物；升金湖有越冬记录。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "mp4",
     "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep02.mp4",
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "stork-taishan",
+      "stork-shengjin"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep03",
@@ -31,12 +42,18 @@
     "cover": "/static/img/drama/ep03.jpg",
     "age": "",
     "duration": "00:55",
-    "synopsis": "朱鹮小粉害怕人类，在阿雉陪伴下发现山林变好，重新归乡。",
-    "science": "朱鹮的栖息地需求与安徽生态修复。",
-    "transition": "小粉卡通 → 皖南朱鹮实拍",
+    "synopsis": "朱鹮小粉在阿雉陪伴下探索湿地与山林，故事借角色旅程介绍栖息地保护。",
+    "science": "朱鹮利用浅水湿地觅食，树木提供休息和营巢条件；德清有繁育和野化放归实践。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "mp4",
     "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep03.mp4",
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "ibis-beijing",
+      "ibis-deqing"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep04",
@@ -44,12 +61,17 @@
     "cover": "/static/img/drama/ep04.jpg",
     "age": "",
     "duration": "00:55",
-    "synopsis": "小勺子第一次长途迁徙，沙沙教它识别安全水域，最终停靠安徽滩涂。",
-    "science": "勺嘴鹬的迁徙机制与对滩涂的依赖。",
-    "transition": "小勺子卡通 → 沿江滩涂勺嘴鹬实拍",
+    "synopsis": "小勺子第一次长途迁徙，伙伴陪它寻找适合补给的沿海滩涂。",
+    "science": "勺嘴鹬依赖沿海滩涂完成迁徙补给，江苏沿海有明确的停歇地资料。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "mp4",
     "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep04.mp4",
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "sandpiper-coast"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep05",
@@ -57,12 +79,18 @@
     "cover": "/static/img/drama/ep05.jpg",
     "age": "",
     "duration": "00:55",
-    "synopsis": "沙沙发现水质异常，带伙伴游向干净支流，发出水域警报。",
-    "science": "中华秋沙鸭是水质指示物种。",
-    "transition": "沙沙卡通 → 太平湖中华秋沙鸭实拍",
+    "synopsis": "沙沙与伙伴探索河流环境，通过故事认识清洁水域与岸边森林的重要性。",
+    "science": "中华秋沙鸭在河流中捕食，其生态需求同时涉及水域与岸边森林；新安江流域有冬季观测资料。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "mp4",
     "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep05.mp4",
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "merganser-ecology",
+      "huangshan-birds"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep06",
@@ -71,11 +99,17 @@
     "age": "",
     "duration": "00:50",
     "synopsis": "阿雉在皖南深山发现山林碎片化与噪音干扰，小粉前来探望。",
-    "science": "白颈长尾雉的山林栖息习性。",
-    "transition": "阿雉卡通 → 皖南白颈长尾雉实拍",
+    "science": "白颈长尾雉与森林、灌丛和竹林等生境有关，黄山有全年观测资料。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "placeholder",
     "src": null,
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "huangshan-birds",
+      "pheasant-jinhua"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep07",
@@ -84,11 +118,16 @@
     "age": "",
     "duration": "00:55",
     "synopsis": "滩涂缩小、水位异常、垃圾出现，五羽首次集结，AI 发出风险预警。",
-    "science": "湿地退化与人为干扰。",
-    "transition": "五羽集结 → 安徽湿地生态对比实拍",
+    "science": "连续可用的滨海停歇地，是勺嘴鹬等迁徙鸟类补充能量的重要条件。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "placeholder",
     "src": null,
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "sandpiper-coast"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep08",
@@ -97,11 +136,16 @@
     "age": "",
     "duration": "00:55",
     "synopsis": "AI 数据上传观测台，触发志愿者清理网具、退渔还湿、补植植被。",
-    "science": "栖息地修复原理与公众参与。",
-    "transition": "修复画面 → 安徽湿地修复实拍",
+    "science": "朱鹮保护实例包含人工繁育、野化放归及放归后的巡查监测。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "placeholder",
     "src": null,
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "ibis-deqing"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep09",
@@ -110,11 +154,16 @@
     "age": "",
     "duration": "00:55",
     "synopsis": "AI 预判风暴，五羽互相守护：白白护幼雏，沙沙引路，小勺子收拢队伍。",
-    "science": "AI 环境监测与风暴预警。",
-    "transition": "风暴过后 → 安徽湿地群鸟实拍",
+    "science": "观鸟时应保持安静，利用望远镜和相机记录，减少对鸟类的干扰。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "placeholder",
     "src": null,
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "huangshan-birds"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   },
   {
     "id": "ep10",
@@ -123,10 +172,15 @@
     "age": "",
     "duration": "01:00",
     "synopsis": "四季之后，飞鸟种群回归，AI 完成全年档案，五羽飞过安徽地图。",
-    "science": "安徽鸟类保护成果与生态可持续发展。",
-    "transition": "全员卡通 → 安徽珍稀鸟类实拍群像",
+    "science": "安徽黄山的观鸟资料记录了中华秋沙鸭、白颈长尾雉等代表物种的观测区域与季节。",
+    "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "placeholder",
     "src": null,
-    "bvid": null
+    "bvid": null,
+    "science_sources": [
+      "huangshan-birds"
+    ],
+    "story_note": "本片为拟人化科普故事；角色协作、对话与 AI 情节属于创作设定，不是野外行为或监测结果的直接记录。",
+    "footage_note": "现有视频中的实拍素材地点、日期及逐段物种标注尚待核实，页面文字不据此认定安徽分布。"
   }
 ]

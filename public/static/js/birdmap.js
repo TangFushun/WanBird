@@ -14,7 +14,7 @@
     resident: { label: '留鸟区',   color: '#7fe0b0' },
     staging:  { label: '迁徙停歇地', color: '#4dd0e1' },
     historic: { label: '历史分布区', color: '#9aa7a6' },
-    observed: { label: '观测分布区', color: '#b5a4ff' }
+    observed: { label: '观测点凸包（示意）', color: '#b5a4ff' }
   };
   var DEFAULT_COLOR = '#e8a838';
   var OCC_COLOR = '#7fd0bd';   // 真实观测点颜色（青绿，区别于金色关键点）
@@ -48,6 +48,9 @@
     }
 
     var map = L.map(el, { zoomControl: true, attributionControl: true });
+    var occurVisible = true;
+    var occPts = [];
+    function occurStatus(message){ if (opts && opts.onOccurStatus) opts.onOccurStatus(message); }
     // 完整世界地图：默认视图 = 整幅世界（中心 0°经线，随时可看全六大洲）。
     // maxBounds=世界边界 → 平移钳制（不能无限滑进空白）；minZoom=2 → 世界宽于视口，无法滑出单幅世界。
     map.setView([18, 0], 2);
@@ -117,7 +120,7 @@
       var dot = document.createElement('i');
       dot.style.background = kindStyle(k).color;
       row.appendChild(dot);
-      row.appendChild(document.createTextNode(used[k]));
+      row.appendChild(document.createTextNode(used[k] + ' · 示意'));
       legend.appendChild(row);
     });
     var occRow = document.createElement('div');
@@ -126,30 +129,34 @@
     occDot.style.background = OCC_COLOR;
     occDot.style.borderRadius = '50%';
     occRow.appendChild(occDot);
-    occRow.appendChild(document.createTextNode('真实观测记录(GBIF)'));
+    occRow.appendChild(document.createTextNode('历史收录坐标(GBIF)'));
     legend.appendChild(occRow);
     el.appendChild(legend);
 
     // ---------- 真实观测点图层（GBIF，异步加载，失败静默） ----------
     var occLayer = L.layerGroup();
     if (opts && opts.occurUrl) {
-      fetch(opts.occurUrl).then(function (r) { return r.ok ? r.json() : []; }).then(function (list) {
-        if (!Array.isArray(list) || !list.length) return;
+      occurStatus(' 正在加载坐标图层…');
+      fetch(opts.occurUrl).then(function (r) { if (!r.ok) throw new Error('unavailable'); return r.json(); }).then(function (list) {
+        if (!Array.isArray(list)) throw new Error('invalid coordinates');
+        if (!list.length) { occurStatus(' 本地坐标文件暂无记录。'); return; }
         list.forEach(function (p) {
-          if (!Array.isArray(p) || p.length < 2) return;
+          if (!Array.isArray(p) || p.length < 2 || !Number.isFinite(p[0]) || !Number.isFinite(p[1]) || Math.abs(p[0]) > 180 || Math.abs(p[1]) > 90) return;
+          occPts.push([p[1], p[0]]);
           occLayer.addLayer(L.circleMarker([p[1], p[0]], {
             radius: 2.3, weight: 1, color: 'rgba(214,242,234,.8)',
             fillColor: OCC_COLOR, fillOpacity: .5, interactive: false
           }));
         });
-        if (occLayer.getLayers().length) occLayer.addTo(map);
+        if (occLayer.getLayers().length && occurVisible) occLayer.addTo(map);
+        occurStatus(' 已加载 ' + occPts.length + ' 个坐标点。');
         if (!ranges.length && !sites.length) {
           var note = document.createElement('div');
           note.className = 'mmark';
-          note.textContent = '仅真实观测点 · 暂无范围示意';
+          note.textContent = '历史收录坐标 · 暂无范围示意';
           el.appendChild(note);
         }
-      }).catch(function () { /* 观测点不可用则忽略 */ });
+      }).catch(function () { occurStatus(' 坐标图层暂时无法加载，请稍后刷新。'); });
     }
 
     map.invalidateSize();
@@ -159,15 +166,17 @@
     window.__birdMaps[elId] = {
       map: map,
       setOccurVisible: function (show) {
+        occurVisible = show;
         if (show) { if (occLayer.getLayers().length && !map.hasLayer(occLayer)) occLayer.addTo(map); }
         else if (map.hasLayer(occLayer)) map.removeLayer(occLayer);
       },
       // 聚焦本种：以该物种「范围+关键点」的几何中心缩放（z7），
       // 不用 fitBounds —— 在世界 maxBounds 下高缩放时中心锁消失，亚洲任意区域都可居中。
       fitToSpecies: function () {
-        if (!allPts.length) return;
+        var focusPts = allPts.length ? allPts : occPts;
+        if (!focusPts.length) return;
         var lat = 0, lng = 0, n = 0;
-        allPts.forEach(function (p) {
+        focusPts.forEach(function (p) {
           if (!Array.isArray(p) || p.length < 2) return;
           lat += p[0]; lng += p[1]; n++;
         });

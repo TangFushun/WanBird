@@ -1,0 +1,122 @@
+{
+  "national-list-2021": {
+    "title": "国家重点保护野生动物名录（2021年第3号公告及附件）",
+    "publisher": "国家林业和草原局、农业农村部",
+    "url": "https://www.forestry.gov.cn/main/3457/20210205/122612568723707.html",
+    "published_on": "2021-02-05",
+    "checked_on": "2026-10-29",
+    "scope": "国家保护级别的名录依据；不作为生态习性或 IUCN 等级的依据。"
+  },
+  "stork-taishan": {
+    "title": "东方白鹳",
+    "publisher": "泰山风景名胜区管理委员会",
+    "url": "https://tsgw.taian.gov.cn/art/2026/1/21/art_363607_10320277.html",
+    "published_on": "2026-01-21",
+    "checked_on": "2026-10-29",
+    "scope": "东方白鹳的外形、湿地生境、食性与飞行姿态；文中旅鸟描述仅针对泰山地区。"
+  },
+  "stork-shengjin": {
+    "title": "这里是中国鹤湖升金湖",
+    "publisher": "国家林业和草原局政府网",
+    "url": "https://www.forestry.gov.cn/c/www/xtq/10853.jhtml",
+    "published_on": null,
+    "checked_on": "2026-10-29",
+    "scope": "升金湖的湿地环境及东方白鹳越冬记录；历史报道中的数量不代表当前数量。"
+  },
+  "stork-hunan": {
+    "title": "东方白鹳 Ciconia boyciana Swinhoe",
+    "publisher": "湖南省林业局",
+    "url": "https://lyj.hunan.gov.cn/lyj/ztzl/gdzt/bnl/201904/t20190403_2837040.html",
+    "published_on": "2019-04-03",
+    "checked_on": "2026-10-29",
+    "scope": "东方白鹳食性与树上营巢。"
+  },
+  "ibis-beijing": {
+    "title": "朱鹮 · 鸟类资源",
+    "publisher": "北京市园林绿化局",
+    "url": "https://yllhj.beijing.gov.cn/ztxx/ysdw/zygk/nlzy/201510/t20151013_120741.shtml",
+    "published_on": "2006-01-19",
+    "checked_on": "2026-10-29",
+    "scope": "朱鹮的外形、浅水觅食与树上营巢；历史数量和当时分布不用于描述当前种群。"
+  },
+  "ibis-deqing": {
+    "title": "浙江德清朱鹮基地拉开孵化季序幕",
+    "publisher": "浙江省林业局（国家林业和草原局政府网刊载）",
+    "url": "https://www.forestry.gov.cn/c/www/dfdt/555967.jhtml",
+    "published_on": "2024-04-19",
+    "checked_on": "2026-10-29",
+    "scope": "德清的人工繁育、野化放归和野外监测工作。"
+  },
+  "ibis-japan": {
+    "title": "トキ · 朱鹮保护与繁殖",
+    "publisher": "日本环境省",
+    "url": "https://www.env.go.jp/nature/kisho/hogozoushoku/toki.html",
+    "published_on": null,
+    "checked_on": "2026-10-29",
+    "scope": "朱鹮营巢、生境与威胁；日本国家红色名录不等同于全球 IUCN 评估。"
+  },
+  "sandpiper-cornell": {
+    "title": "Spoon-billed Sandpiper Facts",
+    "publisher": "康奈尔大学鸟类学实验室",
+    "url": "https://www.birds.cornell.edu/home/spoon-billed-sandpiper-facts/",
+    "published_on": null,
+    "checked_on": "2026-10-29",
+    "scope": "勺嘴鹬的勺状喙、季节羽色和相似小型滨鹬；采用本站既有学名，不沿用该页旧属名。"
+  },
+  "sandpiper-coast": {
+    "title": "用数据守护每一只水鸟",
+    "publisher": "中国绿色时报（国家林业和草原局政府网刊载）",
+    "url": "https://www.forestry.gov.cn/c/www/zrjy/511748.jhtml",
+    "published_on": "2023-07-13",
+    "checked_on": "2026-10-29",
+    "scope": "勺嘴鹬繁殖、迁徙与江苏滨海停歇地；不证明其在安徽有稳定分布。"
+  },
+  "sandpiper-iucn": {
+    "title": "Calidris pygmaea · IUCN 全球评估（2021）",
+    "publisher": "BirdLife International / IUCN Red List",
+    "url": "https://doi.org/10.2305/IUCN.UK.2021-3.RLTS.T22693452A154738156.en",
+    "published_on": "2021",
+    "checked_on": "2026-10-29",
+    "scope": "2021 年全球极危（CR）评估及其威胁因素。"
+  },
+  "merganser-ecology": {
+    "title": "中华秋沙鸭 中国国宝鸭",
+    "publisher": "中国绿色时报（国家林业和草原局政府网刊载）",
+    "url": "https://www.forestry.gov.cn/c/www/dw/360682.jhtml",
+    "published_on": "2023-03-01",
+    "checked_on": "2026-10-29",
+    "scope": "中华秋沙鸭的鳞状胁纹、食性、森林河流与繁殖地树洞。"
+  },
+  "huangshan-birds": {
+    "title": "追寻蓝天精灵足迹——安徽黄山发布观鸟地图",
+    "publisher": "安徽省林业局（国家林业和草原局政府网刊载）",
+    "url": "https://www.forestry.gov.cn/c/www/dfdt/558031.jhtml",
+    "published_on": "2024-05-06",
+    "checked_on": "2026-10-29",
+    "scope": "中华秋沙鸭在新安江流域的冬季观测、白颈长尾雉在黄山的全年观测与林地生境。"
+  },
+  "merganser-iucn": {
+    "title": "Mergus squamatus · IUCN 全球评估（2017）",
+    "publisher": "BirdLife International / IUCN Red List",
+    "url": "https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T22680488A118860238.en",
+    "published_on": "2017",
+    "checked_on": "2026-10-29",
+    "scope": "所引评估的濒危（EN）级别、外形与红胸秋沙鸭的区别；不表示评估发生于本站查阅日。"
+  },
+  "pheasant-jinhua": {
+    "title": "“鸟中大熊猫”白颈长尾雉现身浙江金华山",
+    "publisher": "国家林业和草原局政府网（来源：中新网）",
+    "url": "https://www.forestry.gov.cn/c/www/dzw/561966.jhtml",
+    "published_on": "2024-05-11",
+    "checked_on": "2026-10-29",
+    "scope": "白颈长尾雉的颈腹白色特征、灌丛竹林生境；其沿用的旧 IUCN 等级不用于本站更新。"
+  },
+  "pheasant-iucn-change": {
+    "title": "IUCN 2023-1 等级变化表（Table 7）：Syrmaticus ellioti",
+    "publisher": "IUCN Red List",
+    "url": "https://nc.iucnredlist.org/redlist/content/attachment_files/2023-1_RL_Table_7.pdf",
+    "published_on": "2023",
+    "checked_on": "2026-10-29",
+    "scope": "记录白颈长尾雉由近危（NT）调整为无危（LC）；变化原因标记为 N，不据此宣称种群恢复。"
+  }
+}

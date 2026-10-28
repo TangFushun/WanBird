@@ -185,9 +185,41 @@
 {% endblock %}
 
 {% block content %}
+  <section class="identify-intro">
+    <div class="kplabel">EXPLORE · 发现身边的自然</div>
+    <h1>认识身边的飞鸟</h1>
+    <p>上传照片，或用本机、USB 摄像头直接拍照，了解飞鸟的名字与生活习性。</p>
+  </section>
+  <div class="mode-note {{ 'live' if recognition_real else 'demo' }}" id="modeNote">
+    {% if recognition_real %}<b>真实识别已开启</b><span>图片将发送至懂鸟识别服务。识别结果供参考，可结合外形特征进一步确认。</span>
+    {% else %}<b>当前为演示模式</b><span>将展示固定的示例结果，帮助你体验流程；结果与上传图片无关。</span>{% endif %}
+  </div>
+  <div class="capture-source" role="group" aria-label="选择图片来源">
+    <button type="button" id="btnUpload" class="source-choice" aria-pressed="true">上传图片</button>
+    <button type="button" id="btnCamera" class="source-choice" aria-pressed="false" aria-controls="cameraPanel">摄像头拍照</button>
+  </div>
+  <section id="cameraPanel" class="camera-panel" aria-label="摄像头拍照" hidden>
+    <div class="camera-toolbar">
+      <label for="cameraDevice">选择摄像头</label>
+      <select id="cameraDevice" disabled><option value="">默认摄像头</option></select>
+      <button type="button" id="cameraRefresh" class="btn ghost slim">刷新设备</button>
+    </div>
+    <div class="camera-stage">
+      <video id="cameraVideo" autoplay muted playsinline disablepictureinpicture aria-label="摄像头实时预览"></video>
+      <p id="cameraPlaceholder">打开摄像头后，在这里查看实时画面。</p>
+    </div>
+    <p id="cameraStatus" class="camera-status" role="status" aria-live="polite"></p>
+    <div class="camera-actions">
+      <button type="button" id="cameraStart" class="btn">打开摄像头</button>
+      <button type="button" id="cameraPreview" class="btn ghost" disabled>拍照预览</button>
+      <button type="button" id="cameraCapture" class="btn primary" disabled>拍照并识别</button>
+      <button type="button" id="cameraClose" class="text-button">关闭摄像头</button>
+    </div>
+    <p class="camera-help">支持系统已识别的本机和 USB 摄像头，首次使用需允许浏览器访问。拍照后自动关闭摄像头；实时画面只在本机预览，点击“拍照并识别”才发送所拍照片。也可先“拍照预览”再决定是否识别。</p>
+  </section>
   <!-- 取景器 -->
-  <div class="vfind" id="vfind">
-    <input type="file" id="file" accept="image/*">
+  <div class="vfind" id="vfind" role="button" tabindex="0" aria-label="选择或更换鸟类图片，支持 JPG、PNG，不超过 2MB">
+    <input type="file" id="file" accept="image/jpeg,image/png" tabindex="-1" aria-label="上传鸟类图片">
 
     <div class="corner tl"></div><div class="corner tr"></div>
     <div class="corner bl"></div><div class="corner br"></div>
@@ -200,7 +232,7 @@
     <!-- 无图引导 -->
     <div class="guide" id="guide">
       <div class="ic">◎</div>
-      <div><b>点击选择图片</b></div>
+      <div><b>选择一张鸟类照片</b></div>
       <span>或将图片拖入取景框 · 支持 JPG/PNG · ≤2MB</span>
     </div>
 
@@ -232,20 +264,21 @@
     </div>
   </div>
 
+  <div class="upload-help" id="uploadHelp"><span>拍摄建议：鸟体清晰、主体完整，尽量减少遮挡。</span><button type="button" id="btnExample" class="text-button">试用示例图片 →</button></div>
   <!-- 控制区 -->
-  <div class="controls">
-    <button class="btn ghost" id="btnClear">清空</button>
-    <button class="btn primary" id="btn" disabled>识 别</button>
+  <div class="controls" id="imageControls">
+    <button class="btn ghost" id="btnClear" disabled>清空图片</button>
+    <button class="btn primary" id="btn" disabled>开始识别</button>
   </div>
 
-  <div id="status"></div>
-  <div id="error"></div>
+  <div id="status" role="status" aria-live="polite"></div>
+  <div id="error" role="alert" style="display:none;"></div>
 
   <!-- 结果面板 -->
   <div id="result">
     <div class="rhdr">
-      <span class="ttl">IDENTIFICATION RESULT</span>
-      <span id="sourceTag">● MOCK</span>
+      <span class="ttl">识别结果</span>
+      <span id="sourceTag">{{ '真实识别' if recognition_real else '演示结果' }}</span>
     </div>
     <div id="species"></div>
     <div id="latin"></div>
@@ -255,7 +288,8 @@
     <!-- 元信息徽章：IUCN 等级 / 英文名 / 俗名 -->
     <div id="metaRow" class="metaRow"></div>
 
-    <div class="kplabel">CONFIDENCE</div>
+    <p id="resultNotice" class="result-notice"></p>
+    <div class="kplabel">置信度 · 模型匹配程度</div>
     <div class="confrow">
       <div class="bar"><div id="barFill"></div></div>
       <span id="confLbl">0%</span>
@@ -263,7 +297,7 @@
 
     <!-- Top-5 候选鸟种 -->
     <div id="candWrap" style="display:none;">
-      <div class="kplabel">TOP·5 CANDIDATES</div>
+      <div class="kplabel">其他候选鸟种</div>
       <div id="cands"></div>
     </div>
 
@@ -275,6 +309,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="{{ url_for('static', filename='js/camera.js') }}"></script>
 <script>
   const vfind = document.getElementById('vfind');
   const fileInput = document.getElementById('file');
@@ -304,6 +339,47 @@
   const hlabel = document.getElementById('hlabel');
 
   let currentFile = null;
+  let requestVersion = 0;
+  let requestController = null;
+  let previewUrl = null;
+  let lastBox = null;
+  let phaseTimeouts = [];
+  const exampleBtn = document.getElementById('btnExample');
+  let identifyOnLoad = false;
+  const uploadChoice = document.getElementById('btnUpload');
+  const cameraChoice = document.getElementById('btnCamera');
+
+  function cameraMode(on){
+    uploadChoice.setAttribute('aria-pressed', String(!on));
+    cameraChoice.setAttribute('aria-pressed', String(on));
+    vfind.hidden = on;
+    document.getElementById('uploadHelp').hidden = on;
+    document.getElementById('imageControls').hidden = on;
+    if (on) {
+      cancelPending();
+      identifyOnLoad = false;
+      clearHitbox();
+      result.style.display = 'none';
+      errorBox.style.display = 'none';
+    } else {
+      btn.disabled = !(currentFile && preview.complete && preview.naturalWidth);
+    }
+  }
+  const camera = new BirdCamera(document.getElementById('cameraPanel'), {
+    onOpen: () => cameraMode(true),
+    onClose: () => { cameraMode(false); uploadChoice.focus({preventScroll:true}); },
+    onCapture: (file, identify) => { selectFile(file, {identify}); vfind.focus({preventScroll:true}); }
+  });
+  cameraChoice.addEventListener('click', () => camera.open());
+  uploadChoice.addEventListener('click', () => camera.close());
+
+  function cancelPending(){
+    requestVersion++;
+    if (requestController) requestController.abort();
+    requestController = null;
+    clearTimeout(scanTimer);
+    setScanning(false);
+  }
 
   // 根据懂鸟检测框 box:[x,y,w,h]（相对原图像素）或 0-1 相对值，在预览区定位显示检测框
   function drawHitbox(box){
@@ -311,20 +387,23 @@
     const [bx, by, bw, bh] = box;
     if (bw <= 0 || bh <= 0) { hitbox.style.display = 'none'; return; }
 
-    const vw = shot.clientWidth, vh = shot.clientHeight;   // 取景器视图区
+    lastBox = box;
+    const vw = preview.clientWidth, vh = preview.clientHeight;
+    const imageRect = preview.getBoundingClientRect(), shotRect = shot.getBoundingClientRect();
+    const imageX = imageRect.left - shotRect.left, imageY = imageRect.top - shotRect.top;
     let left, top, width, height;
 
     // 全为 0~1 之间即视为相对值（mock 用），否则为原图像素（真实用）
     const isRelative = [bx, by, bw, bh].every(v => v >= 0 && v <= 1);
     if (isRelative) {
       // mock：0-1 相对显示区
-      left = bx * vw; top = by * vh; width = bw * vw; height = bh * vh;
+      left = imageX + bx * vw; top = imageY + by * vh; width = bw * vw; height = bh * vh;
     } else {
       // 真实：相对原图像素，映射到 contain 缩放后的显示区域
       const iw = preview.naturalWidth, ih = preview.naturalHeight;
       const scale = Math.min(vw / iw, vh / ih);
       const dw = iw * scale, dh = ih * scale;
-      const offX = (vw - dw) / 2, offY = (vh - dh) / 2;
+      const offX = imageX + (vw - dw) / 2, offY = imageY + (vh - dh) / 2;
       left = offX + bx * scale; top = offY + by * scale;
       width = bw * scale; height = bh * scale;
     }
@@ -337,6 +416,7 @@
   }
 
   function clearHitbox(){
+    lastBox = null;
     hitbox.style.display = 'none';
   }
 
@@ -430,12 +510,7 @@
   function syncVH(){
     vfind.style.setProperty('--scanEnd', (vfind.clientHeight + 120) + 'px');
   }
-  window.addEventListener('resize', syncVH);
-
-  // 查询当前模式（mock/real），利于状态灯
-  fetch('/mode').then(r => r.json()).then(d => {
-    if (d && d.real) modeLbl.textContent = 'MODE·REAL';
-  }).catch(() => {});
+  window.addEventListener('resize', () => { syncVH(); if (lastBox) drawHitbox(lastBox); });
 
   const scanLabel = document.querySelector('.fx .scanlabel');
   const tbox = document.querySelector('.fx .tbox');
@@ -445,9 +520,8 @@
 
   // 识别阶段的动效：扫描 → 锁定目标 → 匹配
   const PHASES = [
-    { ms: 0,   label: 'SCANNING…' },
-    { ms: 1000,label: 'LOCKING TARGET' },
-    { ms: 1900,label: 'MATCH · CONFIRM' }
+    { ms: 0,   label: '正在分析图片…' },
+    { ms: 1000,label: '正在匹配鸟种…' }
   ];
   function startPhaseFx(){
     stopPhaseFx();
@@ -460,18 +534,21 @@
       tyEl.textContent = 'Y:' + String((t * 89) % 640).padStart(3, '0');
     }, 90);
     // 分阶段切换标签
-    PHASES.slice(1).forEach(p => setTimeout(() => {
+    phaseTimeouts = PHASES.slice(1).map(p => setTimeout(() => {
       if (vfind.classList.contains('scanning')) scanLabel.textContent = p.label;
     }, p.ms));
   }
   function stopPhaseFx(){
     clearInterval(phaseTimer);
+    phaseTimeouts.forEach(clearTimeout); phaseTimeouts = [];
     phaseTimer = null;
   }
 
   function setScanning(on){
     vfind.classList.toggle('scanning', on);
-    status.textContent = on ? '· ANALYZING TARGET ·' : '';
+    status.textContent = on ? '正在识别，请稍候；也可以清空或更换图片。' : '';
+    btn.textContent = on ? '正在识别…' : '开始识别';
+    vfind.setAttribute('aria-busy', String(on));
     if (on){
       syncVH();
       startPhaseFx();
@@ -480,23 +557,56 @@
     }
   }
 
-  function selectFile(file){
+  function selectFile(file, {identify = false} = {}){
     if (!file) return;
-    if (!file.type.startsWith('image/')) { showError('请选择图片文件'); return; }
-    clearTimeout(scanTimer);
+    if (!['image/jpeg', 'image/png'].includes(file.type)) { showError('请选择 JPG 或 PNG 格式的图片'); fileInput.value = ''; return; }
+    if (!file.size || file.size > 2 * 1024 * 1024) { showError('图片大小需大于 0 且不超过 2MB，请压缩后重试'); fileInput.value = ''; return; }
+    cancelPending();
+    identifyOnLoad = identify;
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
     currentFile = file;
-    preview.src = URL.createObjectURL(file);
+    previewUrl = URL.createObjectURL(file);
+    preview.src = previewUrl;
     guide.style.display = 'none';
     clearHitbox();
     sizeLbl.textContent = (file.size/1024).toFixed(0) + 'KB';
-    btn.disabled = false;
+    btn.disabled = true;
+    btnClear.disabled = false;
     errorBox.style.display = 'none';
     result.style.display = 'none';
     setScanning(false);
+    status.textContent = '正在加载图片…';
   }
 
+  preview.addEventListener('load', () => {
+    if (currentFile) {
+      btn.disabled = false; status.textContent = '图片已就绪，点击“开始识别”。点击图片可重新选择。';
+      if (identifyOnLoad) { identifyOnLoad = false; btn.click(); }
+    }
+  });
+  preview.addEventListener('error', () => {
+    btnClear.click(); showError('无法读取这张图片，请选择有效的 JPG 或 PNG 图片。');
+  });
+  exampleBtn.addEventListener('click', async () => {
+    cancelPending();
+    const version = requestVersion;
+    exampleBtn.disabled = true;
+    try {
+      const response = await fetch('/static/img/birds/oriental-stork.png');
+      if (!response.ok) throw new Error();
+      const blob = await response.blob();
+      if (version !== requestVersion) return;
+      selectFile(new File([blob], '东方白鹳示例.png', {type:'image/png'}));
+    } catch {
+      if (version === requestVersion) showError('示例图片暂时无法加载，请选择自己的鸟类照片。');
+    } finally { exampleBtn.disabled = false; }
+  });
+
   fileInput.addEventListener('change', e => selectFile(e.target.files[0]));
-  vfind.addEventListener('click', e => { if (e.target === vfind || e.target.closest('.guide')) fileInput.click(); });
+  vfind.addEventListener('click', () => fileInput.click());
+  vfind.addEventListener('keydown', e => {
+    if (e.target === vfind && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); fileInput.click(); }
+  });
   vfind.addEventListener('dragover', e => { e.preventDefault(); vfind.classList.add('dragover'); });
   vfind.addEventListener('dragleave', () => vfind.classList.remove('dragover'));
   vfind.addEventListener('drop', e => {
@@ -505,7 +615,10 @@
   });
 
   btnClear.addEventListener('click', () => {
-    clearTimeout(scanTimer);
+    cancelPending();
+    identifyOnLoad = false;
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = null;
     currentFile = null;
     fileInput.value = '';
     preview.removeAttribute('src');
@@ -514,6 +627,7 @@
     guide.style.display = 'flex';
     sizeLbl.textContent = '--';
     btn.disabled = true;
+    btnClear.disabled = true;
     result.style.display = 'none';
     descEl.textContent = '';
     taxoRow.replaceChildren();
@@ -531,7 +645,7 @@
   }
 
   // 即便 mock 秒回，也保证扫描动画至少展示这么久（毫秒），否则效果一闪而过看不到
-  const MIN_SCAN_MS = 2600;
+  const MIN_SCAN_MS = 700;
 
   let scanStart = 0;
   let scanTimer = null;
@@ -549,6 +663,11 @@
 
   btn.addEventListener('click', async () => {
     if (!currentFile) return;
+    cancelPending();
+    const version = requestVersion;
+    requestController = new AbortController();
+    let timedOut = false;
+    const timeout = setTimeout(() => { timedOut = true; requestController?.abort(); }, 70000);
     btn.disabled = true;
     errorBox.style.display = 'none';
     result.style.display = 'none';
@@ -559,16 +678,21 @@
     fd.append('image', currentFile);
     let data, error;
     try {
-      const resp = await fetch('/classify', { method: 'POST', body: fd });
-      data = await resp.json();
+      const resp = await fetch('/classify', { method: 'POST', body: fd, signal: requestController.signal });
+      try { data = await resp.json(); } catch { throw new Error('识别服务暂时无法响应，请稍后重试'); }
       if (!resp.ok || data.error) throw new Error(data.error || '识别失败');
     } catch (err) {
-      error = err.message || '网络错误，请稍后重试';
+      error = timedOut ? '识别等待超时，请稍后重试。' : (err instanceof TypeError ? '网络连接失败，请检查网络后重试。' : err.message || '识别失败，请稍后重试');
+    } finally {
+      clearTimeout(timeout);
     }
+    if (version !== requestVersion) return;
+    requestController = null;
 
     if (error) {
       // 出错：补足最短扫描时长后停止动画并提示
       endScan(() => {
+        if (version !== requestVersion) return;
         showError(error);
         btn.disabled = false;
       });
@@ -584,12 +708,14 @@
     renderCandidates(data.candidates);
     sourceTag.classList.remove('real');
     if (data.source === 'mock') {
-      sourceTag.textContent = '● MOCK';
+      sourceTag.textContent = '演示结果';
     } else {
       sourceTag.classList.add('real');
-      sourceTag.textContent = '● REAL';
+      sourceTag.textContent = '真实识别';
     }
     endScan(() => {
+      if (version !== requestVersion) return;
+      document.getElementById('resultNotice').textContent = data.source === 'mock' ? '这是固定的示例结果，与当前图片无关。' : '识别结果仅供参考，置信度表示模型匹配程度。百科文字由懂鸟接口提供，响应未附段落原始文献，具体事实仍需查证。';
       // 框住鸟体（检测框），并给框加物种名标签
       hlabel.textContent = (data.species || 'TARGET').slice(0, 8) + ' ' + conf + '%';
       drawHitbox(data.box);

@@ -45,7 +45,8 @@ ORDER_CN = {
     "Ciconiiformes": "鹳形目", "Suliformes": "鲣鸟目", "Pelecaniformes": "鹈形目",
     "Accipitriformes": "鹰形目", "Strigiformes": "鸮形目", "Bucerotiformes": "犀鸟目",
     "Coraciiformes": "佛法僧目", "Piciformes": "啄木鸟目", "Falconiformes": "隼形目",
-    "Psittaciformes": "鹦形目",
+    "Psittaciformes": "鹦形目", "Passeriformes": "雀形目",
+    "Trogoniformes": "咬鹃目", "Pteroclidiformes": "沙鸡目",
 }
 
 

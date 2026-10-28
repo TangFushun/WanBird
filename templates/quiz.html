@@ -83,24 +83,18 @@
 <div class="quiz-head">
   <div class="kplabel" style="margin-top:0;">QUIZ ZONE · 知识答题</div>
   <h2>珍禽知识小挑战</h2>
-  <p>先看下面的「考点速学」学习知识点（链接均为站外科普站点：百度百科、iNaturalist、懂鸟、IUCN 等），再随机抽 10 题作答；提交后每题给出解析与得分。</p>
+  <p>用一轮小挑战，发现你对飞鸟了解多少。答完即可查看得分、正确答案与知识解析。</p>
 </div>
 
-<div class="kplabel">LEARN FIRST · 考点速学</div>
-<div class="topics" id="topicList"></div>
-
-<div class="kplabel" style="margin-top:16px;">VIDEOS · 权威科普视频</div>
-<div class="videos" id="videoList"></div>
-
-<hr class="zonesep">
-<div class="kplabel">QUIZ · 答题</div>
 <div id="quizIntro">
   <p class="mnote">题库共 {{ quiz.questions|length }} 道，每轮随机抽 {{ quiz.round }} 题。</p>
-  <button type="button" class="btn primary" id="btnStart" style="margin-top:10px;">开始答题</button>
+  <button type="button" class="btn primary" id="btnStart" style="margin-top:10px;">开始挑战</button>
+  <p class="intro-hint">还没准备好？可以先展开下方的学习资料。</p>
 </div>
 
 <div id="quizWrap" style="display:none;">
-  <div class="qmeta" id="qMeta"></div>
+  <div class="quiz-progress"><div class="qmeta" id="qMeta" role="status" aria-live="polite"></div><progress id="qProgress" value="0" max="10" aria-label="答题完成进度"></progress></div>
+  <p id="quizNotice" class="quiz-notice" role="alert" hidden></p>
   <div id="quizList"></div>
   <div class="controls" style="margin-top:16px;">
     <button type="button" class="btn ghost" id="btnRe">再来一轮</button>
@@ -115,11 +109,24 @@
   <div class="msg" id="resMsg"></div>
   <button type="button" class="btn primary" id="btnAgain">再来一轮</button>
 </div>
+
+<section class="learning-resources" aria-label="学习资料">
+  <details id="learnTopics" class="resource-panel">
+    <summary>考点速学 <span>7 个主题 · 展开学习</span></summary>
+    <p class="resource-note">先读知识卡，也可以打开站外资料进一步了解。</p>
+    <div class="topics" id="topicList"></div>
+  </details>
+  <details id="learnVideos" class="resource-panel">
+    <summary>科普视频 <span>站外视频资源 · 展开查看</span></summary>
+    <div class="videos" id="videoList"></div>
+  </details>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
   var QUIZ = {{ quiz_json|safe }};
+  var SOURCES = {{ sources_json|safe }};
   var ROUND = {{ quiz.round }};
   var TOPIC_NAME = {};
   var TOPIC_LINK = {};
@@ -134,6 +141,8 @@
     (QUIZ.topics || []).forEach(function(t){
       var card = document.createElement('div'); card.className = 'topic';
       var h = document.createElement('h3'); h.textContent = '▸ ' + t.name; card.appendChild(h);
+      var review = document.createElement('span'); review.className = 'review-state';
+      review.textContent = t.review_status === 'sourced' ? '已补充学习资料出处' : '基础资料 · 出处待复核'; card.appendChild(review);
       var p = document.createElement('p'); p.className = 'tl'; p.textContent = t.learn || ''; card.appendChild(p);
       var links = document.createElement('div'); links.className = 'topiclinks';
       (t.links || []).forEach(function(l){
@@ -171,30 +180,60 @@
   var list = document.getElementById('quizList');
   var qMeta = document.getElementById('qMeta');
   var resBox = document.getElementById('resBox');
+  var notice = document.getElementById('quizNotice');
+  var submitted = false;
+
+  function updateProgress(){
+    var done = Object.keys(picks).length;
+    qMeta.textContent = '共 ' + round.length + ' 题 · 已完成 ' + done + ' 题';
+    document.getElementById('qProgress').max = round.length || 1;
+    document.getElementById('qProgress').value = done;
+  }
+
+  function showMissing(){
+    var missing = round.filter(function(q){ return picks[q.id] === undefined; });
+    notice.hidden = !missing.length;
+    notice.textContent = missing.length ? '还有 ' + missing.length + ' 题未作答，请完成后再提交。' : '';
+    return missing;
+  }
 
   function shuffle(a){ for (var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
 
   function start(){
     round = shuffle(pool.slice()).slice(0, Math.min(ROUND, pool.length));
-    roundCards = {}; picks = {};
+    roundCards = {}; picks = {}; submitted = false;
+    notice.hidden = true;
+    document.getElementById('btnSubmit').style.display = '';
+    document.getElementById('btnRe').style.display = '';
+    document.getElementById('learnTopics').open = false;
+    document.getElementById('learnVideos').open = false;
     intro.style.display = 'none';
     resBox.style.display = 'none';
     quizWrap.style.display = 'block';
     render();
+    qMeta.setAttribute('tabindex', '-1');
+    qMeta.focus({preventScroll:true});
+    quizWrap.scrollIntoView({behavior:'auto', block:'start'});
   }
 
   function pick(q, oi, card){
+    if (submitted) return;
     picks[q.id] = oi;
+    card.classList.remove('unanswered');
     card.querySelectorAll('.qopt').forEach(function(b){
       b.classList.toggle('sel', Number(b.dataset.oi) === oi);
+      b.setAttribute('aria-checked', String(Number(b.dataset.oi) === oi));
     });
+    updateProgress();
+    if (!notice.hidden) showMissing();
   }
 
   function render(){
     list.replaceChildren();
-    qMeta.textContent = '第 ' + round.length + ' 题 · 请选择答案';
+    updateProgress();
     round.forEach(function(q, idx){
       var card = document.createElement('div'); card.className = 'qcard';
+      card.tabIndex = -1;
       var no = document.createElement('div'); no.className = 'qno';
       no.textContent = 'QUESTION ' + (idx + 1) + ' / ' + round.length;
       var tag = document.createElement('b');
@@ -202,12 +241,25 @@
       no.appendChild(tag);
       card.appendChild(no);
       var text = document.createElement('div'); text.className = 'qtext'; text.textContent = q.q;
+      text.id = 'question-' + q.id;
       card.appendChild(text);
       var opts = document.createElement('div'); opts.className = 'qopts';
+      opts.setAttribute('role', 'radiogroup');
+      opts.setAttribute('aria-labelledby', text.id);
       q.options.forEach(function(o, oi){
         var b = document.createElement('button'); b.type = 'button'; b.className = 'qopt';
         b.textContent = o; b.dataset.oi = String(oi);
+        b.setAttribute('role', 'radio');
+        b.setAttribute('aria-checked', 'false');
         b.addEventListener('click', function(){ pick(q, oi, card); });
+        b.addEventListener('keydown', function(e){
+          var next;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (oi + 1) % q.options.length;
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (oi + q.options.length - 1) % q.options.length;
+          if (next !== undefined && !submitted) {
+            e.preventDefault(); pick(q, next, card); opts.children[next].focus();
+          }
+        });
         opts.appendChild(b);
       });
       card.appendChild(opts);
@@ -223,11 +275,19 @@
     if (score === total) return '满分！你是观鸟大侦探 🎉';
     if (pct >= 0.8) return '很棒的观鸟达人！';
     if (pct >= 0.6) return '不错，继续积累珍禽知识！';
-    return '回上方「考点速学」复习一下，下次一定更好！';
+    return '展开下方「考点速学」复习一下，再来挑战吧！';
   }
 
   function submit(){
-    if (Object.keys(picks).length < round.length) { return; }
+    if (submitted) return;
+    var missing = showMissing();
+    if (missing.length) {
+      missing.forEach(function(q){ roundCards[q.id].classList.add('unanswered'); });
+      var first = roundCards[missing[0].id];
+      first.focus({preventScroll:true}); first.scrollIntoView({behavior:'auto', block:'center'});
+      return;
+    }
+    submitted = true;
     var score = 0;
     round.forEach(function(q){
       var card = roundCards[q.id];
@@ -241,8 +301,16 @@
       });
       var ex = card.querySelector('.qexpl');
       ex.style.display = 'block';
-      ex.textContent = (ok ? '✓ 正确：' : '✗ 错误：') + q.explain;
+      ex.textContent = (ok ? '✓ 回答正确。' : '✗ 回答错误。正确答案：' + q.options[q.answer] + '。') + q.explain;
       ex.classList.add(ok ? 'good' : 'bad');
+      var refs = document.createElement('div'); refs.className = 'science-sources';
+      (q.sources || []).forEach(function(sid){
+        var source = SOURCES[sid]; if (!source) return;
+        var link = document.createElement('a'); link.href = source.url; link.target = '_blank'; link.rel = 'noopener';
+        link.textContent = '解析依据：' + source.title + ' ↗'; refs.appendChild(link);
+      });
+      if (refs.children.length) ex.appendChild(refs);
+      else { var pending = document.createElement('p'); pending.className = 'review-state'; pending.textContent = '本题原始出处待补充。'; ex.appendChild(pending); }
       var linkUrl = TOPIC_LINK[q.topic];
       if (linkUrl) {
         var a = document.createElement('a');
@@ -253,10 +321,13 @@
       }
     });
     document.getElementById('btnSubmit').style.display = 'none';
+    document.getElementById('btnRe').style.display = 'none';
     resBox.style.display = 'block';
     document.getElementById('resScore').textContent = score + ' / ' + round.length;
     document.getElementById('resPct').textContent = Math.round(100 * score / round.length) + '%';
     document.getElementById('resMsg').textContent = message(score, round.length);
+    resBox.tabIndex = -1; resBox.focus({preventScroll:true});
+    resBox.scrollIntoView({behavior:'auto', block:'center'});
   }
 
   document.getElementById('btnStart').addEventListener('click', start);

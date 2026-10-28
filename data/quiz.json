@@ -4,70 +4,102 @@
     {
       "id": "oriental-stork",
       "name": "东方白鹳",
-      "learn": "大型涉禽，白色体羽 + 黑色飞羽，喙长腿红。繁殖于中国东北与俄罗斯远东，秋冬迁至长江中下游湿地越冬（安徽升金湖、菜子湖等是重要越冬地）。IUCN 濒危（EN），国家一级保护动物。（以上知识点可在右侧站外百科/物种页核对学习）",
+      "learn": "东方白鹳是大型涉禽，白色体羽与黑色飞羽形成鲜明对比，粗长的黑喙和红色长腿是观察重点。它在开阔湿地取食鱼类等水生动物，安徽升金湖有越冬记录。",
       "links": [
         {
-          "label": "百度百科 · 东方白鹳",
-          "url": "https://baike.baidu.com/item/东方白鹳",
+          "label": "东方白鹳",
+          "url": "https://tsgw.taian.gov.cn/art/2026/1/21/art_363607_10320277.html",
           "type": "external"
         },
         {
-          "label": "iNaturalist · 物种页",
-          "url": "https://www.inaturalist.org/taxa/4739",
+          "label": "这里是中国鹤湖升金湖",
+          "url": "https://www.forestry.gov.cn/c/www/xtq/10853.jhtml",
           "type": "external"
         }
-      ]
+      ],
+      "sources": [
+        "stork-taishan",
+        "stork-shengjin"
+      ],
+      "review_status": "sourced"
     },
     {
       "id": "crested-ibis",
       "name": "朱鹮",
-      "learn": "体羽白色带粉、面部朱红、喙长而下弯。曾因农药与栖息地破坏极度濒危，1981 年在陕西洋县重发现时野外仅存 7 只，现存种群主要分布于陕西汉中一带，是濒危物种保护最成功的范例之一。IUCN 濒危（EN），国家一级保护动物；安徽属其历史分布区。（以上知识点可在右侧站外百科/物种页核对学习）",
+      "learn": "朱鹮具有白色而略带粉红的体羽、裸露的红色面部和细长下弯的喙，后枕有明显羽冠。它在溪流、沼泽和稻田等浅水环境觅食，在树木上休息、营巢。安徽的具体野外记录仍待核实。",
       "links": [
         {
-          "label": "百度百科 · 朱鹮",
-          "url": "https://baike.baidu.com/item/朱鹮",
+          "label": "朱鹮 · 鸟类资源",
+          "url": "https://yllhj.beijing.gov.cn/ztxx/ysdw/zygk/nlzy/201510/t20151013_120741.shtml",
           "type": "external"
         },
         {
-          "label": "iNaturalist · 物种页",
-          "url": "https://www.inaturalist.org/taxa/3774",
+          "label": "浙江德清朱鹮基地拉开孵化季序幕",
+          "url": "https://www.forestry.gov.cn/c/www/dfdt/555967.jhtml",
           "type": "external"
         }
-      ]
+      ],
+      "sources": [
+        "ibis-beijing",
+        "ibis-deqing"
+      ],
+      "review_status": "sourced"
     },
     {
       "id": "spoon-billed-sandpiper",
       "name": "勺嘴鹬",
-      "learn": "小型鸻鹬，最显著特征是勺状扁平的喙（喙端呈匙形），靠它在泥滩油取食小型无脊椎动物。繁殖于俄罗斯楚科奇半岛北极冻原，迁徙沿中国东部沿海停歇、依赖滩涂，越冬于东南亚。IUCN 极危（CR），国家一级保护动物，全球种群不足千只。（以上知识点可在右侧站外百科/物种页核对学习）",
+      "learn": "勺嘴鹬是小型迁徙涉禽，最显著的特征是末端扩大为勺状的黑色喙。它在俄罗斯远东繁殖，迁徙期间依赖沿海滩涂补给；江苏滨海湿地有明确的停歇记录。安徽的具体野外记录仍待核实。",
       "links": [
         {
-          "label": "百度百科 · 勺嘴鹬",
-          "url": "https://baike.baidu.com/item/勺嘴鹬",
+          "label": "Spoon-billed Sandpiper Facts",
+          "url": "https://www.birds.cornell.edu/home/spoon-billed-sandpiper-facts/",
           "type": "external"
         },
         {
-          "label": "iNaturalist · 物种搜索",
-          "url": "https://www.inaturalist.org/taxa?q=Calidris%20pygmaea",
+          "label": "用数据守护每一只水鸟",
+          "url": "https://www.forestry.gov.cn/c/www/zrjy/511748.jhtml",
+          "type": "external"
+        },
+        {
+          "label": "Calidris pygmaea · IUCN 全球评估（2021）",
+          "url": "https://doi.org/10.2305/IUCN.UK.2021-3.RLTS.T22693452A154738156.en",
           "type": "external"
         }
-      ]
+      ],
+      "sources": [
+        "sandpiper-cornell",
+        "sandpiper-coast",
+        "sandpiper-iucn"
+      ],
+      "review_status": "sourced"
     },
     {
       "id": "scaly-sided-merganser",
       "name": "中华秋沙鸭",
-      "learn": "两胁具细密黑色鳞状斑纹，故称“鳞胁秋沙鸭”。偏爱水质清澈的山地河流，是优质水环境的指示物种，被誉为“水中大熊猫”；繁殖于东北与俄远东山地森林河流、利用大树树洞营巢，冬季在皖南太平湖、秋浦河、青弋江流域有稳定越冬记录。IUCN 濒危（EN），国家一级保护动物。（以上知识点可在右侧站外百科/物种页核对学习）",
+      "learn": "中华秋沙鸭是具有细长冠羽和鳞片状胁纹的水禽，主要在河流中捕食。安徽黄山公布的观鸟资料列出了新安江流域的冬季观测信息。",
       "links": [
         {
-          "label": "百度百科 · 中华秋沙鸭",
-          "url": "https://baike.baidu.com/item/中华秋沙鸭",
+          "label": "中华秋沙鸭 中国国宝鸭",
+          "url": "https://www.forestry.gov.cn/c/www/dw/360682.jhtml",
           "type": "external"
         },
         {
-          "label": "iNaturalist · 物种页",
-          "url": "https://www.inaturalist.org/taxa/7002",
+          "label": "追寻蓝天精灵足迹——安徽黄山发布观鸟地图",
+          "url": "https://www.forestry.gov.cn/c/www/dfdt/558031.jhtml",
+          "type": "external"
+        },
+        {
+          "label": "Mergus squamatus · IUCN 全球评估（2017）",
+          "url": "https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T22680488A118860238.en",
           "type": "external"
         }
-      ]
+      ],
+      "sources": [
+        "merganser-ecology",
+        "huangshan-birds",
+        "merganser-iucn"
+      ],
+      "review_status": "sourced"
     },
     {
       "id": "hooded-crane",
@@ -84,24 +116,36 @@
           "url": "https://www.inaturalist.org/taxa/26",
           "type": "external"
         }
-      ]
+      ],
+      "review_status": "draft"
     },
     {
       "id": "elliots-pheasant",
       "name": "白颈长尾雉",
-      "learn": "中国特有种；雄鸟颈侧有白色领圈、尾羽极长，雌雄羽色差异明显。留鸟，栖息于皖南、浙西等中低山常绿阔叶林，林下地面觅食；黄山、牯牛降、清凉峰等保护区是重要栖息地。IUCN 近危（NT），国家一级保护动物。（以上知识点可在右侧站外百科/物种页核对学习）",
+      "learn": "白颈长尾雉是中国特有的森林鸟类。雄鸟颈侧和腹部的白色、红色眼周裸皮是辨识线索；安徽黄山的官方观鸟资料列有全年观测信息。IUCN 2023-1 变化表已由 NT 调整为 LC，国家一级保护级别独立保留。",
       "links": [
         {
-          "label": "百度百科 · 白颈长尾雉",
-          "url": "https://baike.baidu.com/item/白颈长尾雉",
+          "label": "追寻蓝天精灵足迹——安徽黄山发布观鸟地图",
+          "url": "https://www.forestry.gov.cn/c/www/dfdt/558031.jhtml",
           "type": "external"
         },
         {
-          "label": "iNaturalist · 物种页",
-          "url": "https://www.inaturalist.org/taxa/1165",
+          "label": "“鸟中大熊猫”白颈长尾雉现身浙江金华山",
+          "url": "https://www.forestry.gov.cn/c/www/dzw/561966.jhtml",
+          "type": "external"
+        },
+        {
+          "label": "IUCN 2023-1 等级变化表（Table 7）：Syrmaticus ellioti",
+          "url": "https://nc.iucnredlist.org/redlist/content/attachment_files/2023-1_RL_Table_7.pdf",
           "type": "external"
         }
-      ]
+      ],
+      "sources": [
+        "huangshan-birds",
+        "pheasant-jinhua",
+        "pheasant-iucn-change"
+      ],
+      "review_status": "sourced"
     },
     {
       "id": "conservation",
@@ -128,7 +172,8 @@
           "url": "https://ebird.org/",
           "type": "external"
         }
-      ]
+      ],
+      "review_status": "draft"
     }
   ],
   "questions": [
@@ -136,7 +181,7 @@
       "id": 1,
       "topic": "oriental-stork",
       "type": "single",
-      "q": "东方白鹳在 IUCN 红色名录中的等级是？",
+      "q": "本页所引泰山管委会 2026 年物种介绍将东方白鹳记为哪一 IUCN 等级？",
       "options": [
         "近危（NT）",
         "易危（VU）",
@@ -144,7 +189,10 @@
         "极危（CR）"
       ],
       "answer": 2,
-      "explain": "本站图鉴中东方白鹳为 EN（濒危），属国家一级保护动物。"
+      "explain": "该物种介绍记载为 EN（濒危），未标明对应全球评估年份。",
+      "sources": [
+        "stork-taishan"
+      ]
     },
     {
       "id": 2,
@@ -158,33 +206,42 @@
         "蓝色"
       ],
       "answer": 1,
-      "explain": "东方白鹳体羽白色，仅飞羽与翼角为黑色——这是它的辨识特征之一。"
+      "explain": "所引物种介绍描述东方白鹳体羽以白色为主，飞羽为黑色。",
+      "sources": [
+        "stork-taishan"
+      ]
     },
     {
       "id": 3,
       "topic": "oriental-stork",
       "type": "single",
-      "q": "东方白鹳冬季主要越冬于？",
+      "q": "东方白鹳冬季可利用哪类觅食环境？",
       "options": [
-        "长江中下游的湖泊湿地",
-        "东北山地林区",
-        "青藏高原",
-        "西北荒漠"
+        "开阔的湖泊与沼泽湿地",
+        "高山裸岩",
+        "干旱沙漠",
+        "封闭洞穴"
       ],
       "answer": 0,
-      "explain": "东方白鹳秋冬南迁，主要越冬于长江中下游湿地，安徽升金湖等地常见。"
+      "explain": "湖南省林业局介绍其冬季利用开阔湖泊与沼泽。",
+      "sources": [
+        "stork-hunan"
+      ]
     },
     {
       "id": 4,
       "topic": "oriental-stork",
       "type": "judge",
-      "q": "东方白鹳在安徽升金湖等地有稳定越冬记录。",
+      "q": "公开资料记载东方白鹳在安徽升金湖越冬。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "升金湖、菜子湖等沿江湿地是东方白鹳在安徽的重要越冬地。"
+      "explain": "升金湖介绍中有东方白鹳越冬记录，历史报道数量不能代替当前调查。",
+      "sources": [
+        "stork-shengjin"
+      ]
     },
     {
       "id": 5,
@@ -196,7 +253,10 @@
         "错误"
       ],
       "answer": 1,
-      "explain": "东方白鹳为国家一级保护动物。"
+      "explain": "东方白鹳为国家一级保护动物。",
+      "sources": [
+        "national-list-2021"
+      ]
     },
     {
       "id": 6,
@@ -210,7 +270,10 @@
         "鸻形目"
       ],
       "answer": 0,
-      "explain": "东方白鹳属鹳形目鹳科，是典型的大型涉禽。"
+      "explain": "东方白鹳属鹳形目鹳科，是典型的大型涉禽。",
+      "sources": [
+        "national-list-2021"
+      ]
     },
     {
       "id": 7,
@@ -222,7 +285,10 @@
         "错误"
       ],
       "answer": 1,
-      "explain": "鹳类飞行时颈与腿均向前后伸直，鹤类也伸直，而鹭类飞行时收颈。"
+      "explain": "所引东方白鹳介绍描述其飞行时头颈前伸、双脚拖后。",
+      "sources": [
+        "stork-taishan"
+      ]
     },
     {
       "id": 8,
@@ -236,45 +302,57 @@
         "白色"
       ],
       "answer": 0,
-      "explain": "朱鹮面部裸露皮肤朱红色，喙长而下弯，故称“朱鹮”。"
+      "explain": "北京市园林绿化局资料描述其面部裸露皮肤鲜红，喙细长且末端下弯。",
+      "sources": [
+        "ibis-beijing"
+      ]
     },
     {
       "id": 9,
       "topic": "crested-ibis",
       "type": "judge",
-      "q": "朱鹮曾因农药与栖息地破坏而极度濒危，1981 年重新被找到。",
+      "q": "北京市园林绿化局资料记载，1981 年在陕西洋县重新发现了朱鹮种群。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "1981 年在陕西洋县重新发现时野外仅存 7 只，之后开启保护之路。"
+      "explain": "这是所引资料中的历史事件，不是当前数量统计。",
+      "sources": [
+        "ibis-beijing"
+      ]
     },
     {
       "id": 10,
       "topic": "crested-ibis",
       "type": "single",
-      "q": "朱鹮现主要野外种群分布在哪里？",
+      "q": "1981 年重新发现朱鹮种群的地点是？",
       "options": [
-        "陕西洋县一带",
+        "陕西洋县",
         "安徽皖南",
         "新疆",
         "云南雨林"
       ],
       "answer": 0,
-      "explain": "朱鹮现存主要野外种群在陕西汉中的洋县一带，并开展再引入与野化。"
+      "explain": "所引资料记载，1981 年在陕西洋县重新发现朱鹮种群。",
+      "sources": [
+        "ibis-beijing"
+      ]
     },
     {
       "id": 11,
       "topic": "crested-ibis",
       "type": "judge",
-      "q": "朱鹮通体以白色为主，繁殖期颈部常被染成灰黑色。",
+      "q": "朱鹮具有细长且末端下弯的喙。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "朱鹮体羽白色带粉；繁殖期用颈部分泌的灰色素涂抹身体，使颈部呈灰黑色。"
+      "explain": "细长下弯的喙、红色面部和后枕羽冠可结合观察。",
+      "sources": [
+        "ibis-beijing"
+      ]
     },
     {
       "id": 12,
@@ -282,25 +360,31 @@
       "type": "single",
       "q": "朱鹮保护案例的意义在于？",
       "options": [
-        "世界濒危物种保护最成功的范例之一",
+        "繁育、野化放归与野外监测相结合",
         "只需笼养无需野外",
-        "鸟类没有价值",
-        "与栖息地无关"
+        "与栖息地无关",
+        "仅靠一次放飞即可完成保护"
       ],
       "answer": 0,
-      "explain": "朱鹮由野外仅存 7 只恢复到数千只，是濒危物种迁地保护与野化放归的典范。"
+      "explain": "德清实例同时涉及繁育、野化放归与野外巡查。",
+      "sources": [
+        "ibis-deqing"
+      ]
     },
     {
       "id": 13,
       "topic": "crested-ibis",
       "type": "judge",
-      "q": "朱鹮喜欢在浅水田、溪流边觅食小鱼虾。",
+      "q": "朱鹮会在浅水田、溪流等环境觅食。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "朱鹮常在浅水与泥滩取食泥鳅、小鱼、黄鳝、蛙类等。"
+      "explain": "所引资料描述其在溪流、沼泽及稻田中取食小鱼、蛙等动物。",
+      "sources": [
+        "ibis-beijing"
+      ]
     },
     {
       "id": 14,
@@ -312,7 +396,10 @@
         "错误"
       ],
       "answer": 0,
-      "explain": "朱鹮属国家一级保护动物，IUCN 濒危（EN）。"
+      "explain": "朱鹮的国家一级保护级别与全球 IUCN 风险等级分别维护。",
+      "sources": [
+        "national-list-2021"
+      ]
     },
     {
       "id": 15,
@@ -326,13 +413,16 @@
         "金属光泽"
       ],
       "answer": 1,
-      "explain": "勺嘴鹬喙端扩大成勺形/匙形，故得名“勺嘴鹬”。"
+      "explain": "勺嘴鹬喙端扩大成勺形/匙形，故得名“勺嘴鹬”。",
+      "sources": [
+        "sandpiper-cornell"
+      ]
     },
     {
       "id": 16,
       "topic": "spoon-billed-sandpiper",
       "type": "single",
-      "q": "勺嘴鹬在 IUCN 红色名录中的等级是？",
+      "q": "本页所引 IUCN 2021 年全球评估将勺嘴鹬列为？",
       "options": [
         "无危（LC）",
         "易危（VU）",
@@ -340,7 +430,10 @@
         "极危（CR）"
       ],
       "answer": 3,
-      "explain": "勺嘴鹬为 CR（极危），是世界上最濒危的鸻鹬类之一。"
+      "explain": "所引 2021 年全球评估为极危（CR）。",
+      "sources": [
+        "sandpiper-iucn"
+      ]
     },
     {
       "id": 17,
@@ -348,25 +441,31 @@
       "type": "single",
       "q": "勺嘴鹬的繁殖地主要在？",
       "options": [
-        "俄罗斯楚科奇半岛北极冻原",
+        "俄罗斯远东冻原",
         "东南亚雨林",
         "安徽湿地",
         "非洲草原"
       ],
       "answer": 0,
-      "explain": "勺嘴鹬在俄罗斯东北部楚科奇半岛等北极冻原繁殖，秋季南迁。"
+      "explain": "公开资料介绍其在俄罗斯远东冻原繁殖，随后南迁。",
+      "sources": [
+        "sandpiper-coast"
+      ]
     },
     {
       "id": 18,
       "topic": "spoon-billed-sandpiper",
       "type": "judge",
-      "q": "勺嘴鹬迁徙期擅长在滩涂觅食。",
+      "q": "勺嘴鹬迁徙期间利用沿海滩涂补给。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "勺嘴鹬在泥质海滩与滩涂用勺状喙取食小型无脊椎动物。"
+      "explain": "江苏滨海滩涂是公开报道提及的迁徙补给地点。",
+      "sources": [
+        "sandpiper-coast"
+      ]
     },
     {
       "id": 19,
@@ -378,45 +477,57 @@
         "错误"
       ],
       "answer": 0,
-      "explain": "勺嘴鹬属国家一级保护动物。"
+      "explain": "勺嘴鹬属国家一级保护动物。",
+      "sources": [
+        "national-list-2021"
+      ]
     },
     {
       "id": 20,
       "topic": "spoon-billed-sandpiper",
       "type": "single",
-      "q": "勺嘴鹬全球种群数量大约有多少？",
+      "q": "比较不同资料中的鸟类种群数量，首先应注意什么？",
       "options": [
-        "不足千只",
-        "约 5 万",
-        "约 50 万",
-        "数百万"
+        "统计年份、范围及成年或全部个体的口径",
+        "只看数字大小",
+        "只看配图数量",
+        "忽略调查时间"
       ],
       "answer": 0,
-      "explain": "勺嘴鹬全球种群数量不足千只，极危级别，保护优先级极高。"
+      "explain": "IUCN 评估会注明评估年份与成熟个体等统计口径，不能混用为实时全球总数。",
+      "sources": [
+        "sandpiper-iucn"
+      ]
     },
     {
       "id": 21,
       "topic": "spoon-billed-sandpiper",
       "type": "judge",
-      "q": "勺嘴鹬用勺状喙在泥面滤食小型甲壳类等。",
+      "q": "只要某条迁飞通道经过安徽，就能认定勺嘴鹬在安徽稳定停歇。",
       "options": [
         "正确",
         "错误"
       ],
-      "answer": 0,
-      "explain": "它用匙形喙在泥面快速横扫滤食小型甲壳类、沙蚕等。"
+      "answer": 1,
+      "explain": "所引资料支持江苏沿海停歇地；认定安徽记录仍需要具体地点、日期和可核验资料。",
+      "sources": [
+        "sandpiper-coast"
+      ]
     },
     {
       "id": 22,
       "topic": "scaly-sided-merganser",
       "type": "judge",
-      "q": "中华秋沙鸭被称为“水中大熊猫”，因为它对水质要求极高、数量稀少。",
+      "q": "只要看见中华秋沙鸭，就可以代替仪器完成水质检测。",
       "options": [
         "正确",
         "错误"
       ],
-      "answer": 0,
-      "explain": "中华秋沙鸭偏爱清澈河流，是优质水环境的指示物种。"
+      "answer": 1,
+      "explain": "鸟类出现与生境条件有关，但物种记录不等于一次水质检测结果。故事中的水质警报是拟人化表达。",
+      "sources": [
+        "merganser-ecology"
+      ]
     },
     {
       "id": 23,
@@ -430,7 +541,10 @@
         "南方沿海"
       ],
       "answer": 1,
-      "explain": "中华秋沙鸭繁殖于长白山、小兴安岭及俄远东的山地清澈河流。"
+      "explain": "所引资料介绍其在我国东北及俄罗斯远东等地区的森林河流繁殖。",
+      "sources": [
+        "merganser-ecology"
+      ]
     },
     {
       "id": 24,
@@ -444,19 +558,25 @@
         "水面浮巢"
       ],
       "answer": 2,
-      "explain": "中华秋沙鸭利用大树树洞（含啄木鸟旧洞）营巢，靠近水源。"
+      "explain": "繁殖地河岸高大乔木的树洞是重要营巢条件。",
+      "sources": [
+        "merganser-ecology"
+      ]
     },
     {
       "id": 25,
       "topic": "scaly-sided-merganser",
       "type": "judge",
-      "q": "中华秋沙鸭在皖南太平湖、秋浦河流域有越冬记录。",
+      "q": "黄山官方观鸟资料列有新安江流域的中华秋沙鸭冬季观测信息。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "太平湖、秋浦河、青弋江流域是中华秋沙鸭在安徽的重要越冬地。"
+      "explain": "资料列出的观测季节为每年 11 月至次年 3 月，并不保证现场一定能见到。",
+      "sources": [
+        "huangshan-birds"
+      ]
     },
     {
       "id": 26,
@@ -470,7 +590,10 @@
         "无任何斑纹"
       ],
       "answer": 0,
-      "explain": "两胁密布黑色鳞状细纹，故又称“鳞胁秋沙鸭”。"
+      "explain": "两胁密布黑色鳞状细纹，故又称“鳞胁秋沙鸭”。",
+      "sources": [
+        "merganser-ecology"
+      ]
     },
     {
       "id": 27,
@@ -482,13 +605,16 @@
         "错误"
       ],
       "answer": 0,
-      "explain": "中华秋沙鸭为国家一级保护动物，IUCN 濒危（EN）。"
+      "explain": "国家一级保护级别与所引 IUCN 全球评估分别展示。",
+      "sources": [
+        "national-list-2021"
+      ]
     },
     {
       "id": 28,
       "topic": "scaly-sided-merganser",
       "type": "single",
-      "q": "中华秋沙鸭在 IUCN 红色名录中的等级是？",
+      "q": "本页所引 IUCN 2017 年全球评估将中华秋沙鸭列为？",
       "options": [
         "无危（LC）",
         "近危（NT）",
@@ -496,7 +622,10 @@
         "极危（CR）"
       ],
       "answer": 2,
-      "explain": "中华秋沙鸭为 EN（濒危）。"
+      "explain": "所引评估为濒危（EN）；2017 是评估版本，不是本站查阅日期。",
+      "sources": [
+        "merganser-iucn"
+      ]
     },
     {
       "id": 29,
@@ -598,7 +727,10 @@
         "错误"
       ],
       "answer": 0,
-      "explain": "白颈长尾雉仅分布于我国南方山地，属中国特有种。"
+      "explain": "黄山官方观鸟资料将白颈长尾雉介绍为中国特有鸟种。",
+      "sources": [
+        "huangshan-birds"
+      ]
     },
     {
       "id": 37,
@@ -607,12 +739,16 @@
       "q": "白颈长尾雉主要栖息于？",
       "options": [
         "开阔水域",
-        "皖南山地常绿阔叶林",
+        "山地森林、灌丛及竹林等",
         "荒漠草原",
-        "城市公园"
+        "海上浮冰"
       ],
       "answer": 1,
-      "explain": "白颈长尾雉栖息于中低山常绿阔叶林，常在林下地面活动。"
+      "explain": "所引资料介绍其利用森林、浓密灌丛与竹林等环境。",
+      "sources": [
+        "huangshan-birds",
+        "pheasant-jinhua"
+      ]
     },
     {
       "id": 38,
@@ -620,63 +756,79 @@
       "type": "single",
       "q": "白颈长尾雉雄鸟最醒目的特征是？",
       "options": [
-        "白色颈圈 + 长尾羽",
-        "红色羽毛",
+        "白色颈部与腹部、红色眼周裸皮",
+        "全身红色羽毛",
         "蓝色飞羽",
         "没有明显特征"
       ],
       "answer": 0,
-      "explain": "雄鸟颈侧有白色领圈、尾羽极长，姿态醒目。"
+      "explain": "应结合颈腹羽色及整体外观判断，不能仅凭长尾。",
+      "sources": [
+        "pheasant-jinhua"
+      ]
     },
     {
       "id": 39,
       "topic": "elliots-pheasant",
       "type": "judge",
-      "q": "白颈长尾雉在 IUCN 红色名录中为近危（NT）。",
+      "q": "依据 IUCN 2023-1 等级变化表，白颈长尾雉仍应沿用近危（NT）标记。",
       "options": [
         "正确",
         "错误"
       ],
-      "answer": 0,
-      "explain": "白颈长尾雉 IUCN 等级为 NT（近危），国家一级保护动物。"
+      "answer": 1,
+      "explain": "变化表已记录由 NT 调整为 LC（无危），国家一级保护级别独立保留。",
+      "sources": [
+        "pheasant-iucn-change",
+        "national-list-2021"
+      ]
     },
     {
       "id": 40,
       "topic": "elliots-pheasant",
       "type": "judge",
-      "q": "白颈长尾雉是常年留在山林的留鸟。",
+      "q": "黄山官方观鸟资料将白颈长尾雉的观测季节列为全年。",
       "options": [
         "正确",
         "错误"
       ],
       "answer": 0,
-      "explain": "白颈长尾雉为留鸟，不随季节长途迁徙。"
+      "explain": "全年观测信息是地区性资料，不表示在任意地点都能见到。",
+      "sources": [
+        "huangshan-birds"
+      ]
     },
     {
       "id": 41,
       "topic": "elliots-pheasant",
       "type": "single",
-      "q": "以下哪些保护地是白颈长尾雉在安徽的重要栖息地？",
+      "q": "以下哪一地区在所引官方资料中列有白颈长尾雉观测信息？",
       "options": [
-        "黄山、牯牛降、清凉峰一带",
-        "升金湖",
-        "巢湖",
-        "太平湖"
+        "黄山风景名胜区",
+        "青藏高原冰川",
+        "远洋海面",
+        "西北荒漠"
       ],
       "answer": 0,
-      "explain": "皖南黄山、牯牛降、清凉峰等山地林区有白颈长尾雉的稳定分布。"
+      "explain": "所引黄山观鸟资料列出黄山风景名胜区等区域。",
+      "sources": [
+        "huangshan-birds"
+      ]
     },
     {
       "id": 42,
       "topic": "elliots-pheasant",
       "type": "judge",
-      "q": "白颈长尾雉雌雄羽色差异明显。",
+      "q": "只要尾羽很长，就足以认定为白颈长尾雉。",
       "options": [
         "正确",
         "错误"
       ],
-      "answer": 0,
-      "explain": "雄鸟具白领圈和长尾，雌鸟体羽棕褐密布斑纹、尾较短。"
+      "answer": 1,
+      "explain": "需要结合颈腹白色、眼周裸皮等外观，不能只凭一项特征确定种类。",
+      "sources": [
+        "pheasant-jinhua"
+      ]
     },
     {
       "id": 43,
