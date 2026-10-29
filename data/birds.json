@@ -18935,7 +18935,7 @@
  },
  {
   "id": "aquila-fasciata",
-  "name": "Bonelli雕",
+  "name": "白腹隼雕",
   "latin": "Aquila fasciata",
   "english": "BOEA",
   "aliases": [],
@@ -18943,7 +18943,7 @@
   "protection": "国家二级保护动物",
   "order": "鹰形目",
   "image": "/static/img/birds/Aquila fasciata.jpg",
-  "summary": "Bonelli雕（Aquila fasciata）属于鹰形目。本页为按目级通性生成的基础资料，种级特征尚待逐项核查。",
+  "summary": "白腹隼雕（Aquila fasciata）属于鹰形目。本页为按目级通性生成的基础资料，种级特征尚待逐项核查。",
   "taxonomy": [
    {
     "rank": "纲",
@@ -19007,7 +19007,18 @@
    "status": "draft",
    "updated_on": null,
    "note": "按目级通性生成，种级特征和段落来源待复核。"
-  }
+  },
+  "name_evidence": {
+   "source": "national-list-2021",
+   "checked_on": "2026-10-30",
+   "note": "依2021年国家重点保护野生动物名录核对中文名与学名；不代表正文已审校。"
+  },
+  "source_ids": [
+   "national-list-2021"
+  ],
+  "legacy_import_names": [
+   "Bonelli雕"
+  ]
  },
  {
   "id": "accipiter-soloensis",
@@ -21493,7 +21504,7 @@
  },
  {
   "id": "otus-spilocephalus",
-  "name": "斑头鸺鹠",
+  "name": "黄嘴角鸮",
   "latin": "Otus spilocephalus",
   "english": "Mountain Scops Owl",
   "aliases": [],
@@ -21501,7 +21512,7 @@
   "protection": "国家二级保护动物",
   "order": "鸮形目",
   "image": "/static/img/birds/Otus spilocephalus.jpg",
-  "summary": "斑头鸺鹠（Otus spilocephalus）属于鸮形目。本页为按目级通性生成的基础资料，种级特征尚待逐项核查。",
+  "summary": "黄嘴角鸮（Otus spilocephalus）属于鸮形目。本页为按目级通性生成的基础资料，种级特征尚待逐项核查。",
   "taxonomy": [
    {
     "rank": "纲",
@@ -21592,7 +21603,18 @@
    "status": "draft",
    "updated_on": null,
    "note": "按目级通性生成，种级特征和段落来源待复核。"
-  }
+  },
+  "legacy_import_names": [
+   "斑头鸺鹠"
+  ],
+  "name_evidence": {
+   "source": "caac-bird-names-2022",
+   "checked_on": "2026-10-30",
+   "note": "仅核对中文名与学名对应，不使用文件的鸟击危险等级作为保护级别。"
+  },
+  "source_ids": [
+   "caac-bird-names-2022"
+  ]
  },
  {
   "id": "buteo-hemilasius",
@@ -21723,7 +21745,7 @@
  },
  {
   "id": "otus-semitorques",
-  "name": "领角鸮",
+  "name": "北领角鸮",
   "latin": "Otus semitorques",
   "english": "Janpanese Scops Owl",
   "aliases": [],
@@ -21731,7 +21753,7 @@
   "protection": "国家二级保护动物",
   "order": "鸮形目",
   "image": "/static/img/birds/Otus semitorques.jpg",
-  "summary": "领角鸮（Otus semitorques）属于鸮形目。本页为按目级通性生成的基础资料，种级特征尚待逐项核查。",
+  "summary": "北领角鸮（Otus semitorques）属于鸮形目。本页为按目级通性生成的基础资料，种级特征尚待逐项核查。",
   "taxonomy": [
    {
     "rank": "纲",
@@ -21834,7 +21856,18 @@
    "status": "draft",
    "updated_on": null,
    "note": "按目级通性生成，种级特征和段落来源待复核。"
-  }
+  },
+  "legacy_import_names": [
+   "领角鸮"
+  ],
+  "name_evidence": {
+   "source": "caac-bird-names-2022",
+   "checked_on": "2026-10-30",
+   "note": "仅核对中文名与学名对应，不使用文件的鸟击危险等级作为保护级别。"
+  },
+  "source_ids": [
+   "caac-bird-names-2022"
+  ]
  },
  {
   "id": "otus-lettia",

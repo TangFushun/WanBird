@@ -16,7 +16,7 @@
   <header class="statusbar">
     <a class="brand" href="{{ url_for('index') }}"><span>皖境飞鸟观测台</span><small>WANBIRD OBSERVATORY</small></a>
     <nav class="sitenav" aria-label="站点导航">
-      {% for key, label in [('index', '鸟类识别'), ('guide', '鸟类图鉴'), ('drama', '鸟类短剧'), ('quiz', '知识答题')] %}
+      {% for key, label in [('index', '鸟类识别'), ('guide', '鸟类图鉴'), ('drama', '鸟类短剧'), ('quiz', '知识答题'), ('traces', '皖羽踪迹')] %}
       <a href="{{ url_for(key) }}" class="{{ 'active' if active == key else '' }}" {% if active == key %}aria-current="page"{% endif %}>{{ label }}</a>
       {% endfor %}
     </nav>

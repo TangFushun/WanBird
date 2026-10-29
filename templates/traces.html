@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block title %}皖羽踪迹 · 安徽珍稀鸟类观测记录可视化{% endblock %}
+{% block head %}
+<meta name="description" content="探索安徽保护鸟类的公开观测记录。地图、鸟种构成、月份分布和历年趋势联动，支持年份、月份、鸟种与地市筛选。">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/traces.css') }}">
+{% endblock %}
+{% block content %}
+<section class="tr-intro" aria-labelledby="trTitle">
+  <div>
+    <p class="tr-eyebrow"><span></span> ANHUI BIRD ATLAS · 科学可视化</p>
+    <h1 id="trTitle">皖羽踪迹<span>从一处记录，认识一方生境。</span></h1>
+    <p class="tr-lead">安徽的保护鸟类，在哪里被记录、何时被看见？点击地图，让鸟种构成、月份分布与历年记录一起变化。</p>
+  </div>
+  <div class="tr-intro-links"><a class="tr-method-link" href="#trMapTitle">开始探索 <span aria-hidden="true">↓</span></a><a class="tr-method-link" href="#trMethods">数据从哪里来 <span aria-hidden="true">↗</span></a></div>
+</section>
+
+<noscript><p class="tr-alert">请启用 JavaScript 查看交互地图。本站仍可通过鸟类图鉴阅读物种档案。</p></noscript>
+<div id="trLoadState" class="tr-load" role="status"><span id="trLoadText">正在加载安徽省内的观测记录…</span><button id="trRetry" type="button" class="btn ghost slim" hidden>重新加载</button></div>
+
+<fieldset id="trControls" class="tr-controls" disabled>
+  <legend class="tr-sr-only">筛选公开观测记录</legend>
+  <label for="trProtection">保护级别<select id="trProtection"><option value="">国家一、二级</option><option value="国家一级保护动物">国家一级</option><option value="国家二级保护动物">国家二级</option></select></label>
+  <label for="trSpecies">探索鸟种<select id="trSpecies"><option value="">全部收录鸟种</option></select></label>
+  <label for="trCity">查看区域<select id="trCity"><option value="">安徽全省</option></select></label>
+  <button id="trReset" type="button" class="tr-reset">重置筛选 <span aria-hidden="true">↺</span></button>
+</fieldset>
+
+<div id="trExplorer" hidden>
+  <div class="tr-metrics" aria-live="polite" aria-atomic="true">
+    <div><span id="trScope">安徽全省</span><p><strong id="trCount">—</strong><span>条观测记录</span></p></div>
+    <div><span>当前选区记录到的鸟种</span><p><strong id="trSpeciesCount">—</strong><span>种 / 本次收录 <span id="trCohort">—</span> 种</span></p></div>
+    <div><span>当前选区有记录的网格</span><p><strong id="trGridCount">—</strong><span>个 · 约20公里网格</span></p></div>
+  </div>
+
+  <section class="tr-time-controls" aria-label="观测时间筛选">
+    <div class="tr-time-summary"><span>观测年份</span><strong id="trYearRange">全部年份</strong><small id="trMonthLabel">全部月份</small><button id="trClearTime" type="button">全部时间 ↺</button></div>
+    <label>起始年 <output id="trFromLabel"></output><input id="trYearFrom" type="range" aria-label="起始年份"></label>
+    <label>结束年 <output id="trToLabel"></output><input id="trYearTo" type="range" aria-label="结束年份"></label>
+    <p>拖动年份；点击月份柱形，可继续筛选。</p>
+  </section>
+
+  <div class="tr-workspace">
+    <section class="tr-map-panel" aria-labelledby="trMapTitle">
+      <div class="tr-panel-head">
+        <div><p class="tr-eyebrow">01 / 空间分布</p><h2 id="trMapTitle">记录落在安徽哪里？</h2></div>
+        <div class="tr-mode" role="group" aria-label="地图显示方式">
+          <button id="trGridMode" type="button" aria-pressed="true">网格</button><button id="trCityMode" type="button" aria-pressed="false">地市</button>
+        </div>
+      </div>
+      <div class="tr-map-wrap" id="trMapWrap">
+        <svg id="trMap" viewBox="0 0 640 700" aria-labelledby="trMapSvgTitle trMapSvgDesc">
+          <title id="trMapSvgTitle">安徽省公开观测记录网格图</title>
+          <desc id="trMapSvgDesc">仅展示安徽省。点击网格查看鸟种构成，点击地市筛选区域；也可使用上方选择框与右侧地市按钮操作。</desc>
+          <defs><clipPath id="trProvinceClip"><path id="trClipShape" fill-rule="evenodd" clip-rule="evenodd"></path></clipPath></defs>
+          <g id="trMapScene">
+            <g id="trCityShapes"></g>
+            <g id="trGridShapes" clip-path="url(#trProvinceClip)"></g>
+            <g id="trCityBorders" aria-hidden="true"></g>
+            <g id="trCityLabels" aria-hidden="true"></g>
+          </g>
+          <g class="tr-compass" aria-hidden="true" transform="translate(585 48)"><path d="M0 30L0 0M-5 8L0 0L5 8"></path><text x="0" y="-10">N</text></g>
+          <g id="trScale" aria-hidden="true"></g>
+        </svg>
+        <div class="tr-map-tools" role="group" aria-label="地图缩放">
+          <button id="trZoomIn" type="button" aria-label="放大安徽地图">＋</button>
+          <button id="trZoomOut" type="button" aria-label="缩小安徽地图">−</button>
+          <button id="trFit" type="button" aria-label="恢复安徽全省视图">全省</button>
+        </div>
+        <p id="trMapEmpty" class="tr-map-empty" hidden>当前筛选没有已收录记录。<br><small>这不代表当地没有这种鸟。</small></p>
+      </div>
+      <div class="tr-legend" aria-label="颜色表示观测记录数">
+        <span>记录数</span><span><i style="--swatch:#173c35"></i>无记录</span><span><i style="--swatch:#28605a"></i>1</span><span><i style="--swatch:#34766a"></i>2–9</span><span><i style="--swatch:#508b71"></i>10–49</span><span><i style="--swatch:#b1ad65"></i>50–199</span><span><i style="--swatch:#f6c868"></i>200及以上</span>
+      </div>
+      <div class="tr-selection" id="trSelection" aria-live="polite">
+        <span class="tr-selection-mark" aria-hidden="true">⌖</span>
+        <div><h3>点击网格，展开这里的鸟类记录</h3><p>右侧的鸟种构成、月份柱形图和下方的历年趋势会同步更新。</p></div>
+      </div>
+      <section class="tr-annual" aria-labelledby="trAnnualTitle"><div><h3 id="trAnnualTitle">历年记录</h3><span id="trAnnualScope">安徽全省</span></div><svg id="trYearChart" viewBox="0 0 600 160" role="group" aria-label="历年观测记录折线图，点击年份可筛选"></svg><p>折线表示公开记录量的变化，受观测活动和平台收录影响，不表示种群增长或下降。</p></section>
+      <p class="tr-map-caption">地图范围固定为安徽省，网格在省界处裁切。支持按钮缩放与拖动，颜色分档在筛选前后保持一致。</p>
+    </section>
+
+    <aside class="tr-sidebar">
+      <section class="tr-composition-panel" aria-labelledby="trCompositionTitle">
+        <div class="tr-panel-head"><div><p class="tr-eyebrow">02 / 鸟种构成</p><h2 id="trCompositionTitle">这里记录了哪些鸟？</h2></div><button id="trClearCell" type="button" hidden>取消网格 ×</button></div>
+        <p id="trDetailScope" class="tr-chart-note">安徽全省</p>
+        <div id="trComposition" class="tr-composition" role="group" aria-label="当前选区的鸟种构成，点击可筛选鸟种"></div>
+        <button id="trMoreBirds" type="button" class="tr-more-birds" hidden>展开全部鸟种</button>
+        <p class="tr-chart-foot">条长表示记录数，右侧为占当前选区记录的比例。点击鸟种，继续观察它的空间和时间分布。</p>
+      </section>
+      <section class="tr-month-panel" aria-labelledby="trMonthTitle">
+        <div class="tr-panel-head"><div><p class="tr-eyebrow">03 / 月份分布</p><h2 id="trMonthTitle">哪些月份留下了记录？</h2></div></div>
+        <p id="trMonthScope" class="tr-chart-note">全年记录 · 点击月份筛选</p>
+        <svg id="trMonthChart" viewBox="0 0 300 175" role="group" aria-label="月份记录柱形图，点击可筛选月份"></svg>
+        <p id="trMonthCoverage" class="tr-chart-foot"></p>
+      </section>
+      <section class="tr-chart-panel" aria-labelledby="trChartTitle">
+        <div class="tr-panel-head"><div><p class="tr-eyebrow">04 / 地市比较</p><h2 id="trChartTitle">记录在哪里较集中？</h2></div><span class="tr-unit">观测记录</span></div>
+        <p class="tr-chart-note" id="trChartNote">安徽16市 · 点击条形筛选区域</p>
+        <div id="trCityChart" class="tr-city-chart" role="group" aria-label="地市观测记录数，点击可筛选"></div>
+        <p class="tr-chart-foot">随鸟种筛选更新。记录较多也可能源于当地观测活动较多，不能据此比较鸟类个体数量。</p>
+      </section>
+    </aside>
+  </div>
+
+  <details class="tr-profile-drawer"><summary>认识选区中的鸟 · 打开物种档案</summary><div id="trBirdList" class="tr-bird-list"></div><p class="tr-photo-note">照片及物种资料出处见各鸟种档案。</p></details>
+
+  <div class="tr-reading-note"><span aria-hidden="true">ⓘ</span><p><strong>记录多，不等于鸟更多。</strong> 按 GBIF 记录ID去重，同址的不同记录分别计数；观测者分布和平台收录会影响图形。空白区域表示本次检索缺少记录，不能证明没有鸟。</p></div>
+
+  <section id="trMethods" class="tr-methods" aria-labelledby="trMethodTitle">
+    <div class="tr-method-heading"><div><p class="tr-eyebrow">DATA & METHOD · 数据与方法</p><h2 id="trMethodTitle">每一种颜色，都有依据。</h2></div><button id="trExport" type="button" class="btn ghost slim">导出当前统计 CSV ↓</button></div>
+    <div class="tr-method-grid">
+      <details open><summary>数据来自哪里？</summary><p>重新检索 <a href="https://www.gbif.org/occurrence/search" target="_blank" rel="noopener noreferrer">GBIF.org 公开人工观测记录</a>，将科学名与本站国家一、二级保护鸟类匹配，再按安徽省界裁切。保留记录ID、日期、数据集与许可；本次收录不等于安徽完整鸟类名录。</p><p id="trCoverageInfo"></p><p id="trBuildInfo"></p><div id="trSourceDatasets"></div></details>
+      <details><summary>地图与统计怎样生成？</summary><p>将 GBIF 的 WGS84 坐标转换至与边界一致的 GCJ-02 坐标，使用点在多边形内判定，只纳入安徽16市边界内的记录，每条记录只归属一个地市。剔除无效坐标、日期，以及明确标注坐标不确定度超过20公里的记录。</p><p>网格采用以北纬32°为参考的局部等距圆柱近似投影，边长约20公里；网格图展示省界内裁切后的汇总，不展示精确点位。地图面积与距离为科普近似表达。</p><p>边界：<a href="https://datav.aliyun.com/portal/school/atlas/area_selector" target="_blank" rel="noopener noreferrer">阿里云 DataV.GeoAtlas</a> · <a href="https://help.aliyun.com/zh/datav/datav-7-0/user-guide/map-data-format-1" target="_blank" rel="noopener noreferrer">坐标系说明</a>。区划以所存快照为准。</p></details>
+      <details><summary>这些数据能说明什么？</summary><p>可以探索公开记录的空间差异、鸟种构成及时间分布。记录受调查努力、平台覆盖和坐标精度影响，不能直接推出种群数量、生境偏好或因果关系。</p><p>同址不同日期或记录ID分别计数；缺少月份的记录纳入总计，并单独提示，不填造月份。月份图保留当前年份范围内的全年比较，地市图保留相同时间和鸟种条件下的全省比较。</p><p><a href="{{ url_for('static', filename='data/traces/observations.json') }}" target="_blank" rel="noopener noreferrer">查看汇总数据与处理审计 ↗</a></p></details>
+    </div>
+  </section>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/traces-model.js') }}"></script>
+<script src="{{ url_for('static', filename='js/traces.js') }}" defer></script>
+{% endblock %}

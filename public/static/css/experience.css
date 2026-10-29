@@ -20,7 +20,7 @@ button,a,input,select,summary { -webkit-tap-highlight-color:transparent; }
 .statusbar .rec { color:var(--dim); }
 .statusbar .rec i { width:6px; height:6px; background:#90ba9c; animation:none; box-shadow:none; }
 #modeLbl { border:1px solid #385449; padding:3px 9px; border-radius:20px; white-space:nowrap; }
-.sitenav { grid-row:2; grid-column:1/-1; display:grid; grid-template-columns:repeat(4,1fr); gap:8px; border-top:1px solid #29413b; padding-top:12px; }
+.sitenav { grid-row:2; grid-column:1/-1; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; border-top:1px solid #29413b; padding-top:12px; }
 .sitenav a { display:flex; align-items:center; justify-content:center; min-height:44px; padding:8px 12px; font:15px var(--sans); letter-spacing:.02em; border-radius:6px; }
 .sitenav a.active { border-color:#81652f; background:rgba(232,168,56,.1); box-shadow:none; }
 .kplabel { font-size:12px; letter-spacing:.1em; margin:16px 0 6px; }

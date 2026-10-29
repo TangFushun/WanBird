@@ -410,6 +410,12 @@ def guide():
                            sourced_count=sum(b.get("content_review", {}).get("status") == "sourced" for b in BIRDS))
 
 
+@app.route("/traces")
+def traces():
+    """安徽省内的历史坐标样本探索；数据预先构建，不调用识别服务。"""
+    return render_template("traces.html", active="traces")
+
+
 @app.route("/guide/<bird_id>")
 def bird(bird_id):
     """单个鸟种的详情档案页，附前后种切换。"""

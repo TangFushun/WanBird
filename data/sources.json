@@ -118,5 +118,13 @@
     "published_on": "2023",
     "checked_on": "2026-10-29",
     "scope": "记录白颈长尾雉由近危（NT）调整为无危（LC）；变化原因标记为 N，不据此宣称种群恢复。"
+  },
+  "caac-bird-names-2022": {
+    "title": "中国民用航空局机场司咨询通告 AC-140-CA-2022-01（附录鸟类名录）",
+    "publisher": "中国民用航空局",
+    "url": "https://www.caac.gov.cn/PHONE/XXGK_17/XXGK/GFXWJ/202205/P020220523403364558208.pdf",
+    "published_on": "2022-04",
+    "checked_on": "2026-10-30",
+    "scope": "仅核对黄嘴角鸮、北领角鸮的中文名与学名；文件内的鸟击危险等级不是国家保护级别。"
   }
 }
