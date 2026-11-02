@@ -101,8 +101,8 @@
     "synopsis": "阿雉在皖南深山发现山林碎片化与噪音干扰，小粉前来探望。",
     "science": "白颈长尾雉与森林、灌丛和竹林等生境有关，黄山有全年观测资料。",
     "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
-    "type": "placeholder",
-    "src": null,
+    "type": "mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep06.mp4",
     "bvid": null,
     "science_sources": [
       "huangshan-birds",
