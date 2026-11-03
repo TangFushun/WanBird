@@ -119,7 +119,7 @@
     "title": "第 7 集《沙沙的水质警报》",
     "cover": "/static/img/drama/ep07.jpg",
     "age": "",
-    "duration": "00:55",
+    "duration": "01:06",
     "synopsis": "太平湖的清晨，水面干净得像没有发生过任何事，但沙沙（中华秋沙鸭）腰甲上的水晶在变色，整片湖上一只鱼也没有。她把显示污染的检测仪递给林知夏，油沉在底下，而探头却浮在上面……",
     "science": "中华秋沙鸭在河流中捕食，其生态需求同时涉及水域与岸边森林；新安江流域有冬季观测资料。",
     "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
@@ -154,14 +154,14 @@
   {
     "id": "ep09",
     "title": "第 9 集《大结局（上）》",
-    "cover": "/static/img/drama/ep09.jpg",
+    "cover": "/static/img/drama/ep09-v20261103.jpg",
     "age": "",
-    "duration": "00:55",
+    "duration": "01:03",
     "synopsis": "五羽的觅食区和栖息地环境得到了一定程度的改善，但一场大雷暴即将来临······",
     "science": "观鸟时应保持安静，利用望远镜和相机记录，减少对鸟类的干扰。",
     "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
     "type": "mp4",
-    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep09.mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep09.mp4?v=c93855e4",
     "bvid": null,
     "science_sources": [
       "huangshan-birds"
@@ -171,15 +171,15 @@
   },
   {
     "id": "ep10",
-    "title": "第 10 集《归鸟档案》",
+    "title": "第 10 集《大结局（下）》",
     "cover": "/static/img/drama/ep10.jpg",
     "age": "",
-    "duration": "01:00",
-    "synopsis": "四季之后，飞鸟种群回归，AI 完成全年档案，五羽飞过安徽地图。",
+    "duration": "01:01",
+    "synopsis": "一场暴雨过后，五羽齐现，人类也终将明白······",
     "science": "安徽黄山的观鸟资料记录了中华秋沙鸭、白颈长尾雉等代表物种的观测区域与季节。",
     "transition": "卡通与实拍转场；具体拍摄地点及物种标注待核实。",
-    "type": "placeholder",
-    "src": null,
+    "type": "mp4",
+    "src": "https://anhuibird-videos.oss-cn-shanghai.aliyuncs.com/ep10.mp4?v=8132fd51",
     "bvid": null,
     "science_sources": [
       "huangshan-birds"
