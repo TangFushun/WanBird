@@ -42,8 +42,8 @@
   .ep .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;}
   .ep .ttl{font-family:var(--serif);font-size:15px;color:var(--accent2);letter-spacing:.04em;line-height:1.45;}
   .ep .sub{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.08em;display:flex;gap:8px;flex-wrap:wrap;}
-  .ep .syn{font-size:12px;color:var(--dim);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-  .ep .sci{font-size:11px;color:var(--accent2);line-height:1.5;opacity:.9;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+  .ep .syn{font-size:12px;color:var(--dim);line-height:1.6;overflow-wrap:anywhere;}
+  .ep .sci{font-size:11px;color:var(--accent2);line-height:1.5;opacity:.9;overflow-wrap:anywhere;}
   .epinfo{
     font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--dim);
     line-height:1.9;margin:4px 0 2px;display:none;
@@ -118,6 +118,7 @@
       var paragraph = document.createElement('p'); paragraph.textContent = text;
       section.append(heading, paragraph); epInfo.appendChild(section); return section;
     }
+    addInfo('本集简介', d.synopsis);
     addInfo('故事设定', d.story_note);
     var scienceBox = addInfo('本集科学知识', d.science);
     if (scienceBox) {

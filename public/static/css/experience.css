@@ -227,8 +227,6 @@ body[data-page="index"] .controls .ghost { flex:0 1 150px; }
   .ep { padding:12px; gap:12px; }
   .ep .cov { width:96px; min-width:96px; }
   .ep .ttl { font-size:16px; }
-  .ep .syn { -webkit-line-clamp:3; }
-  .ep .sci { display:none; }
   .player { min-height:210px; }
   .player .notready b { font-size:16px; }
   .player .notready span { font-size:13px; }
