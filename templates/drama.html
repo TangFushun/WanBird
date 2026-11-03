@@ -26,6 +26,17 @@
     margin:10px 0 2px;
   }
   .nowplaying b{color:var(--accent);}
+  .player{scroll-margin-top:12px;}
+  .episode-switcher{position:sticky;top:0;z-index:15;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:end;gap:12px;margin-top:12px;padding:12px;background:#102c28;border:1px solid var(--line);border-radius:8px;box-shadow:0 6px 18px #0003;}
+  .episode-choice{min-width:0;}
+  .episode-choice label{display:block;margin-bottom:5px;font-size:12px;color:var(--dim);}
+  .episode-choice select{width:100%;min-width:0;min-height:44px;padding:9px 10px;font:14px var(--sans);color:var(--text);background:#0a211e;border:1px solid #527363;border-radius:5px;}
+  .episode-switcher .btn{min-height:44px;white-space:nowrap;}
+  .episode-switcher select:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media(max-width:480px){
+    .episode-switcher{grid-template-columns:1fr 1fr;gap:8px;}
+    .episode-choice{grid-column:1/-1;grid-row:1;}
+  }
 
   /* 剧集列表 */
   .epgrid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px;}
@@ -70,7 +81,15 @@
     <button type="button" class="btn slim" id="retryVideo" hidden>重新加载</button>
   </div>
 </div>
-<div class="nowplaying">当前剧集 · <b id="nowTtl">--</b></div>
+<div class="episode-switcher" role="group" aria-label="切换剧集">
+  <button type="button" class="btn ghost" id="previousEpisode" disabled>← 上一集</button>
+  <div class="episode-choice">
+    <label for="episodeSelect">选集</label>
+    <select id="episodeSelect" disabled><option value="">暂无可播放剧集</option></select>
+  </div>
+  <button type="button" class="btn ghost" id="nextEpisode" disabled>下一集 →</button>
+</div>
+<div class="nowplaying" role="status" aria-live="polite" aria-atomic="true">当前剧集 · <b id="nowTtl">--</b></div>
 <div class="epinfo" id="epInfo"></div>
 
 <div class="kplabel">EPISODES · 剧集列表</div>
@@ -90,7 +109,44 @@
   var current = null;
   var currentDrama = null;
   var retryVideo = document.getElementById('retryVideo');
+  var episodeSelect = document.getElementById('episodeSelect');
+  var previousEpisode = document.getElementById('previousEpisode');
+  var nextEpisode = document.getElementById('nextEpisode');
   function available(d){ return (d.type === 'mp4' && !!d.src) || (d.type === 'bilibili' && !!d.bvid); }
+  var playable = DRAMAS.filter(available);
+  if (DRAMAS.length) {
+    episodeSelect.replaceChildren();
+    DRAMAS.forEach(function(d){
+      var option = document.createElement('option'); option.value = d.id;
+      option.textContent = d.title + (available(d) ? '' : ' · 即将上线');
+      option.disabled = !available(d); episodeSelect.appendChild(option);
+    });
+  }
+  episodeSelect.disabled = !playable.length;
+  function syncEpisodeControls(){
+    var index = playable.findIndex(function(d){ return d.id === current; });
+    episodeSelect.value = current || '';
+    previousEpisode.disabled = index <= 0;
+    nextEpisode.disabled = index < 0 || index >= playable.length - 1;
+  }
+  function chooseEpisode(d){
+    if (!d || !available(d)) return;
+    play(d);
+    // 从列表返回播放器；焦点留在附近，便于键盘继续选集。
+    episodeSelect.focus({preventScroll:true});
+    playerEl.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',block:'start'});
+  }
+  episodeSelect.addEventListener('change', function(){
+    chooseEpisode(playable.find(function(d){ return d.id === episodeSelect.value; }));
+  });
+  previousEpisode.addEventListener('click', function(){
+    var index = playable.findIndex(function(d){ return d.id === current; });
+    chooseEpisode(playable[index - 1]);
+  });
+  nextEpisode.addEventListener('click', function(){
+    var index = playable.findIndex(function(d){ return d.id === current; });
+    chooseEpisode(playable[index + 1]);
+  });
   retryVideo.addEventListener('click', function(){ if (currentDrama) play(currentDrama); });
 
   function showNotReady(title, msg, retry){
@@ -104,9 +160,12 @@
   function play(d){
     currentDrama = d;
     current = d ? d.id : null;
+    syncEpisodeControls();
     // 高亮列表
     Array.prototype.forEach.call(epGrid.children, function(c){
       c.classList.toggle('active', c.dataset.id === current);
+      if (c.dataset.id === current) c.setAttribute('aria-current', 'true');
+      else c.removeAttribute('aria-current');
     });
     if (!d) { showNotReady('故事正在准备中', '新剧集上线后，即可在这里观看。'); nowTtl.textContent = '--'; epInfo.classList.remove('show'); return; }
     nowTtl.textContent = d.title;
@@ -198,12 +257,12 @@
     }
     b.appendChild(meta);
 
-    if (ready) b.addEventListener('click', function(){ play(d); });
+    if (ready) b.addEventListener('click', function(){ chooseEpisode(d); });
     return b;
   }
 
   DRAMAS.forEach(function(d){ epGrid.appendChild(makeEp(d)); });
-  // 默认自动播放第一集；placeholder 会显示未就绪提示
+  // 默认选中首个已上线剧集，视频由用户手动播放。
   play(DRAMAS.find(available) || null);
 </script>
 {% endblock %}
